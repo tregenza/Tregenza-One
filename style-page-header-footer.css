@@ -1,0 +1,144 @@
+/*  Tregenza-One Page header area CSS - branding, hamburger menu, toolbar menu plus Footer styling */
+
+/* Contains the CSS which will be overwritten by theme customisation options and  tregenza-one functions.php */
+
+
+
+/* ------ BRANDING ---- */
+	#branding {
+		vertical-align: middle;
+	}
+	#branding #site-title {
+		text-align: center;
+	}
+	#site-logo img.custom-logo {
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		margin: 0 0;
+		
+	}
+	#branding .site-title-text {
+		font-size: 1.4rem;				/* See MEDIA QUERY */
+	}
+	#branding .site-title-text a {
+	
+	}
+
+/* ------ BRANDING Minor ---- */
+	#brandingMinor #siteTagLine {
+		text-align: center;
+	}
+	#brandingMinor .tagLine{ 
+		display: inline-block;
+		text-align: center;
+		font-size: 0.8rem;
+		line-height: 1.75rem;
+		font-weight: 700;
+		
+	}
+/* ------ HAMBURGER ---- */
+	#hamburger {
+		transition-duration: 0.4s;
+		vertical-align: middle;
+	}
+	#hamburger .hamburger-bar {
+		height: .3rem;
+		border-radius: 15%;
+		margin: 0.2rem 0;
+		display: block;
+	}
+	#hamburger .hamburger-bar:first-of-type {
+		border-bottom-left-radius: 0%;
+		border-bottom-right-radius: 0%;
+		height: .4rem;
+	}
+	#hamburger .hamburger-bar:last-of-type {
+		border-top-left-radius: 0%;
+		border-top-right-radius: 0%;
+		height: .4rem;
+	}
+	#hamburger:hover > *{
+	
+	}
+
+
+/* ------ FULL HAMBURGER MENU ---- */
+
+nav#fullmenu {
+	/* Default setting for hamburger menu. Adjusted by media queries for sidebar menu */
+	position: fixed;
+	top: 3rem;
+	left: 0rem;
+	padding-left: 2rem;
+	margin: 0;
+	max-width: calc(100% - 3rem - 2rem); /* Width of header minus logo */
+	max-height: 20rem;
+	overflow: scroll; 
+	border-radius: 0rem;
+display: none; 
+
+}
+nav#fullmenu ul.menu {
+}
+nav#fullmenu ul.menu li.menu-item {
+	display: block;
+}
+nav#fullmenu ul.menu li.menu-item a {
+	border-radius: 0.25rem;
+	display: block;
+	margin: 0.25rem 0rem;
+
+
+}
+nav#fullmenu ul.menu li.menu-item a:hover {
+
+}
+
+
+/* ------ Foot Sidebar Widget ---- */
+
+	#footSidebar {
+		text-align: center;
+		font-size: 0.75rem;
+		line-height: 1.5rem;
+	}
+
+	#footSidebar .tregenzaOneWidget {
+		margin-top: 0.5rem;
+		padding: 0.5rem;
+	}
+
+/* ------ WP Footer ---- */
+
+
+
+
+
+/* ------ Media Queries ---- */
+
+/* One column */
+@media (min-width: 320px) {
+
+}
+
+/* Two Column - Minimum useable width for main + one aside */
+@media (min-width: 560px) {
+	
+	#branding .site-title-text {
+		font-size: 2rem;				/* See MEDIA QUERY */
+	}
+	#branding .site-title-text {
+		font-size: 1.4rem;				/* See MEDIA QUERY */
+	}
+}
+
+/* Three column */
+@media (min-width: 960px) {
+
+}
+
+/* Three Column Super width */
+@media (min-width: 1200px) {
+
+}

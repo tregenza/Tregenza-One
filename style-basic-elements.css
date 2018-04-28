@@ -1,0 +1,236 @@
+/*  Tregenza-One basic text / img and other elements formatting. */
+
+
+
+
+/* ----- Basics ---- FONT IMPORT ---- */
+	@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+	body, body > * {
+	    font-family: 'Source Sans Pro', sans-serif;
+	}
+	h1, h2, h3 {
+	} 
+	h3, h4 {
+	} 
+	h5, h6 {
+		
+	} 
+	
+	table th {
+	}
+	
+	form {
+	}
+	a {
+	}
+	ul {
+	}
+
+
+/* ----- Basics ---- TEXT FORMATING ---- */
+
+	body {
+		font-weight: 400;
+		line-height: 1.2em;
+		letter-spacing: 0.05rem;
+	}
+	
+	nav {
+		/*** See style-navigation.css ***/
+	}
+	
+	/* Text blocks / clear etc */
+	ul, ol, h1, h2, h3, table {
+		clear: both;
+		display: block;
+	}
+	
+	/* Headers */
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 0.5rem;
+	}
+	
+	h1 {
+		font-size: 2rem;
+		line-height: 150%;
+		text-align: center;
+		font-weight: 900;
+	
+	}
+	h2 {
+		font-size: 1.6rem;
+		line-height: 120%;
+		text-align: center;
+		font-weight: 900;
+	}
+	h3 {
+		font-size: 1.4rem;
+		line-height: 120%;
+		text-align: center;
+		font-weight: 700;
+	}
+	h4 {
+		font-size: 1.2rem;
+		line-height: normal;
+		font-weight: 700;
+	}
+	h5 {
+		font-size: 1rem;
+		line-height: normal;
+		font-weight: 600;
+	}
+	h6 {
+		font-size: 1rem;
+		font-style: italic;
+		font-weight: 600;
+		line-height: normal;
+	
+	}
+	
+	/* Lists */
+	
+	ul, ol {
+		font-weight: 300;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		margin-top: 0.5rem;
+		padding-left: 2rem;
+	}
+	ul > ul + li, ul > ol + li, ol > ol + li, ol > ul > li {
+		margin-top: 0.5rem;
+	
+	}
+
+
+
+	/* Other text formatting */
+	
+	
+	strong {
+		font-weight: 700;
+	}
+	em {
+		font-style: italic;
+	}
+
+
+/* ----- Basics ---- LINKS ---- */
+
+	/* See style-navigation.css */
+
+
+	/* ----- Basics ---- IMAGES ---- */
+		img {
+			display: inline-block;
+		    height: auto;
+		    max-width: 100%;
+			padding: 0rem;
+			margin 0rem;
+		}
+		
+		/* Standard Wordpress size classes */
+		
+		img.size-thumbnail {
+			width: 150px;
+			height: 150px;
+		}
+
+	/* ----- Basics ---- Inputs ---- */
+	
+		input, textarea {
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0;
+			outline: 0;
+			padding: 0.25rem;
+			min-width: 3rem;
+			border: none;
+			line-height: 1.25rem !important;
+			font-family: inherit;
+			font-size: 1rem;
+			font-weight: 600;
+			border-radius: 0.25rem;
+		}
+		
+		select {
+			box-sizing: border-box;
+			cursor: pointer;
+			width: auto;
+			margin: 0;
+			outline: 0;
+			padding: 0.25rem;
+			min-width: 3rem;
+		   	border-radius: 5px;
+			border: 1px solid #aaaaaa; 
+			box-shadow: none;
+			line-height: 1.25rem !important;
+			font-family: inherit;
+			font-size: 0.8rem;
+			font-weight: 600;
+		}
+		select:hover {
+			border: 1px solid #777777; 
+		}
+
+	
+		label {
+			font-size: 1.1rem;
+			line-height: 1.25rem;
+			font-weight: 300;
+			padding: 0.25rem;
+		}
+		
+		button, input[type="button"], input[type="submit"], input[type="radio"],  input[type="checkbox"], a.button {
+			width: auto;
+			min-width: 5rem;
+			max-width: 10rem;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			border-radius: 0.25rem;
+
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0;
+			outline: 0;
+			padding: 0.25rem;
+			min-width: 3rem;
+			border: none;
+			line-height: 1.25rem !important;
+			font-family: inherit;
+			font-size: 1rem;
+			font-weight: 600;
+
+			box-shadow: 5px 5px 3px 0px rgba(0,0,0,0.25);
+
+		}
+		input[type="checkbox"] {
+			min-width: 1rem;
+			max-width: 3rem;
+			width: 2rem;
+		}
+		textarea {
+
+		}
+
+		input[type="number"] {
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0;
+			outline: 0;
+			padding: 0.25rem;
+			min-width: 3rem;
+			border: none;
+			line-height: 1.25rem !important;
+			font-family: inherit;
+			font-size: 1rem;
+			font-weight: 600;
+		}
+
+
+/* ----- Basics ---- Other ---- */
+
+	hr {
+		color: #aaaaaa;
+		padding: 0 2rem 0 2rem;
+	}

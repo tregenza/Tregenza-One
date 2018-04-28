@@ -1,0 +1,229 @@
+/***
+*
+*		TregenzaOne - Menus, Links etc
+*
+*		Note: Colours set by customisation options vua style-customise-defaults.css & functions.php 
+*
+*
+***/
+
+
+/* ----- Basics  ---- */
+
+a:link,  a:visited, a:hover  {
+	text-decoration: none;
+	font-weight: 600;
+}
+
+nav {
+	font-weight: 900;
+	letter-spacing: 0.1rem;
+}
+
+
+/* ---- Jquery UI Override --- */
+
+.ui-widget-content a {
+	color: inherit;
+	background-color: inherit;
+}
+
+/* --- Woocommerce Overide --- */
+.woocommerce-account .woocommerce-MyAccount-navigation {
+	float: none !important;
+	width: auto !important;
+}
+
+
+/* ------ NAV menus ---- */
+
+	nav ul.menu {
+		margin: 0 auto;
+		padding: 0;
+		display: flex; 
+		flex-flow: column wrap; 
+/*		justify-content: center;
+	    align-items: center;
+		align-content: flex-start;*/
+		min-height: 2rem;
+	}
+	
+	nav ul.menu > li {
+		flex: 1 1 auto;
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+	
+	nav ul.menu > li > a {
+		height: 100%;
+		transition-duration: 0.4s;
+		display: block;
+		text-align: center;
+		vertical-align: middle;
+		padding: 0;
+		width: 100%;
+		position: relative;
+		font-weight: 400;
+		line-height: 1.1rem;
+		font-size: 1rem;
+
+	}
+	nav ul.menu > li > a:hover {
+	
+	}
+
+/* ---- NAV Other ---- */
+	nav#nav-below {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+
+	nav#nav-below > * {
+		flex 1 1 auto;
+		margin: auto 1rem;
+	}
+
+
+/* ---- Hamburger Menu ----- */
+	/* See also code in TregenzaOne.js */
+
+	/* Mobile / small screen Hamburger position */
+	.hamburgerMenuWrapper {
+		display: none;
+	}
+
+
+	.hamburgerMenuWrapper > .hamburgerMenuBackdrop {
+		/* modal backdrop */
+		position: fixed;
+		top: 4rem;	/* Below the fixed part of the header */
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background-color: rgba(0,0,0,0.5);
+		z-index: 100;
+	}
+	
+	.hamburgerMenuWrapper #hamburgerMenu {
+		position: absolute;
+		top: 4rem;	/* Below header */
+		left: 0rem;
+		z-index: 1000;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	/* Hamburger menu styling  */
+
+	.hamburgerMenucontainer  ul.menu { 
+		margin: 0;
+		padding: 0;
+	}
+	.hamburgerMenucontainer  ul.menu li { 
+		padding: 0;
+
+	}
+	.hamburgerMenucontainer  ul.menu  li:hover {
+		background-color: none;
+	}
+	.hamburgerMenucontainer ul.menu  li a { 
+		font-weight: 300;
+		font-size: 1.2rem;
+		display: block;
+	}
+	.hamburgerMenucontainer > ul.menu  ul.sub-menu  { 
+		margin: 0;
+		padding:0;
+	}
+
+	.hamburgerMenucontainer > ul.menu li a { 
+		display: block;
+		border-bottom: 1px solid rgba( 127, 127, 127, 0.5) ;
+	}
+
+	/* Padding / inset handle on a tags so that the hover / mouseover covers entire menu width */
+	.hamburgerMenucontainer > ul.menu > li > a {
+		padding-left: 0.25rem;
+	}
+	.hamburgerMenucontainer > ul.menu > li > ul.sub-menu > li > a {
+		padding-left: 1.25rem;
+	}
+	.hamburgerMenucontainer > ul.menu > li  > ul.sub-menu > li >  ul.sub-menu > li > a {
+		padding-left: 2.25rem;
+	}
+	
+
+
+
+
+	/* Hamburger Menu in aside / sidebar Specific */
+	#wrapper > #container > aside > .hamburgerMenuWrapperSidebar {
+		padding: 0;
+		width: 100%;
+	}
+	.tregenzaOneAside .hamburgerMenucontainer  ul.menu li { 
+		line-height: 110%;
+	}
+
+	.tregenzaOneAside > .hamburgerMenucontainer > ul.menu li a { 
+		font-weight: 300;
+		font-size: 1rem;
+		display: block;
+		padding-top: 0.1rem;
+		padding-bottom: 0.1rem;
+	}
+
+
+
+	/* Hamburger Menu Icon Colours */
+		#hamburger {
+			color: #ffffff;
+			background-color: #000000; 
+		}
+		#hamburger:hover  {
+			background-color: #777777;  
+		
+		}
+		#hamburger .hamburger-bar {
+			background-color: #ffffff;
+		}
+
+/* ------ In Article Links ---- */
+
+
+	a {
+		padding: 0 0.25rem 0 0.25rem;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+
+	}
+
+
+/* ------ Woocommerce ---- */
+
+nav.woocommerce-breadcrumb {
+	display: block;
+	padding: 1rem;
+	background: #dddddd;
+	border-radius: 1rem;
+	font-size: 0.8rem;
+	width: 80%;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+nav.woocommerce-breadcrumb a {
+	font-size: 0.8rem;
+	font-weight: 300;
+}
+
+nav.woocommerce-breadcrumb + article {
+	margin-top: 1rem;
+}

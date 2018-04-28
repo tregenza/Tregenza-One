@@ -1,0 +1,232 @@
+/*  Tregenza-One basic page structure flex etc */
+
+	/* Default is a 320px width screen - media queries handle the rest */
+
+/* Set the REM which everything else is based on */
+html {
+	font-size: 16px;
+}
+
+body {
+	padding-top: 4rem;  /* Allow for fixed header (3rem) + padding & border (0.5rem x 2) */
+}
+
+/**** Sizing for structural elements ****/
+
+	/* Full Width Elements */
+	#wrapper {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	#wrapper > #header {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	#wrapper > #container {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		min-height: 25rem;
+	}
+	#wrapper > #footSidebar {
+		width: 100%;
+		padding: 0;
+		margin: 1rem 0 0 0;
+		max-width: 100%;
+
+	}
+	#wrapper > #footer {
+		width: 100%;
+		padding: 0;
+		margin: 1rem 0 0 0;
+	}
+
+
+
+/*** Sizing / Positioning for #Header elements */
+
+	#wrapper > #header {
+	}
+
+
+	#wrapper > #header > #branding {
+		overflow: hidden; 
+		position: fixed;
+		top: 0;
+	    left: 0;
+		width: 100%;
+		height: 4rem;
+		display: block;
+		vertical-align: middle;
+		padding: 0;
+		margin: 0;
+
+		z-index: 1010;	/* See hamburger menu z-index in style-navigation.css */
+	}
+	#wrapper > #header > #branding  > #site-title {
+		display: block;
+		height: 3rem;
+		padding: 0.5rem;
+		margin: 0 auto;
+		line-height: 3rem;
+		vertical-align: middle;
+		width: calc(100% - 1rem - 4rem - 4rem - 1rem);		/* Allow for margins+ padding and hamburger and logo */
+	}	
+	#wrapper > #header > #branding > #site-logo {
+		position: absolute;
+		right: 0rem;
+		top: 0rem;
+		/* Height & Width to include #header padding & border */
+		height: 4rem;
+		width: 4rem;
+	}
+	#wrapper > #header > #branding > #hamburger {
+		position: absolute;
+		left: 0.75rem;
+		top: 0.75rem;
+		height: 2rem;
+		max-width: 2rem;
+		min-width: 2rem;
+		padding: 0.25rem;
+	}
+	#wrapper > #header > #brandingMinor {
+		height: 1.75rem;
+		display: block;
+		vertical-align: middle;
+		padding: 0;
+		margin: 0;
+	}
+	#wrapper > #header > #brandingMinor > #siteTagLine {
+		/* Needs to match #site-title width etc so that the centered text aligns */
+		display: block;
+		height: 1.75rem;
+		padding: 0rem 0.5rem 0rem 0.5rem;
+		margin: 0 auto;
+		line-height: 1.5rem;
+		vertical-align: middle;
+		width: calc(100% - 1rem - 4rem - 4rem - 1rem);		/* Allow for margins+ padding and hamburger and logo */
+		font-style: italic;
+	}
+
+	#wrapper > #header a {
+		border-bottom: none;
+
+	}
+	#wrapper > #header a:hover {
+		color: inherit;
+	}
+
+
+/*** Sizing / Positioning for top level nav elements */
+	#wrapper > #toolbarmenu {
+	}
+	#wrapper > #toolbarmenu .menu {
+		margin: 0 auto;
+		padding: 0;
+	}
+	#wrapper > #toolbarmenu .menu > li {
+		max-width: 20rem;
+	}
+
+/*** Flex behaviour for #container elements ***/
+
+
+	#wrapper > #container {
+		display: flex; 
+		flex-flow: row nowrap;
+		justify-content: space-evenly;
+		align-items: flex-start;
+		align-content: space-around;
+	}
+
+	#wrapper > #container aside {
+		flex: 0 0 auto;
+		width: 14rem;
+	}
+	
+	#wrapper > #container aside.secundus {
+		display: none;
+		order: 1; 
+	}
+
+	#wrapper > #container #content {
+		flex: 1 1 auto;
+		order: 2;
+		max-width: 42rem;		/* Wide enough for 640px content with space for padding */
+	}
+
+	#wrapper > #container aside.tertius {
+		display: none;
+		order: 3;
+	}
+
+
+
+/*** Sizing & Flex behavior of the contents of sidebars ***/
+
+	#wrapper > #container > * {
+		margin: 2rem;
+	}
+
+	#container  > aside {
+		display: none;	/* Defualt to hidden - display based on media queries */
+	}
+
+	#wrapper > #container > aside, #wrapper > #container > #content  {
+		margin-left: 0.25rem;
+		margin-right: 0.25rem;
+		margin-bottom: 1rem;
+	}
+
+	#wrapper > #container > aside {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: stretch;
+		align-content: center;
+
+	}
+
+	#wrapper > #container > aside > * {
+		margin: 0 0 1rem 0;
+		padding: 0 0rem;
+		border-radius: 0.25rem;
+		max-width: 100%;
+	}
+
+	#wrapper > #container > #content {
+		border-radius: 0.25rem;
+	}
+
+
+
+
+/* ---- >>>>>    Media Queries <<<<<     ----- */
+	/* Default CSS designed for smallest screen width - 320px - and media queries adapt to larger sizes */ 	
+
+	/* One column */
+		@media (min-width: 20rem) {
+		
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding */
+		@media (min-width: 44rem) {
+			
+
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding) plus two 10rem columns (plus some padding) */
+		@media (min-width: 64rem) {
+			#wrapper > #container >   aside.secundus, #wrapper > #container >   aside.tertius {
+				display: flex;	 
+			}
+			#hamburger {
+				display: none;
+			}
+		}
+	
+		@media (min-width: 1200px) {
+		
+		}

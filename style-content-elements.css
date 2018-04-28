@@ -1,0 +1,403 @@
+/*  Tregenza-One area specific formatting */
+
+
+/* ---- Structure ---*/
+	/* Structural elements across all page types - post, pages, shops, archives etc */
+	#content #pageHeader {
+	}
+
+	#content #pageHeader+* {
+		margin-top: 2.5rem;
+	}
+
+	#content {
+		padding-bottom: 1rem;
+	}
+
+
+/* ----- Article Heading ---- */
+
+	article > header  {
+		margin-top: 1rem;
+	}
+	article > header > *  {
+		padding: 0 0.5rem 0 0.5rem;
+	}
+	article > header > img:first-of-type {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	article > header > h1:first-of-type, article > header > h2:first-of-type {
+		font-size: 2rem;
+		line-height: 110%;
+		margin-top: 0.25rem;
+	}
+
+/* ----- Article Section ---- */ 
+	article > section {
+		margin-top: 1rem;
+		padding: 0 1rem 0 1rem;
+	}
+
+
+/* ----- Article Section TEXT FORMATING ---- */
+
+	article > section   {
+		margin-top: 0.5rem;
+	}
+
+	article p {
+		font-size: 1rem;
+		line-height: 120%;
+		margin-top: 0.5rem;
+	}
+	article > section > p:first-of-type {
+		font-size: 1.2rem;
+		line-height: 120%;
+		letter-spacing: 0.1rem;
+		font-weight: 300;
+	}
+
+/*
+	article h1, article h2, article h3, article h4, article h5, article h6 {
+		margin-top: 0.5rem;
+	}
+	article h1, article h2, article h3 {
+		text-align: center;
+	}
+	article h1 {
+		font-size: 2rem;
+		line-height: 150%;
+	}
+	article h2 {
+		font-size: 1.6rem;
+		line-height: 120%
+	}
+	article h3 {
+		font-size: 1.4rem;
+		line-height: 120%
+	}
+	article h4 {
+		font-size: 1.2rem;
+		line-height: 150%
+	}
+	
+	article > section > h1:first-child, article > section > h2:first-child, article > section > h3:first-child {
+		margin-top: 1rem;
+	}
+*/	
+	
+	body.blog article header .entry-title, body.single article header .entry-title {
+	
+	}
+	
+	
+	
+	
+	article p{
+		margin-top: 0.5em;
+	}
+	article ul, article ol {
+	}
+	article ul li {
+		list-style-type: circle;
+	}
+	article ul ul li {
+		list-style-type: disc;
+	}
+	article  ol li {
+		list-style-type: decimal;
+	}
+	article  ol ol li {
+		list-style-type: lower-alpha;
+	}
+
+/* ----- Content ---- TABLE FORMATING ---- */
+
+	/** See tregenzaOne.js - cleanTables function. Strips tbody and thead elements, and adds attributes **/
+
+	/** Table set-up defaults to  small screen column based arrangment and uses media queries to switch to more traditional row based layout */
+
+	/** Flex settings only - styling handled later **/
+
+	article table {
+		display: flex;
+	 	flex-flow: column nowrap; 	/* Treat tables as flex boxes */
+		justify-content: center;
+		align-items: stretch;
+		align-content: stretch;
+	}
+
+
+	article table tr {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: stretch;
+		align-content: stretch;
+	}
+
+	article table tr.theadChild {
+		display: none;
+	}
+	article table tr + tr {
+		margin-top: 0.25rem;
+		border-top: 1px solid #777777;
+		padding-top: 0.25rem;
+	}
+
+	article table tr td:before {
+		content: attr(data-colname);
+	}
+
+
+	article table tr td:before {
+		display: inline-block;
+		width: 5rem;
+		font-weight: 700;
+	}
+
+	article table :not(thead) tr {
+	}
+
+	
+
+
+	article table tr:not(:first-child) {
+	}
+
+	article table tr td, article table tr th {
+		display:  block;
+		flex: 1 1 auto;
+		min-width: 5rem;
+		padding: 0rem 0.25rem 0rem 0.25rem;
+		margin: 0rem;
+		line-height: 125%;
+		vertical-align: middle;
+		word-break: break-all;
+		font-size: 0.8rem;
+		font-weight: 300;
+		border: none;
+
+
+/*		flex-flow: row wrap;
+		align-items: center;
+*/
+
+
+	}
+
+
+
+	article table  {
+		margin-top: 0.5rem;
+		padding: 0.5rem;
+		border: none;
+	}
+
+	article table tr td:not(:last-child) {
+	}
+
+	article table tr th {
+		text-align: center;
+		font-weight: 700;
+		line-height: 150%;
+		font-size: 1.2rem;	
+	}
+
+	
+	article table tr td:first-of-type, article table tr th:first-of-type {
+	}
+	
+	article table tr td:nth-of-type(odd), article table tr th:nth-of-type(odd) {
+	}
+	article table tr td:nth-of-type(even), article table tr th:nth-of-type(even) {
+	}
+	article table tr td:empty, article table tr th:empty {
+	}
+	article table tr img {
+		display: block;
+	}
+
+	article table tr.tbodyChild + tr.tfootChild {
+		margin-top: 0.5rem;
+		border-top: 1px solid #777777; /* XXXX COLOUR XXXX */
+	}
+
+/* ----- Content ---- BLOG ---- */
+
+
+body.blog >  article.post {
+	border-bottom: 1px solid #777777;
+	padding-bottom: 1rem;
+
+}
+body.blog >  article.post > header > section.entry-meta  {
+	padding: 0 1rem;
+	margin: 0;
+}
+body.blog >  article.post > header > section.entry-meta > span {
+	text-align: right;
+	display: inline-block;
+	width: 100%;
+	font-size: 0.8rem;
+}
+
+body.blog >  article.post > footer {
+	padding: 0 1rem;
+	margin: 0;	
+	text-align: right;
+
+}
+body.blog >  article.post > footer > span {
+	font-size: 0.8rem;
+}
+
+/* ----- Content ---- Search Results ---- */
+
+body.search-results {
+}
+body.search-results form.searchform + header {
+	margin-top: 1rem;
+}
+
+body.search-results article {
+	padding: 0.25rem 1rem 0.25rem 1rem;
+	border-radius: 0.5rem;
+}
+body.search-results article {
+	background-color: #dddddd;
+}
+
+body.search-results article + article {
+}
+
+body.search-results article section.entry-summarybody.search-results article section.entry-summary p {
+	font-size: 1rem;
+	line-height: 100%;
+}
+
+body.search-results section#content hr:last-of-type {
+	display: none;
+}
+
+
+	/**
+	*		Search Form
+	**/
+	.searchform {
+	
+		margin: 1rem auto 0 auto;
+		padding: 0 1rem 0 1rem;
+	
+	}
+	
+	.searchform div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+	
+	}
+	.searchform div > *{
+		margin: 1rem;
+		max-width: 18rem;
+	}
+
+	/** 
+	*		Search Results
+	**/
+	.searchResults {
+	    width: auto;
+	    float: none;
+	    margin: 0;
+	    padding: 0;
+	    display: flex;
+	    flex-flow: row wrap;
+	    justify-content: center;
+	    align-items: stretch;
+	    align-content: center;
+	}
+
+	.searchResults article {
+		margin: 0.5rem auto;
+		padding: 0;
+		flex: 0 0 18rem;
+		max-width: 18rem;
+		max-height: 18rem;
+		overflow: hidden;
+	}
+
+	/**
+	*		Post Summary (Search results, archives etc)
+	**/
+	
+	section .entry-summary {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+	
+	section .entry-summary .summary-thumbnail {
+		flex: 0 0 auto;
+		width: 8rem;
+		height: 8rem;
+	}
+	section .entry-summary .summary-thumbnail:empty {
+		display: none;
+	}
+	section .entry-summary .summary-excerpt {
+		flex: 1 1 auto;
+	}
+	section .entry-summary .summary-excerpt:empty {
+		display: none;
+	}
+	section .entry-summary .summary-excerpt p {
+		font-size: 0.8rem;
+	}
+/* ---- >>>>>    Media Queries <<<<<     ----- */
+	/* Default CSS designed for smallest screen width - 320px - and media queries adapt to larger sizes */ 	
+
+	/* One column */
+		@media (min-width: 20rem) {
+		
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding */
+		@media (min-width: 44rem) {
+/*			
+			article table {
+				display: flex;
+			 	flex-flow: row wrap; 	
+				justify-content: center;
+				align-items: stretch;
+				align-content: stretch;
+			}
+*/		
+		
+			article table tr {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: center;
+				align-items: start;
+				align-content: space-evenly;
+			}
+		
+			article table tr td:before {
+				display: none;
+			}
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding) plus two 10rem columns (plus some padding) */
+		@media (min-width: 64rem) {
+
+		}
+	
+		@media (min-width: 1200px) {
+		
+		}
+

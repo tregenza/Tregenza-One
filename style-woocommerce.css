@@ -1,0 +1,1948 @@
+/*  Tregenza-One formatting for Woocommerce elements */
+/*  Overrides / builds on the standard woocommerce style sheets */
+
+/** Note:  .woocommerce class is used on body tags on wooocommerce archive pages as well as on div tags within other page types **/
+
+/* --- Override Basics ---- */
+
+	div.woocommerce table.shop_table  {
+		margin: 0.5rem 0 0 0;
+		padding: 0.5rem;
+
+		border: none;
+	}
+
+	div.woocommerce table.shop_table td {
+		border: none;
+		padding: 0rem 0.25rem 0rem 0.25rem;
+	}
+	div.woocommerce table.shop_attributes:empty {
+		display: none;
+	}
+
+	.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+		float: none;
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+	.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+		float: none;
+		width: auto;
+		margin: 0;
+		padding: 0;
+
+	}
+
+	.woocommerce .product-category mark {
+		background-color: transparent;
+	}
+
+
+	/* Generic Woocommerce Container */
+	div.woocommerce {
+		/* Flex */
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: stretch;
+		align-content: center;
+
+		padding: 0rem 0rem 0rem 0rem;
+	}
+
+	/* Links & Buttons */
+	.woocommerce a.button, .woocommerce  a.shipping-calculator-button {
+			width: auto;
+			min-width: 5rem;
+			max-width: 10rem;
+			margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+			text-align: center;
+			border-radius: 0.25rem;
+
+			box-sizing: border-box;
+			width: 100%;
+			outline: 0;
+			padding: 0.25rem;
+			min-width: 3rem;
+			border: none;
+
+			line-height: 1.25rem !important;
+			font-family: inherit;
+			font-size: 1rem;
+			font-weight: 600;
+
+			box-shadow: 0.25rem 0.25rem 0.25rem 0px rgba(0,0,0,0.25);
+
+		/* Colours set in customisation */
+	}
+
+
+
+	div.woocommerce #respond input#submit.alt:hover, div.woocommerce a.button.alt:hover, div.woocommerce button.button.alt:hover, div.woocommerce input.button.alt:hover {
+		/** See Customisation */
+	}
+
+	.woocommerce .products ul::after, .woocommerce .products ul::before, .woocommerce ul.products::after, .woocommerce ul.products::before {
+/*		content: '';
+		display: inline;
+*/	}
+
+	.tregenza_one_wc_product_block span.onsale {
+		/* Override woocommerce */
+		position: relative;
+		margin: 0 !important;
+		display: block;
+		z-index: auto;
+		width: 3rem;
+		height: 3rem;
+		font-size: 1rem;
+		padding: 0.25rem;
+		overflow: hidden;
+		line-height: 3rem;	/* Same size as parent for vertical-align */
+		background-color: #aaaaaa;			/*** XXX COLOR XXX ***/  
+		color: #ffffff; 			/*** XXX COLOR XXX ***/
+		border-radius: 100%;
+	}
+
+
+	.tregenza_one_wc_product_block .price .from {
+
+	}
+
+	.tregenza_one_wc_product_block.price .amount {
+
+	}
+
+
+/* --- Navigation ---- */
+
+	/* See also style-navigation.css */
+
+	nav.woocommerce-pagination {
+	}
+
+	nav.woocommerce-pagination ul.page-numbers {
+		display: block;
+	}
+	nav.woocommerce-pagination ul.page-numbers li {
+		display: inline-block;
+	}
+	nav.woocommerce-pagination ul.page-numbers li > *{
+		box-sizing: border-box;
+		display: inline-block;
+		width: 3rem;
+		margin: 0;
+		outline: 0;
+		padding: 0.25rem;
+		border: none;
+		color: #111111;								/*** <<<<<<<< ----- COLOUR  ---- */
+		background-color: #dddddd;								/*** <<<<<<<< ----- COLOUR  ---- */
+		line-height: 1.25rem !important;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 600;
+
+		text-align: center;
+	}
+	nav.woocommerce-pagination ul.page-numbers li .page-numbers {
+
+	}
+	nav.woocommerce-pagination ul.page-numbers li .current {
+		color: #dddddd;											/*** <<<<<<<< ----- COLOUR  ---- */
+		background-color: #111111;									/*** <<<<<<<< ----- COLOUR  ---- */
+
+	}
+
+	nav.woocommerce-pagination ul.page-numbers li a:hover {
+		background-color: #777777;									/*** <<<<<<<< ----- COLOUR  ---- */
+
+	}
+
+
+/* --- Woocommerce Messages etc --- */
+
+		.woocommerce-message {
+			background-color: #dddddd;
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+			max-width: 90%;
+			margin: 0 auto;
+
+			text-align: center;
+		
+		}
+
+		.woocommerce-message > .button {
+			display: block;
+			margin: 0.25rem auto;
+		}
+
+/* --- Forms - Generic --- */
+
+		/* form basics */
+		div.woocommerce form {
+			flex: 1 1 auto;
+	
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: center;	
+	
+			padding: 0;
+			margin: 0;
+		}
+		div.woocommerce form br {
+			display: none;		/* WORDPRESS sticks in needless br tags */
+		}
+	
+		div.woocommerce form .form-row {
+			border-radius: 0.1rem;
+			padding: 0.25rem;
+		}
+	
+		/* Override woocommerce */
+		.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
+		
+		    border: none;
+		    padding: 0.5rem 0 0.5rem 0;
+		    margin: 0;
+		    text-align: left;
+		    border-radius: 0px;
+		
+		}
+
+
+	/* 	woocommerce forms are erratic in their use of divs etc as child of forms. Set all direct child of forms to be flex */
+		div.woocommerce form > * {
+			flex: 1 1 auto;
+		}
+		div.woocommerce form > h1, div.woocommerce form > h2, div.woocommerce form > h3, div.woocommerce form > h4, div.woocommerce form > h5, div.woocommerce form > h6 {  
+				float: none !important;
+				margin: 0.5rem 0rem 0rem 0rem;
+		}	
+
+	/* Hide any crap floating around from WC  */
+		.woocommerce form > *:empty {
+			display: none;
+		}
+
+	/* woocommerce Columns are containers for fields etc */	
+		div.woocommerce form > .col2-set {
+			flex: 1 1 auto;
+	
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: stretch;	
+	
+			margin: 0;
+			padding: 0;
+		}
+		div.woocommerce form > .col2-set:before, div.woocommerce form > .col2-set:after {
+			display: none;
+		}
+		div.woocommerce form > .col-1, div.woocommerce form > .col-2,  {
+	
+			margin: 1rem 0rem 0rem 0rem;
+		}
+
+
+	/* Woocommerce forms inconsistent about using fieldsets - make everything a flex container and flex item */
+		div.woocommerce form > fieldset, div.woocommerce form > fieldset > p, div.woocommerce form > p,  div.woocommerce form > p > *, div.woocommerce form p.form-row {
+			flex: 1 auto;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: center;
+			align-content: center;	
+		}
+		div.woocommerce form > fieldset > p, div.woocommerce form > p {
+		}
+		div.woocommerce form label {
+			flex: 1 auto;
+			width: auto ;  /** Override WC styling **/
+			min-width: 8rem;
+			max-width: 16rem;
+		}
+	
+		
+		div.woocommerce form input.input-text, div.woocommerce form input[type="text"],  div.woocommerce form input[type="button"], div.woocommerce form input[type="submit"] {
+			flex: 2 auto;
+			width: auto ;
+			min-width: 8rem;
+			max-width: 16rem;
+		}
+		div.woocommerce form textarea {
+			flex: 2 auto;
+			width: auto ;
+			min-width: 16rem;
+			max-width: 16rem;
+		}
+		
+		div.woocommerce form p.form-row, div.woocommerce form pdiv.woocommerce-form-row {
+			float: none;
+			width: auto;
+		}
+		
+		div.woocommerce form fieldset {
+			border-bottom: 1px solid #333333;	/*** XXXX COLOURS XXXX ***/
+			padding: 0.25rem 0 0.25rem 0;
+			margin: 0.5rem auto 0.5rem auto;
+		}
+		div.woocommerce form fieldset legend {
+			font-weight: 700;
+			font-size: 1.2rem;
+			padding: 0.2rem;
+		}
+
+		div.woocommerce form input.button {
+			margin: 0 auto;
+		}
+
+		div.woocommerce form table tr  td:before {
+			float: none !important;
+		}
+
+	/** Login / Registration **/
+		div.woocommerce form label[for="password_1"], div.woocommerce form label[for="password_2"], div.woocommerce form label[for="password_current"] {
+			width: auto !important;
+		}
+		
+		div.woocommerce #customer_login form input#rememberme {
+			flex: 0 0 1rem;
+			min-width: 1rem;
+			max-width: 1rem;
+		}
+
+
+
+
+
+/* --- Checkout & Basket --- */
+
+		div.woocommerce form.checkout table strong.product-quantity, div.woocommerce form.woocommerce-cart-form table strong.product-quantity {
+			font-weight: 300;
+		}
+
+
+			/* Spacing between items  */
+			div.woocommerce form.checkout table tr.cart_item + tr.cart_item:not(.component_table_item), div.woocommerce form.woocommerce-cart-form table tr.cart_item + tr.cart_item:not(.component_table_item)   {
+				margin-top: 0.5rem;
+				padding-top: 0.5rem;
+				border-top: 1px solid #777777;  /* XXXXX COLOUR XXXXXX */
+			}
+			div.woocommerce form.checkout table tr.component_table_item + tr.component_container_table_item, div.woocommerce form.woocommerce-cart-form table tr.component_table_item + tr.component_container_table_item {
+				margin-top: 0.5rem;
+				padding-top: 0.5rem;
+				border-top: 1px solid #777777;  /* XXXXX COLOUR XXXXXX */
+			}
+	
+		
+			/* Hide table column names */		
+			div.woocommerce form.checkout table.woocommerce-checkout-review-order-table tr td:before, 
+				div.woocommerce form.woocommerce-cart-form table tr td:before  {
+				display: none;
+			}
+
+
+			/* Bundle & Composite products in basket */
+			div.woocommerce form .bundled_table_item .bundled_table_item_indent, div.woocommerce form .component_table_item .component_table_item_indent {
+				padding: 0;
+			}
+
+			div.woocommerce form .bundled_table_item_price::before, div.woocommerce form .bundled_table_item_subtotal::before, div.woocommerce form .component_table_item_price::before, div.woocommerce form .component_table_item_subtotal::before {
+				display: none;
+			}
+
+
+			div.woocommerce form .bundled_table_item, div.woocommerce form .component_table_item {
+				border: none;
+			}
+
+		
+/*		
+			div.woocommerce form.checkout table tr.cart_item:not(.component_table_item) td.product-name,
+			div.woocommerce form.woocommerce-cart-form table tr.cart_item:not(.component_table_item) td.product-name {
+				font-weight: 700;
+			}
+			div.woocommerce form.checkout table tr.component_table_item, div.woocommerce form.woocommerce-cart-form table tr.component_table_item  {
+				margin-top: 0.25rem;
+			}
+*/	
+	
+			/*** Sub-totals & Shipping ***/
+
+	
+				div.woocommerce .cart-collaterals .cart_totals table tr.shipping th, div.woocommerce .woocommerce-checkout .woocommerce-checkout-review-order table tr.shipping th {
+					display: block;
+					width: 90%;
+				}
+				div.woocommerce .cart-collaterals .cart_totals table tr.shipping th + td, div.woocommerce .woocommerce-checkout .woocommerce-checkout-review-order table tr.shipping th + td {
+					display: block;
+					width: 90%;
+					
+				}
+
+				div.woocommerce table ul#shipping_method li {
+					padding: 0;
+					margin: 0;
+					text-indent: 0;
+					list-style: none;
+					display: block;
+				}	
+				div.woocommerce table ul#shipping_method li > input {
+					display: inline-block;
+					min-width: 1rem;
+					width: 1rem;
+				}
+				div.woocommerce table ul#shipping_method li .amount {
+					padding-left: 2rem;
+				}
+
+
+				div.woocommerce table ul#shipping_method br {
+					display: none; /* hide random crap Woocommerce chucks in */
+				}
+
+
+				.woocommerce-shipping-calculator a.shipping-calculator-button {
+
+				}
+			
+
+		/** Checkout Specific  **/
+			div.woocommerce #payment {
+				padding: 0.5rem;
+			}
+
+
+	
+		/* Payment Methods */
+			div.woocommerce form #payment  {
+			}
+			div.woocommerce form #payment ul.payment_methods {
+				margin: 0;
+				padding: 0;
+		
+			}
+			div.woocommerce form #payment ul.payment_methods  li {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: block;
+			}
+
+			div.woocommerce form #payment ul.payment_methods  li label {
+				font-size: 1.5rem;
+				line-height: 2rem;
+				font-weight: 700;
+				display: inline-block;
+				width: 45%;
+				
+			}
+			div.woocommerce form #payment ul.payment_methods  li label > img {
+				max-width: 95%;
+				display: block;
+			}
+			div.woocommerce form #payment ul.payment_methods  li label > a {
+				display: inline-block;
+				font-size: 0.8rem;
+				line-height: 100%;
+			}
+
+			div.woocommerce form #payment ul.payment_methods  li label + .payment_box {
+				font-size: 0.75rem;
+				padding: 0;
+				margin: 0;
+				display: inline-block;
+				width: 45%;
+			}
+		
+			div.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+				display: none;
+			}
+
+
+		/* Terms & Conditions */
+		div.woocommerce form  .wc-terms-and-conditions {
+			margin: 1rem auto;
+			padding: 2rem 1rem;
+			border: 1px solid #dddddd;
+			text-align: center;
+		}
+		div.woocommerce form  .wc-terms-and-conditions input[type="checkbox"] {
+			width: 2rem;
+			min-width: 1rem;
+		}
+
+		div.woocommerce form  .wc-terms-and-conditions + button {
+			display: block;
+			margin: 1rem auto;
+		}
+
+		/*** Basket (cart)  Specific ***/
+
+
+			div.woocommerce form table.cart  {
+			}
+
+			div.woocommerce form table.cart thead {
+				display: none;		/* Needed if the form updates via ajax */
+			}
+
+			div.woocommerce form table.cart tr.cart_item {
+				display: flex;
+				flex-flow: row wrap;
+			}
+			div.woocommerce form table.cart tr.cart_item td {
+				min-width: 1rem;
+				margin-top: 0.5rem;
+			}
+			
+			div.woocommerce form table.cart tr.cart_item td.product-remove {
+				flex: 0 0 1rem;
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-remove a.remove {
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-thumbnail {
+				display:  none;  /* Hide by default (small screens); */
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-name  {
+				width: 13rem;
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl {
+				/* Variations etc */
+				font-size: 0.8rem;
+				line-height: 100%;
+
+			}
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl > * {
+
+			}
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dt{
+/*				display: inline-block;
+				width: 45%;
+				letter-spacing: 95%;
+*/
+				display: none;
+			}
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dd + dt {
+				margin-top: 0.2rem;
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dd {
+/*				display: inline-block;
+				width: 50%;
+*/
+				display: block;
+				width: 100%;
+			}
+
+
+			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dd p {
+				font-size: 0.8rem;
+				line-height: 100%;
+				font-weight: 300;
+			}
+
+			div.woocommerce form table.cart tr.cart_item  td.product-price  {
+				width: 3rem;
+				padding-left: 1.5rem;
+				text-align: right;
+			}
+			div.woocommerce form table.cart tr.cart_item  td.product-quantity  {
+				width: 3rem;
+				padding: 0 1rem;
+			}
+	
+			div.woocommerce form table.cart tr.cart_item  td.product-quantity input.qty {
+				font-size: 0.8rem;
+				width: 3rem;
+				min-width: 3rem;
+			}
+
+			div.woocommerce .cart-collaterals table tbody {
+				display: block;
+				width: 100%;	
+			}
+
+			div.woocommerce form table tr  td.product-subtotal {
+				width: 5rem;
+				text-align: right;
+			}
+	
+
+
+
+			div.woocommerce form table tr  td.actions {
+				margin-top: 1rem;
+				padding: 0.5rem 0 0.5rem 0;
+			}
+
+			div.woocommerce form table tr  td.actions .coupon input {
+				margin-top: 0.5rem;
+
+			}
+
+			div.woocommerce form table tr  td.actions .coupon + button {
+				margin: 2rem auto 0 auto;
+				display: block;
+			}
+
+
+			div.woocommerce .cart-collaterals  .cart_totals > h2 {
+				display: none;
+			}
+
+			div.woocommerce .cart-collaterals .cart_totals table  {
+				display: block;
+			}
+			div.woocommerce .cart-collaterals .cart_totals table tr {
+				display: block;
+				font-weight: 700;
+				font-size: 1rem;
+			}
+
+			div.woocommerce .cart-collaterals .cart_totals table tr th {
+				display: inline-block;
+				width: 45%;
+				font-weight: inherit;
+				font-size: inherit;
+			}
+			div.woocommerce .cart-collaterals .cart_totals table tr td::before {
+				display: none;
+			}
+			div.woocommerce .cart-collaterals .cart_totals table tr td {
+				display: inline-block;
+				width: 45%;
+				font-weight: inherit;
+				font-size: inherit;
+			}
+
+			div.woocommerce .cart-collaterals .wc-proceed-to-checkout {
+				width: 15rem;
+				margin: 2rem auto 2rem auto;
+				text-align: center;
+			}
+
+	
+	/* Coupon Form */
+		div.woocommerce form.checkout_coupon {
+		}
+
+
+
+
+
+/* --- Login / Registration --- */
+		body:not(.logged-in) .hideLogin div.woocommerce .u-column1 {
+			display: none; 
+		}
+		body:not(.logged-in) .hideLogin div.woocommerce .u-column2 {
+			float: none;
+			width: auto;
+		}
+		body:not(.logged-in) .hideRegistration div.woocommerce .u-column2 {
+			display: none; 
+		}
+		body:not(.logged-in) .hideRegistration div.woocommerce .u-column1 {
+			float: none;
+			width: auto;
+		}
+	
+		#customer_login .woocommerce-LostPassword {
+			display: block;
+			flex: unset;
+			text-align: right;
+		}
+		#customer_login .woocommerce-LostPassword a {
+			display: inline;
+			flex: unset;
+		}
+
+
+
+
+
+
+/* --- Shop Pages --- */
+
+
+		.woocommerce-page  p.woocommerce-result-count {
+			text-align: center;
+			float: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.woocommerce-page  form.woocommerce-ordering {
+			float: none;
+			margin: 0 auto;
+			padding: 1rem;
+			text-align: center;
+		}
+
+		.woocommerce-page  form.woocommerce-ordering select {
+			margin: 0 auto;
+		}
+
+		.woocommerce  .woocommerce-products-header {
+			
+		}
+		.woocommerce  .woocommerce-products-header   {
+			margin-top: 1rem;
+		}
+		.woocommerce  .woocommerce-products-header  > *  {
+			padding: 0 0.5rem 0 0.5rem;
+		}
+		.woocommerce  .woocommerce-products-header > img:first-of-type {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+		.woocommerce  .woocommerce-products-header > h1:first-of-type, .woocommerce-page  .woocommerce-products-header  > h2:first-of-type {
+		font-size: 2rem;
+		line-height: 110%;
+		margin-top: 0.25rem;
+	}
+/* --- Products --- */
+
+
+	/* Generic product block flex & sizing */
+
+		.tregenza_one_wc_product_block {
+			min-width: 10rem;
+			flex: 1 1 10rem;
+			margin: 0rem auto 0rem auto;
+			padding: 0rem;
+
+			border-radius:  0.1rem;
+			
+			box-sizing: border-box; 
+
+		}
+		.tregenza_one_wc_product_block:empty {
+			display: none;
+		}
+
+		.tregenza_one_wc_product_block * {
+		}
+
+	/* Override tregenza-one table handling as Woocommerce uses tables for layout */
+
+		.tregenza_one_wc_product_block form table tr td:before {
+			display: none; 
+		}
+	
+		.tregenza_one_wc_product_block form table tr td {
+		}
+	
+		.tregenza_one_wc_product_block form table tr + tr {
+			border-top: none;
+		}
+
+
+
+	/* Flex wrapper set-up for displaying products details for different page types */
+		/* Single Product, product list */
+		article.type-product  div.summary, li.product >  a {
+			position: relative;
+			display: flex; 
+			flex-flow: row wrap; 
+			justify-content: space-around;
+			align-content: stretch;
+			align-items: stretch;
+
+			padding: 0 0.5rem;
+
+		}
+
+		/* Treat tables as block, makes it easier to make variations & gravity forms more consistent in layout */
+		.tregenza_one_wc_product_block  table { 
+			padding: 0;
+			margin: 0;
+			display: block;		
+		}
+
+		.tregenza_one_wc_product_block  table tr {
+			display: block;
+			line-height: 1.5rem;
+
+		}
+		.tregenza_one_wc_product_block  table td {
+			display: block;
+			line-height: 1.5rem;
+		}
+
+	/* Product block default order & Sizing overrides */
+		.tregenza_one_wc_product_block.tregenza_one_product_sales_flash { 
+			order: 0;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_title {
+			order: 1;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_images {
+			order: 2;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info {
+			order: 4;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {		/** Add to cart includes variations and gravity forms */
+			order: 5;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_description {
+			order: 6;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_additional {
+			order: 7;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_misc {
+			order: 7;
+		}
+	
+		/* Subblock */
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_sub block.tregenza_one_product_price {
+			order: 1;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_tags {
+			order: 2;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_excerpt {
+			order: 3;
+		}
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_sku {
+			order: 4;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_category_list {
+			order: 1;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_sharing {
+			order: 2;
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_meta {
+			order: 3;
+		}
+
+
+		/* Composite product */
+		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
+			order: 3;
+		}
+		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component {
+		
+		}
+
+
+
+	/* Product Block Sizing & formating */
+
+		/* -----  Sales Flash ------- */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_sales_flash {
+			flex: 0 0 0rem;
+			position: absolute;
+			top: 0rem;
+			left: 0rem;
+			min-width: 0;
+			border-radius: 100%;
+			margin: 0;
+			z-index: 9;
+		
+		}
+			.tregenza_one_wc_product_block.tregenza_one_product_sales_flash:empty {
+				display: none;
+			}
+		
+			.tregenza_one_wc_product_block.tregenza_one_product_sales_flash .onsale {
+	
+			}
+
+		/* ------  Title ------ */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_title {
+			/* flex: 2 1 40rem; */			/* Ensure always at top - across full width */
+
+		}
+			.tregenza_one_wc_product_block.tregenza_one_product_title h1 {
+				margin: 0;
+			}
+
+			/* Handle product pages slightly differently */
+			article.type-product .tregenza_one_wc_product_block.tregenza_one_product_title {
+
+				height: 5rem;
+				width: 5rem;
+				background-color: #bced09;
+				border-radius: 50%;
+	
+				display: flex;
+				align-items: center;
+				justify-content: center
+	
+			}
+			article.type-product  .tregenza_one_wc_product_block.tregenza_one_product_title h1 {
+				margin: 0;
+				padding: 2rem;
+				font-size: 1.5rem;
+			}
+
+		/* ------  Images ------ */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_images {
+			flex: 0 0 20rem;  /* 320px - fixed sizing */
+			max-width: 20rem;
+		}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_images  a {
+				padding: 0;
+				margin: 0;
+				border: 0;
+				background: transparent;
+				color: inherit;
+				border-radius: 0;
+				line-height: 1;
+				display: inline;
+	
+			}
+
+
+
+
+		/* ------ Short Info ------ */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info  {
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_price {
+		}
+
+			:not(logged-in) .tregenza_one_wc_product_subblock.tregenza_one_product_price {
+			}
+	
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price {
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				align-items: stretch;
+				align-content: center;
+				width: 100%;
+				height: 100%;
+		
+				text-align: center;
+	
+				color: #111111;						/**** XXX COLOUR XXX ***/
+	
+			}
+		
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price ins {
+				text-decoration: none;
+			}
+		
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price del {
+				text-decoration: line-through;														/***** XXXXX NEED A BETTER STROKETHOUGH XXXXXX ******/
+			}
+		
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price del .amount {
+			}
+		
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price .price .from {
+				font-size: 1rem;
+				line-height: 100%;
+				margin: none;
+				margin: 0;
+				padding: 0;
+			}
+			.tregenza_one_wc_product_subblock.tregenza_one_product_price .price .amount {
+				font-size: 1.5rem;
+				line-height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_excerpt {
+				padding: 1rem;
+			}
+
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_tags ul {
+				text-align: center;
+				font-size: 1rem;
+				font-weight: 700;
+			}
+	
+			.tregenza_one_wc_product_subblock.tregenza_one_product_tags ul li {
+				list-style: none outside;
+			}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_sku {
+				font-size: 0.8rem;
+				text-align: center;
+			}
+
+		/* ----- Add To Cart ------- */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {
+
+		}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form {  
+				/* Add to cart form contains blocks for woocommerce variations  and gravity forms (if used) */
+/*				padding: 0 1rem 0 1rem; */
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form > table { 
+				/* Table contains variations */ 
+				padding: 0.5rem;
+				margin: 0;
+				display: block;		/* Treat tables as block, makes it easier to make variations & gravity forms more consistent in layout */
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations tr {
+				display: block;
+				line-height: 1.5rem;
+
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td {
+				display: block;
+				line-height: 1.5rem;
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td.label {
+
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td.value {
+
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations a.reset_variations {
+				display: none;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form select,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form select.gfield_select {
+				/* Copy of basic-elements styling to override and Woocommerce or Gravity Forms styling and ensure consistency */
+				box-sizing: border-box;
+				cursor: pointer;
+				width: auto;
+				margin: 0;
+				outline: 0;
+				padding: 0.25rem;
+				min-width: 3rem;
+			   	border-radius: 5px;
+				border: 1px solid #aaaaaa; 
+				box-shadow: none;
+				line-height: 1.25rem !important;
+				font-family: inherit;
+				font-size: 0.8rem;
+				font-weight: 600;
+
+				/* Standardise sizing */
+				max-width: 18rem;
+				min-width: 10rem;
+				width: 90%;
+			}
+			/* Copy of basic-elements styling to override and Woocommerce or Gravity Forms styling and ensure consistency */
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form label,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form label.gfield_label {
+				font-size: 1.1rem;
+				line-height: 1.25rem;
+				font-weight: 300;
+				padding: 0.25rem;
+
+				display: block;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper {
+				/* Generic wrapper used multiple times by gravity forms */
+				padding: 0.5rem;
+				margin: 0;		
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper .ginput_container {
+				/* Generic class used by gravity form fields */
+				margin: 0;
+				padding: 0;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart  .gform_variation_wrapper {
+				margin: 0;
+				padding: 0;
+			}
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper .gfield {
+				/* Generic class used by gravity form fields */
+				margin: 0;
+				padding: 0;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields {
+				display: block;
+				line-height: 1.5rem;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields li {
+				display: block;
+				line-height: 1.5rem;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields li.gfield_total > * {
+				display: inline-block;
+			}
+
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals {
+				margin: 0.5rem 0 0 0;
+				padding: 0.5rem;
+				font-size: 1rem;
+				line-height: normal;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li {
+				display: block;
+				line-height: normal;
+				font-size: 1rem;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li label {
+				display: inline-block;
+				line-height: normal;
+				font-size: 1rem;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li > *{
+				display: inline-block;
+			}
+
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity {
+				margin: 0.5rem auto 0 auto;
+				display: inline-block;
+				width: 45%;
+				text-align: center;
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity input.qty {
+				width: 3rem;
+			}
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity + button {
+				margin: 0.5rem auto 0 auto;
+				display: inline-block;
+				max-width: 45%;
+				text-align: center;
+			}
+
+			/* Wishlists option on product page */
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form #wl-wrapper {
+				display: block;
+				
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form #wl-wrapper > a {
+				margin: 0.5rem 0 0 70%;
+				display: block;
+				max-width: 20%;
+
+				font-size: 0.6rem;
+				
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce {
+				flex-flow: unset;
+				display: block;
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce > a.button {
+				display: block;
+				margin: 0.5rem auto;
+				box-shadow: none;
+			}
+
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .reset_variations {
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap {
+
+			}
+
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation {
+
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description {
+				margin-top: 0.5rem;
+				min-height: 2rem;
+
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description p {
+				font-weight: 300;
+				font-size: 1rem;
+				
+
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-price {
+			}
+
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart {
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart div.quantity {
+			}
+			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart .single_add_to_cart_button {
+			}
+
+
+		/* ------ Description ------ */
+
+
+		.tregenza_one_wc_product_block.tregenza_one_product_description {
+/*			flex: 2 1 40rem;*/		/* Allow to grow to full width to accomodate significant text  */
+			padding: 1rem;	
+		}
+
+		.tregenza_one_wc_product_block.tregenza_one_product_description > h2:first-of-type {
+			display: none;		/* Hide stupid Description header */
+		}
+
+		/* ------------ */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_additional {
+
+		}
+
+		/* ------ Misc ------ */
+
+		.tregenza_one_wc_product_block.tregenza_one_product_misc {
+
+		}
+
+
+		.tregenza_one_wc_product_subblock.tregenza_one_product_category_list {
+			font-size: 0.8rem;
+		}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list ul.products  {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: center;
+				align-items: stretch;
+				align-content: center;
+	
+			}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list::before {
+				content: "Discover more kitchen fitting products like this: ";
+			}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list ul.products li.product-category {
+				flex: 1 1 auto;
+				float: none;
+				width: auto;
+				margin: 0;
+				padding: 0.5rem;
+				max-width: 20rem;
+				min-width: 10rem; 
+			}
+
+			.tregenza_one_wc_product_subblock.tregenza_one_product_sharing {
+				display: none;
+			}
+			.tregenza_one_wc_product_subblock.tregenza_one_product_meta {
+				display: none;
+			}
+			.tregenza_one_wc_product_subblock.tregenza_one_product_meta .product_meta > *{
+				display: block;
+			}
+
+		/* ------------ */
+
+		/* ------ Bundle & Composite products ------ */
+
+		/* Note - Woocommerce CSS for bundled and composite products added ad-hoc in various functions so have to be overloaded as there is no easy way to remove them */
+		.product-type-bundle form  .bundled_product_summary, 	.product-type-composite form .bundled_product_summary {
+			padding: 0;
+			margin: 0;
+			float: none;
+		}
+
+		.product-type-bundle form .bundled_product_images , 	.product-type-composite form .bundled_product_images {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-bundle form .bundled_product_images figure, 	.product-type-composite form .bundled_product_images figure {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-bundle form .bundled_product_images a, 	.product-type-composite form .bundled_product_images a {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-bundle form .bundled_product_images a:link, .product-type-bundle form .bundled_product_images a:hover,	.product-type-composite form .bundled_product_images a:link, .product-type-composite form .bundled_product_images a:hover {
+			border: none;
+		}
+
+		.product-type-bundle form .bundled_product_images img, 	.product-type-composite form .bundled_product_images img {
+			margin: 0;
+			padding: 0;
+			float: none;
+			
+			height: auto;
+			width: auto;
+		}
+
+		.product-type-bundle form .details , 	.product-type-composite form .details {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-bundle form  .bundled_product_summary .bundled_item_wrap, .product-type-composite  form  .bundled_product_summary .bundled_item_wrap {
+			margin: 0;
+			padding: 0;
+			float: none;			
+		}
+
+		.product-type-composite  form.composite_form .step_title_wrapper {
+			margin: 0;
+			padding: 0;
+			float: none;				
+		}
+
+		.product-type-composite  form.composite_form .component .component_content, .product-type-composite  form.composite_form .component_summary .content {
+			margin: 0;
+			padding: 0;
+			float: none;				
+
+		}
+		.product-type-composite  form.composite_form .component .composited_product_details_wrapper {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-composite  form.composite_form .component .composited_product_images {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-composite  form.composite_form .component .composited_product_images figure {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+
+		.product-type-composite  form.composite_form .component .composited_product_images a {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+		.product-type-composite  form.composite_form .component .composited_product_images a:link, 	.product-type-composite  form.composite_form .component .composited_product_images a:hover {
+			border: none;
+			font-weight: normal;
+		}
+
+		.product-type-composite  form.composite_form .component .composited_product_images img {
+			margin: 0;
+			padding: 0;
+			float: none;
+			
+			height: auto;
+			width: auto;
+		}
+
+		.product-type-composite  form.composite_form:not(.paged) .component:not(.first) .component_title_wrapper, .product-type-composite  form.composite_form:not(.paged) .composite_wrap {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-composite .component a.component_option_radio_button_tap {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			right: auto;
+			z-index: auto;
+		}
+		.product-type-composite .component a.component_option_radio_button_tap:link, .product-type-composite .component a.component_option_radio_button_tap:hover {
+			border: none;
+		}
+
+		.product-type-composite .component .component_option_radio_button_container .radio_button_input {
+			margin: 0;
+			padding: 0;
+			float: none;
+
+			display: inline-block;
+			
+		}
+  
+		.product-type-composite .component .component_option_radio_button_container .radio_button_description {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+		.product-type-composite .component .component_option_radio_button_container .radio_button_description .title {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-composite .component .gform_wrapper {
+			margin: 0;
+			padding: 0;
+			float: none;
+		}
+
+		.product-type-composite .gform_anchor {
+			display: none;
+		}
+
+		/** Bundle options nested under addtocart block **/
+		.product-type-bundle .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {
+			flex: 2 1 40rem;			/* full width */
+
+		}
+
+		/** Composite form is at the same level as product blocks */
+		.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
+			flex: 2 1 40rem;			/* full width */
+			
+			margin: 0;
+			padding: 0;
+			float: none;
+
+		}
+		
+		form.bundle_form, form.composite_form {
+
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: center;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		form.bundle_form > *, form.composite_form > * {
+			flex: 0 0 20rem;
+			max-width: 20rem;
+			margin: 0rem auto 0rem auto;
+			padding: 0rem;
+
+			border-radius:  0.1rem;
+			
+			box-sizing: border-box; 
+		}
+
+
+		.bundled_product_title_link {
+			display: none;
+		}
+
+
+		form.composite_form .quantity {
+			margin: 0.5rem auto 0 auto;
+			display: inline-block;
+			width: 45%;
+			text-align: center;
+		}
+
+		form.composite_form .quantity input.qty {
+			width: 3rem;
+		}
+
+
+		form.composite_form .quantity + button {
+			margin: 0.5rem auto 0 auto;
+			display: inline-block;
+			max-width: 45%;
+			text-align: center;
+		}
+
+		form.composite_form #wl-wrapper {
+			display: block;
+			
+		}
+		form.composite_form #wl-wrapper > a {
+			margin: 0.5rem 0 0 70%;
+			display: block;
+			max-width: 20%;
+
+			font-size: 0.6rem;
+			
+		}
+		/* ------------ */
+
+
+		/* ------ Composite product ------ */
+/*		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
+
+		
+	
+		}
+		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component {
+		
+			flex: 1 1 auto;
+			width: auto;
+			margin: 0;
+			padding: 0;
+
+		}
+
+		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component > .component_inner {
+
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: center;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component > .component_inner > * {
+			flex: 1 1 auto;
+			width: auto;
+			margin: 0;
+			padding: 0;
+
+		}
+*/
+		/* ------------ */
+
+
+	/* Single Product Page */
+
+		article.type-product > .product {
+		}
+
+	
+		/* Styling */
+		article.type-product .tregenza_one_wc_product_block.tregenza_one_product_images a {
+			pointer-events: none;
+		}
+
+
+
+
+	/* --- Product LISTS --- */
+	
+	
+		/* Flex layout */
+		.woocommerce ul.products {
+			width: auto;
+			float: none;
+			margin: 0;
+			padding: 0;
+	
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: center;
+		}
+
+/*	
+		.woocommerce ul.products:before {
+			content: '';
+			display: none;
+		}
+*/	
+	
+		li.product {
+			margin: 0.5rem auto;
+			padding: 0;
+	
+			flex: 0 0 18rem;
+			max-width: 18rem;
+			max-height: 18rem;	
+
+			list-style: none outside;
+		}
+	
+		li.product   a { 
+			border: none;
+		}
+	
+		li.product >  a {
+			width: 18rem;				/* Fixed size to anable absolute positioning */
+			height: 18rem;
+			padding: 0;
+			margin: 0 auto;
+			position: relative;
+
+		}
+
+		li.product a > .tregenza_one_wc_product_block {
+			/* Rely on fixed positioning rather than flex */
+			position: absolute;
+			display: block;
+			min-width: 9rem;
+			max-width: 18rem;
+			max-height: 18rem;
+
+		}
+	
+
+
+	
+		/* Sizing & Positioning for product elements */
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_sales_flash {
+			position: relative; /* exact positioning handled by inner onsale span */
+		}
+
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_images {
+			top: 0;
+			left: 0;
+			width: 9rem;		
+			height: 9rem;
+			margin: 0;
+			padding: 0;
+		}
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_images .tregenza_one_product_thumbnail {
+
+		} 
+	
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info  {
+			top: 0;
+			left: 9rem;
+			width: 9rem;
+			height: 9rem;
+
+		}	
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_price {
+			line-height: 6rem;
+		}
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_price > span {
+			display: inline-block;
+  			vertical-align: middle;	
+			line-height: 1rem;
+		}
+	
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_sku {
+			font-size: 0.8rem;
+			color: #777777;
+		}
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_title {
+			left: 0;
+			top: 9rem;
+			height: 4rem;
+			width: 18rem;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_title h2 {
+			font-size: 1rem;
+		}
+	
+		li.product a > .tregenza_one_product_tags {
+			left: 0;
+			top: 13rem;
+			height: 3rem;
+			width: 100%;
+			text-align: center;
+			vertical-align: middle;
+			overflow: hidden;
+		}
+	
+	
+		/* Style elements of product in list */
+		li.product div.woocommerce-loop-product__title {
+			padding: 0;
+			margin: 0;
+		}
+	
+	
+		li.product a >  .tregenza_one_product_tags ul.tregenzaOneTagList {
+			padding: 0;
+			margin: 0;
+			font-size: 0.8rem;
+		}
+		li.product a >  .tregenza_one_product_tags ul.tregenzaOneTagList li {
+			padding: 0;
+			margin: 0;
+			display: block;
+		}
+	
+	
+	/* --- Product Categories --- */
+
+	li.product-category {
+		margin-bottom: 2rem;
+	}
+	li.product-category > a {
+		height: auto;
+	}	
+	li.product-category a img {
+		width: 18rem;
+		height: 9rem;
+		margin: 0 auto 0 auto;
+	}
+
+	li.product-category h2 img {
+
+	}
+
+/* Aside product list */
+	aside > .products {
+		padding: 0;
+	}
+
+	aside ul.product_list_widget {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: stretch;
+		align-content: stretch;
+		margin: 0 auto;
+		padding: 0;
+	}
+	aside ul.product_list_widget > li {
+		flex: 1 auto;
+		display: block; 
+		margin: 0.25rem auto 0 auto;
+		width: 14rem;
+		border-radius: 0.1rem; 
+		text-align: center;
+		border-top: 1px solid #aaaaaa;
+		padding: 0.5rem 0 0 0;
+
+	}
+	aside ul.product_list_widget > li + li {
+		margin-top: 0.5rem;
+		padding-top: 0.5rem;
+	}
+
+	aside ul.product_list_widget li > span {
+		display: block;
+		text-align: center;
+		vertical-align: middle;
+	}
+	aside ul.product_list_widget li > span.from {
+		font-size: 0.8rem;
+	}
+	aside ul.product_list_widget li > span.amount {
+		font-size: 1.2rem;
+		font-weight: 700;
+		
+	}
+	aside ul.product_list_widget li > a {
+		display: block;
+		border-bottom: none;
+
+	}
+	aside ul.product_list_widget li > a > span.product-title {
+		display: inline-block;
+		text-align: center;
+		max-width: calc(100% - 7rem);
+		vertical-align: middle;
+		float: none;
+		widows: 100%;
+	}
+	aside ul.product_list_widget li > a > img {
+		width: 5rem;
+		height: 5rem;
+		display: inline-block;
+		vertical-align: middle;
+		float: none;
+	}
+	
+	
+	
+	/* Secundus / Left-siderbar Shopping Cart */
+	aside.secundus ul.woocommerce-mini-cart {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	aside.secundus  ul.woocommerce-mini-cart > li {
+		flex: 1 1 auto;
+		display: block;
+		width: auto;
+		margin: 0rem;
+		padding: 0;
+		overflow: hidden;
+
+	}
+	aside.secundus  ul.woocommerce-mini-cart > li + li {
+		margin-top: 1rem;
+	}
+
+	aside.secundus li ul.wc_mini_cart_product_details {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li {
+		flex: 1 1 7rem;
+		font-size: 0.8rem;
+	}
+	
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_image img {
+		width: 5rem;
+		height: 5rem;
+		float: none;
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_composite_summary span.wc_composite_details_cart_summary {
+		padding: 0.25rem;
+		font-size: 0.6rem;
+		font-style: italic;
+	}
+
+	aside.secundus ul.wc_mini_cart_product_details li.wc_mini_cart_product_remove {
+		order: 1;
+		align-self: flex-start;
+		flex: 0 0 14rem;
+		height: 1.5rem;
+		margin: 0;
+		padding: 0;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_quantity {
+		order: 3;
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_image {
+		order: 2;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_product_name {
+		order: 4;
+		flex: 0 0 14rem;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_item_data {
+		flex: 0 0 14rem;
+		order: 5;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_item_price {
+		order: 7;
+	}
+	aside.secundus li ul.wc_mini_cart_product_details li.wc_cart_composite_summary {
+		order: 9;
+	}
+	
+	aside.secundus p.woocommerce-mini-cart__total {
+		margin-top: 1rem;
+		text-align: center;
+		border-top: 2px solid #aaaaaa;
+		border-bottom: 2px solid #aaaaaa;
+	}
+	aside.secundus p.woocommerce-mini-cart__buttons {
+		margin: 1rem 0 1rem 0;
+		padding: 0.5rem;
+	}
+	aside.secundus p.woocommerce-mini-cart__buttons a {
+		display: block;
+		margin: 0.5rem auto;
+	}
+
+
+	/** 
+	*** 		Wishlist  Add-on  
+	**/
+
+	#wl-wrapper {
+	}
+	#wl-wrapper wl-row {
+		margin-top: 1rem;
+	}
+	#wl-wrapper > form {
+	}
+	#wl-wrapper .wl-table .wl-privacy-col {
+		display: none;
+	}
+	#wl-wrapper .wl-table .row-actions {
+		display: none;
+	}
+	#wl-wrapper .wl-table tr.tbodyChild {
+		border: none;
+	}
+	#wl-wrapper .wl-table tr.tbodyChild {
+		padding: 0.5rem 0 0.5rem 0;
+	}
+
+	#wl-wrapper .wl-table tr.tbodyChild input.wl-but {
+		display: none;
+	}
+/* ---- >>>>>    Media Queries <<<<<     ----- */
+	/* Default CSS designed for smallest screen width - 320px - and media queries adapt to larger sizes */ 	
+
+	/* One column */
+		@media (min-width: 20rem) {
+		
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding */
+		@media (min-width: 44rem) {
+			/* Switch to wrapping rows */
+			.woocommerce ul.products {
+				flex-flow: row wrap;
+			}
+
+			.tregenza_one_wc_product_block {
+				flex: 0 0 20rem;
+			}
+
+			article.type-product .tregenza_one_wc_product_block.tregenza_one_product_title {
+
+				height: 20rem;
+				background-color: #bced09;
+				border-radius: 50%;
+	
+				display: flex;
+				align-items: center;
+				justify-content: center
+	
+			}
+			article.type-product  .tregenza_one_wc_product_block.tregenza_one_product_title h1 {
+				margin: 0;
+				padding: 2rem;
+				font-size: 3rem;
+			}
+
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding) plus two 10rem columns (plus some padding) */
+		@media (min-width: 64rem) {
+			#wrapper > #container >   aside.secundus, #wrapper > #container >   aside.tertius {
+				display: flex;	 
+			}
+		}
+	
+		@media (min-width: 1200px) {
+		
+		}

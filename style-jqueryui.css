@@ -1,0 +1,83 @@
+/***
+*
+*			Overrided Jquery UI CSS as required. Standard Wordpress/JqueryUI.css loaded by theme 
+*
+*
+***/
+
+.ui-helper-reset {
+
+}
+.ui-widget {
+	font-family: inherit;
+	font-size: 1rem;
+	background: none;
+}
+.ui-widget-content {
+	background: none;
+	border: none;
+}
+
+.ui-state-default {
+	border: none;
+	background-color: inherit;
+	color: inherit;
+	background: none;
+}
+
+.ui-corner-all {
+
+}
+.ui-state-default .ui-icon {
+	background-image: none;
+}
+.ui-state-hover .ui-icon {
+	background-image: none;
+}
+.ui-icon-triangle-1-e {
+	/* http://apps.eky.hk/css-triangle-generator/ */
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0.5rem 0 0.5rem 1rem;
+	border-color: transparent transparent transparent #007bff;
+	border-radius: 0.25rem;
+}
+.ui-icon-triangle-1-s {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 1rem 0.5rem 0 0.5rem;
+	border-color: #007bff transparent transparent transparent;
+	border-radius: 0.25rem;
+}
+
+.ui-icon {
+
+}
+
+
+/* ---- Links--- */
+
+	/*** See style-navigation.css **/
+
+/*** Accordion ***/
+
+	.ui-accordion .ui-accordion-icons {
+	
+	}
+	.ui-accordion .ui-accordion-header {
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		/* Colour set via customisation */ 
+	}
+	.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	
+	}
+	
+	.ui-accordion .ui-accordion-content {
+		padding: 0.5rem; 	/* Default padding too large for small screens */
+	
+	}
+
+

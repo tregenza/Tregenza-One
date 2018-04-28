@@ -1,0 +1,179 @@
+/*  Tregenza-One Customise Defaults */
+
+/* Contains the CSS which will be overwritten by theme customisation options and  tregenza-one functions.php */
+
+/* ------------ Default for all elements ------------- */
+
+	/* Basic Colours */
+	body {
+		color: #000000;
+		background-color: #ffffff;
+	}
+	
+	/* Force everything to inherrit unless later overridden */
+	body * {
+		color: inherit;
+/*		background-color: inherit; */
+	}
+
+/* ------------ Colour Classes defaults ------------- */
+
+
+	/* Theme Colours */
+		.customColour {					/* Main Text Colour */
+			color: #111111; 
+		}
+		.customBackgroundColour {					/* Main Background Colour */
+			background-color: #f0f0f0; 
+		}
+
+		.additional-fg {
+			color: #777777; 
+		}
+		.additional-bg {
+			background-color: #777777; 
+		}
+
+	/* Brand Colours */
+		.brand-fg {
+			color: #3377aa; 
+		}
+		.brand-bg {
+			background-color: #77aadd; 			/* Branding Bar Background Colour */
+		}
+
+	/* Nav Colours */
+		.navTextColour {
+			color: #f1c40f; 
+		}
+		.navBackgroundColour {
+			color: #403f4c; 
+		}
+		.navHoverColour {
+			background-color: #DD3E74; 
+		}
+
+	/* Action / Button Colours */
+		.buttonTextColour {
+			color: #90c2e7; 
+		}
+		.buttonBackgroundColour {
+			color: #172a3a; 
+		}
+		.buttonHoverColour {
+			background-color: #00a9a5; 
+		}
+
+
+
+	/* Hamburger Menu Colours */
+
+		.hamburgerMenucontainer > ul.menu  a {
+			color: #f1c40f; /* navTextColour */
+			background-color: #403f4c; /* navBackgroundColour */
+		}
+		.hamburgerMenucontainer > ul.menu  a:hover {
+				background-color: #DD3E74; /* navHoverColour */
+		}
+
+
+	/* Basic text colours */
+
+		a,   a:link,   a:visited  {
+			border-bottom-size: 1px;
+			border-bottom-style: solid; 
+			color: #0c0c0c; /* linkTextColour */
+			border-bottom-color: #403f4c;  /* navBackgroundColour */
+			font-weight: bold;
+		}
+		a:hover  {
+			border-bottom-color: #DD3E74;  /* navHoverColour  */
+			color: #403f4c;  /* navBackgroundColour */
+			font-weight: bold;
+		}
+		
+		table   {
+		}
+		
+		table > thead > tr > th   {
+			color: #f0f0f0;	/* customBackgroundColour */
+			background-color: #111111; /* customColour */
+		}
+	
+		table :not(thead) tr {
+			border-bottom-color: #777777; /* additionalColour */
+	
+		}
+
+	/*** Forms ***/	
+	
+	button, input[type="button"], input[type="submit"], input[type="reset"], a.button   	{
+		color: #90c2e7; 	/* buttonTextColour */
+		background-color: #172a3a; 		/* buttonBackground Colour*/
+	}
+	
+	button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, a.button:hover {
+		background-color: #00a9a5;		/* buttonHoverColour */
+	}
+		
+
+	input, textarea, input[type="number"], select {
+		color: 	#f0f0f0			/* Custom background */
+		background-color: #111111;	/* Custom colour */
+	}
+	
+	select:hover {
+		border: 1px solid #00a9a5;		/* buttonHoverColour */
+	}
+
+
+	label {
+		color: #111111;				/* Customer Text */
+	}
+	
+
+
+
+
+
+
+/* Woocommerce */
+
+	.woocommerce a.button, article .woocommerce a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+			color: #90c2e7; 	/* buttonTextColour */
+			background-color: #172a3a; 		/* buttonBackground Colour*/
+	}
+
+
+	.woocommerce a.button:hover ,article .woocommerce a.button:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover  {
+			background-color: #00a9a5;		/* buttonHoverColour */
+	}
+
+
+
+
+/* --- Background images ---- */
+
+	body #wrapper {
+	
+		background-color: transparent;
+/*		background-image: url(http://wilsons.trade/wp-content/themes/Tregenza-One-Wilsons-Trade/art/DogTest2-25.png); 
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		background-image-opacity: 0.1;
+*/	
+
+/*		background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(http://wilsons.trade/wp-content/uploads/sites/8/2017/09/island-with-stoves-and-shelving2.png); 
+		background-repeat: no-repeat no-repeat;
+		background-size: cover, cover;
+		background-position: center, center;
+		background-attachment: fixed, fixed;
+*/
+	}
+
+	.tregenzaOneAside, #content {
+		background-color: rgba(255,255,255, 0.8);
+	}
+
