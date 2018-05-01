@@ -130,36 +130,71 @@ body {
 		max-width: 20rem;
 	}
 
-/*** Flex behaviour for #container elements ***/
+/*** Behaviour for #container elements ***/
 
 
 	#wrapper > #container {
 		display: flex; 
 		flex-flow: row nowrap;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		align-items: flex-start;
 		align-content: space-around;
+
+
+}
+	/* Positioning */
+	#wrapper > #container #content {
+		margin-bottom: 1rem;
+
+	}
+
+	#wrapper > #container aside.secundus {
+		margin-bottom: 1rem;
+
+	}
+
+	#wrapper > #container aside.tertius {
+		margin-bottom: 1rem;
+	}
+
+/* Sizing */
+	#wrapper > #container #content {
+		min-width: 20rem;
+		max-width: 42rem;		/* Wide enough for 640px content with space for padding */
 	}
 
 	#wrapper > #container aside {
+		flex: 1 1 14rem;
+		max-width: 20rem;
+		min-width: 14rem;
+	}
+
+
+
+	#wrapper > #container aside {
 		flex: 0 0 auto;
-		width: 14rem;
 	}
 	
 	#wrapper > #container aside.secundus {
 		display: none;
 		order: 1; 
+		
 	}
 
 	#wrapper > #container #content {
 		flex: 1 1 auto;
 		order: 2;
-		max-width: 42rem;		/* Wide enough for 640px content with space for padding */
+
+
 	}
+	
 
 	#wrapper > #container aside.tertius {
 		display: none;
 		order: 3;
+
+
+
 	}
 
 
@@ -174,7 +209,7 @@ body {
 		display: none;	/* Defualt to hidden - display based on media queries */
 	}
 
-	#wrapper > #container > aside, #wrapper > #container > #content  {
+	#wrapper > #container > aside  {
 		margin-left: 0.25rem;
 		margin-right: 0.25rem;
 		margin-bottom: 1rem;
@@ -196,9 +231,6 @@ body {
 		max-width: 100%;
 	}
 
-	#wrapper > #container > #content {
-		border-radius: 0.25rem;
-	}
 
 
 
