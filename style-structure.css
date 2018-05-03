@@ -91,44 +91,26 @@ body {
 		min-width: 2rem;
 		padding: 0.25rem;
 	}
-	#wrapper > #header > #brandingMinor {
-		height: 1.75rem;
-		display: block;
-		vertical-align: middle;
-		padding: 0;
-		margin: 0;
-	}
-	#wrapper > #header > #brandingMinor > #siteTagLine {
-		/* Needs to match #site-title width etc so that the centered text aligns */
-		display: block;
-		height: 1.75rem;
-		padding: 0rem 0.5rem 0rem 0.5rem;
+	
+	#wrapper > #header > #branding > #iconBarWrapper {
+		position: absolute;
+		right: 4rem;
+		top: 1rem;
+		height: 2rem;
+		width: 12rem;
 		margin: 0 auto;
-		line-height: 1.5rem;
-		vertical-align: middle;
-		width: calc(100% - 1rem - 4rem - 4rem - 1rem);		/* Allow for margins+ padding and hamburger and logo */
-		font-style: italic;
 	}
 
+	/* Header */
+	
 	#wrapper > #header a {
 		border-bottom: none;
-
+		text-decoration: none;
 	}
 	#wrapper > #header a:hover {
 		color: inherit;
 	}
 
-
-/*** Sizing / Positioning for top level nav elements */
-	#wrapper > #toolbarmenu {
-	}
-	#wrapper > #toolbarmenu .menu {
-		margin: 0 auto;
-		padding: 0;
-	}
-	#wrapper > #toolbarmenu .menu > li {
-		max-width: 20rem;
-	}
 
 /*** Behaviour for #container elements ***/
 
@@ -232,7 +214,38 @@ body {
 	}
 
 
+/*** Sizing & Flex behavior for alternative page templates ***/
 
+		/*Splash Page */
+	.page-template-page-splash #hamburger {
+			display: block;  /* Splash page = no menu so need hamburger */
+		}
+
+	.page-template-page-splash #wrapper > #container {
+		display: block;	
+	}
+
+	.page-template-page-splash #wrapper > #container > #content {
+			width: 100%;
+			max-width: 100%;
+			margin: 0 0;
+		}
+	.page-template-page-splash #wrapper > #container > #content > article {
+			margin: 0 auto;
+		}
+
+		/* Half-Splash Page (No RH sidebar)*/
+	.page-template-page-half-splash #wrapper > #container {
+			justify-content: flex-start;
+	}
+
+	.page-template-page-half-splash #wrapper > #container > #content {
+			width: 100%;
+			max-width: 100%;
+		}
+	.page-template-page-half-splash #wrapper > #container > #content > article {
+			margin: 0 auto;
+		}
 
 
 /* ---- >>>>>    Media Queries <<<<<     ----- */

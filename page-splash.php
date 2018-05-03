@@ -1,13 +1,13 @@
+<?php  
+/* Template Name: Splash (No Sidebars) */
+?>
+<!--- Splash Page Template --->
 <!--- Page - get_header --->
 	<?php 
 		get_header(); 
 	?>
-<!--- Page - get_sidebar --->
-	<?php 
-		get_sidebar("secundus"); 
-	?>
 <!--- Page - section --->
-	<section id="content" role="main" class="tregenza-primus">
+	<section id="content" role="main" class="tregenza-primus page-splash">
 	<?php 
 		if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 	?>
@@ -53,12 +53,6 @@
 ?>
 <!--- Page - section END --->
 </section>
-		<!--- Page - get_sidebar --->
-			<?php 
-				get_sidebar("tertius"); 
-			?>
-
-
 <!--- Page - get_footer --->
 <?php 
 	get_footer(); 

@@ -25,6 +25,21 @@
 				} 
 			?>
 		</div>
+		<!--- Icon Bar --->
+		<div id="iconBarWrapper" >
+				<div id="iconBar">
+					<div id="iconBarOptionA" class="iconBarIcon">
+						<a href="/" class="iconBarHome" title="Home"></a>
+					</div>							
+					<div id="iconBarOptionB" class="iconBarIcon">
+						<a href="/" class="iconBarUser" title="User"></a>
+					</div>							
+					<div id="iconBarOptionC" class="iconBarIcon">
+						<a href="/" class="iconBarCart" title="Checkout"></a>
+					</div>							
+
+				</div>	
+		</div>
 		<div id="site-logo" class="brand-bg">
 		<?php
 			if ( function_exists( 'the_custom_logo' ) ) {
@@ -47,7 +62,7 @@
 <!--- Hamburger Menu --->
 <?php
 
-	echo '<div class="hamburgerMenuWrapper navThree-bg" >';
+	echo '<nav class="hamburgerMenuWrapper " >';
 		echo '<div class="hamburgerMenuBackdrop"></div>';
 
 		if ( is_user_logged_in() ) {
@@ -55,5 +70,15 @@
 		} else {
 			wp_nav_menu( array( 'theme_location' => 'hamburger', 'container_id' => 'hamburgerMenu' , 'container_class' => 'hamburgerMenucontainer' ) ); 
 		}
-	echo '</div>';
+	echo '</nav>';
 ?>
+
+<!--- Menu Bar --->
+<?php 
+	if (has_nav_menu('menubar')) {
+		echo '<nav class="menuBarWrapper">';
+		wp_nav_menu(array( 'theme_location' => 'menubar', 'container_id' => 'menuBar' , 'container_class' => 'menuBarContainer' ) );
+		echo '</nav>';
+	}	
+?>
+

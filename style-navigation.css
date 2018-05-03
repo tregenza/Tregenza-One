@@ -10,9 +10,14 @@
 
 /* ----- Basics  ---- */
 
+		
+
+
 a:link,  a:visited, a:hover  {
 	text-decoration: none;
 	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-style: solid; 
 }
 
 nav {
@@ -42,10 +47,8 @@ nav {
 		padding: 0;
 		display: flex; 
 		flex-flow: column wrap; 
-/*		justify-content: center;
-	    align-items: center;
-		align-content: flex-start;*/
 		min-height: 2rem;
+		
 	}
 	
 	nav ul.menu > li {
@@ -67,14 +70,15 @@ nav {
 		font-weight: 400;
 		line-height: 1.1rem;
 		font-size: 1rem;
-
+		text-decoration: none;
+		border-bottom: none;
 	}
 	nav ul.menu > li > a:hover {
 	
 	}
 
 /* ---- NAV Other ---- */
-	nav#nav-below {
+/*	nav#nav-below {
 		margin-top: 1rem;
 		display: flex;
 		flex-direction: row;
@@ -87,6 +91,64 @@ nav {
 	nav#nav-below > * {
 		flex 1 1 auto;
 		margin: auto 1rem;
+	}
+*/
+/*----- Icon Bar ----- */
+	#iconBarWrapper {
+		overflow: hidden;
+
+	}
+	#iconBarWrapper .iconBarIcon {
+		width: 2rem;
+		height: 2rem;
+		display: inline-block;
+		text-align: right;
+		margin: 0 0.25rem 0 0;
+	}
+
+	#iconBarWrapper .iconBarIcon > a {
+			padding: 0;
+			margin: 0;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			width:100%;
+			height: 100%;
+			display: inline-block;	 			
+	}
+
+
+	.iconBarHome 	{
+			background: url('./images/iconBar-Home.png') ;	
+	}
+	.iconBarUser 	{
+			background: url('./images/iconBar-User.png');	
+	}
+	.iconBarCart 	{
+			background: url('./images/iconBar-Cart.png');	
+	}
+
+
+/*----- Menu Bar ----- */
+	nav.menuBarWrapper {
+	}
+	nav.menuBarWrapper ul.menu {
+		margin: 0 auto;
+		padding: 0;
+		flex-flow: row wrap;
+		justify-content: center;
+	 align-items: center;
+		align-content: center;
+	}
+	nav.menuBarWrapper ul.menu > li.menu-item {
+		flex: 0 0 10rem;
+		height: 2.3rem;
+		border: 2px solid rgba(0,0,0,0.25);
+		border-radius: 2px;
+	}
+	nav.menuBarWrapper ul.menu > li.menu-item a {
+		font-weight: 300;
+		border-radius: 2px;
 	}
 
 

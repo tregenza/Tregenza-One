@@ -1,3 +1,7 @@
+<?php  
+/* Template Name: Half-Splash (No Righthand Sidebar) */
+?>
+<!--- Half-Splash Template --->
 <!--- Page - get_header --->
 	<?php 
 		get_header(); 
@@ -53,12 +57,6 @@
 ?>
 <!--- Page - section END --->
 </section>
-		<!--- Page - get_sidebar --->
-			<?php 
-				get_sidebar("tertius"); 
-			?>
-
-
 <!--- Page - get_footer --->
 <?php 
 	get_footer(); 

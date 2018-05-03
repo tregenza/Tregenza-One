@@ -18,7 +18,7 @@
 /* ----- Article Heading ---- */
 
 	article > header  {
-		margin-top: 1rem;
+		margin-top: 0rem;
 	}
 	article > header > *  {
 		padding: 0 0.5rem 0 0.5rem;
@@ -400,4 +400,3 @@ body.search-results section#content hr:last-of-type {
 		@media (min-width: 1200px) {
 		
 		}
-

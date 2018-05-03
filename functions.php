@@ -177,7 +177,7 @@ return $count;
 		) );
 	
 		$wp_customize->add_setting( 'backgroundcolour' , array(
-		    'default'   => '#f0f0f0',
+		    'default'   => '#ffffff',
 		    'transport' => 'refresh',
 		    'type' => 'theme_mod'
 		) );
@@ -364,12 +364,12 @@ return $count;
 		/* Set up CSS for colours */
 	
 		$customColour = get_theme_mod('textcolour', '#111111');
-		$customBackgroundColour= get_theme_mod('backgroundcolour', '#f0f0f0');
+		$customBackgroundColour= get_theme_mod('backgroundcolour', '#ffffff');
 	
 		$brand = get_theme_mod('brandcolour', '#77aadd');
 
 		$linkText = get_theme_mod('linktextcolour', '#0c0c0c');
-		$linkUnderlineColour = get_theme_mod('linkunderlinecolour', '#403f4c');
+		$linkUnderlineColour = get_theme_mod('linkunderlinecolour', '#90c2e7');
 
 	
 		$navTextColour = get_theme_mod('navtextcolour', '#ffffff');
@@ -403,25 +403,15 @@ return $count;
 			background-color: $brand; 			/* Branding Bar Background Colour */
 		}
 
-	/* Link Colours */
-		.linkTextColour {
-			color: $linkText; 
-		}
-		.linkUnderlineColour {
-			color: $linkUnderlineColour; 
-		}
-		.navHoverColour {
-			background-color: $navHoverColour; 
-		}
 
 	/* Nav Colours */
-		.navTextColour {
+		nav a.navTextColour {
 			color: $navTextColour; 
 		}
-		.navBackgroundColour {
-			color: $navBackgroundColour; 
+		nav a.navBackgroundColour {
+			background-color: $navBackgroundColour; 
 		}
-		.navHoverColour {
+		nav a.navHoverColour:background {
 			background-color: $navHoverColour; 
 		}
 
@@ -432,22 +422,26 @@ return $count;
 		.buttonBackgroundColour {
 			color: $buttonBackgroundColour; 
 		}
-		.buttonHoverColour {
+		a.buttonHoverColour:hover {
 			background-color: $buttonHoverColour; 
 		}
 
 
+	/* Menubar Colours */
+	nav.menuBarWrapper {
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba( 0,0,0, 0.25)), $brand;  /* Brand Colour */
+	}
 
 
 
 	/* Hamburger Menu Colours */
 
 		.hamburgerMenucontainer > ul.menu  a {
-			color: $navTextColour; /* navTextColour */
-			background-color: $navBackgroundColour; /* navBackgroundColour */
+/*			color: $navTextColour; /* navTextColour */
+/*			background-color: $navBackgroundColour; /* navBackgroundColour */
 		}
 		.hamburgerMenucontainer > ul.menu  a:hover {
-			background-color: $navHoverColour; /* navHoverColour */
+/*			background-color: $navHoverColour; /* navHoverColour */
 		}
 
 
@@ -456,12 +450,10 @@ return $count;
 		a, a:link, a:visited  {
 			color: $linkText; /* linkTextColour */
 			border-bottom-color: $linkUnderlineColour;  /* linkUnderlineColour */
-			font-weight: bold;
 		}
 		a:hover  {
-			border-bottom-color: $linkUnderlineColour;  /* linkUnderlineColour */
-			color:  $linkUnderlineColour;  /* linkUnderlineColour */
-			font-weight: bold;
+			background-color: $navHoverColour;  /* Nav Hover Colour */
+			color:  $navTextColour;  /* Nav Text Colour */
 		}
 		
 		table   {
@@ -587,7 +579,9 @@ EOT;
 			array( 
 /*				'default_toolbar' => 'Page Menu', */
 				'hamburger' => 'Navigation [Logged Out]',
-				'hamburgerLoggedIn' => 'Navigation [Logged In]'
+				'hamburgerLoggedIn' => 'Navigation [Logged In]',
+				'menubar' => 'Menu Bar',
+				'footerMenu' => 'Footer Menu'
 			)
 		);
 	}
@@ -645,6 +639,12 @@ EOT;
 	add_filter('dynamic_sidebar_params','sidebar_widgets_class');
 
 
+		/* Add classes to nav menu links */
+		function addMenuAnchorClass($atts, $item, $args){
+			$atts['class'] = "navTextColour navBackgroundColour navHoverColour";
+			return $atts;
+		}
+		add_filter('nav_menu_link_attributes', 'addMenuAnchorClass', 10, 3);
 
 	/* Collapisble Page Header */
 /*	function outputCollapsibleHeader() {
@@ -668,8 +668,8 @@ EOT;
 		echo '</div>';
 		echo '</nav>';
 	}
-*/	add_action('tregenzaOneCollapsibleHeaderContent', 'pageLevelNav', 10 );
-
+	add_action('tregenzaOneCollapsibleHeaderContent', 'pageLevelNav', 10 );
+*/
 	
 	/* Add Standard menu to page navigation block */
 /*	function toolbarAdditional() {

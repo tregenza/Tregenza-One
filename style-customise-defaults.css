@@ -24,7 +24,7 @@
 			color: #111111; 
 		}
 		.customBackgroundColour {					/* Main Background Colour */
-			background-color: #f0f0f0; 
+			background-color: #ffffff; 
 		}
 
 		.additional-fg {
@@ -43,14 +43,14 @@
 		}
 
 	/* Nav Colours */
-		.navTextColour {
-			color: #f1c40f; 
+		nav a.navTextColour {
+			color: #ffffff; 
 		}
-		.navBackgroundColour {
-			color: #403f4c; 
+		nav a.navBackgroundColour {
+			background-color: #403f4c; 
 		}
-		.navHoverColour {
-			background-color: #DD3E74; 
+		a.navHoverColour:hover {
+			background-color: #90c2e7; 
 		}
 
 	/* Action / Button Colours */
@@ -58,38 +58,37 @@
 			color: #90c2e7; 
 		}
 		.buttonBackgroundColour {
-			color: #172a3a; 
+			background-color: #172a3a; 
 		}
 		.buttonHoverColour {
 			background-color: #00a9a5; 
 		}
 
 
-
 	/* Hamburger Menu Colours */
 
 		.hamburgerMenucontainer > ul.menu  a {
-			color: #f1c40f; /* navTextColour */
-			background-color: #403f4c; /* navBackgroundColour */
+/*			color: #f1c40f; /* navTextColour */
+/*			background-color: #403f4c; /* navBackgroundColour */
 		}
-		.hamburgerMenucontainer > ul.menu  a:hover {
-				background-color: #DD3E74; /* navHoverColour */
+/*		.hamburgerMenucontainer > ul.menu  a:hover {
+/*				background-color: #DD3E74; /* navHoverColour */
 		}
 
+	/* Menubar Colours */
+	nav.menuBarWrapper {
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba( 0,0,0, 0.25)), #77aadd;  /* Brand Colour */
+	}
 
 	/* Basic text colours */
 
 		a,   a:link,   a:visited  {
-			border-bottom-size: 1px;
-			border-bottom-style: solid; 
 			color: #0c0c0c; /* linkTextColour */
-			border-bottom-color: #403f4c;  /* navBackgroundColour */
-			font-weight: bold;
+			border-bottom-color: #90c2e7;  /* navBackgroundColour */
 		}
 		a:hover  {
-			border-bottom-color: #DD3E74;  /* navHoverColour  */
-			color: #403f4c;  /* navBackgroundColour */
-			font-weight: bold;
+			background-color: #90c2e7;  /* navHoverColour  */
+			color: #ffffff;  /* navtextColour */
 		}
 		
 		table   {
@@ -180,7 +179,7 @@
 
 /* ----- EXPERIMENT ------- */
 #wrapper > #container > aside.secundus {
-	background-color: #77aadd;	
+	background-color: #ffffff;	
 }
 #wrapper > #container > aside.tertius {
 	background-color: #ffffff;	
