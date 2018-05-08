@@ -1,35 +1,25 @@
-<!--- Index - get_header -->
+<!--- Index - get_header --->
 <?php 
-	get_header(); 
+	get_template_part('/template-parts/header/header'); 
 ?>
-<!--- Index - get_sidebar -->
+<!--- Index - get_sidebar --->
 <?php 
-	get_sidebar(); 
+	get_template_part('/template-parts/sidebar/secundus'); 
 ?>
-<!--- Index - section start -->
-<section id="content" role="main">
-<?php 
-	if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-?>
-<!--- Index - get_template_part-entry -->
-<?php 
-	get_template_part( 'entry' ); 
-?>
-<!--- Index - comments_template -->
-<?php 
-	comments_template(); 
-?>
-<?php 
-	endwhile; 
-	endif; 
-?>
-<!--- Index - get_template_part-nav-below -->
-<?php 
-	get_template_part( 'nav', 'below' ); 
-?>
-<!--- Index - section-end -->
+<!--- Index - section --->
+<section id="content" role="main" class="tregenza-primus">
+	<?php 
+		get_template_part( 'template-parts/loop/loop' ); 
+	?>
+<!---- Index - Archive Navigation ---->
+	<?php get_template_part( '/template-parts/loop/nav', 'below' ); ?>
+<!--- Index - section END --->
 </section>
-<!--- Index - get_footer -->
+<!--- Index - get_sidebar --->
+	<?php 
+		get_template_part('/template-parts/sidebar/tertius'); 
+	?>
+<!--- Index - get_footer --->
 <?php 
-	get_footer(); 
+		get_template_part('/template-parts/footer/footer'); 
 ?>

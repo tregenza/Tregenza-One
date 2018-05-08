@@ -15,6 +15,19 @@
 	}
 
 
+
+/* Structural elements on default index / archive content pages */
+
+	body.blog  article.post + article.post {
+	}
+
+	body.blog .postSeparator {
+		height: .5rem;
+		width: 100%;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		border-radius: 0.25rem;
+	}
 /* ----- Article Heading ---- */
 
 	article > header  {
@@ -43,16 +56,16 @@
 
 /* ----- Article Section TEXT FORMATING ---- */
 
-	article > section   {
+	#content article > section   {
 		margin-top: 0.5rem;
 	}
 
-	article p {
+	#content article p {
 		font-size: 1rem;
 		line-height: 120%;
 		margin-top: 0.5rem;
 	}
-	article > section > p:first-of-type {
+	#content article > section > p:first-of-type {
 		font-size: 1.2rem;
 		line-height: 120%;
 		letter-spacing: 0.1rem;
@@ -95,23 +108,29 @@
 	
 	
 	
-	article p{
+	#content article p{
 		margin-top: 0.5em;
 	}
-	article ul, article ol {
+	#content article ul, #content article ol {
 	}
-	article ul li {
+	#content article ul li {
 		list-style-type: circle;
 	}
-	article ul ul li {
+	#content article ul ul li {
 		list-style-type: disc;
 	}
-	article  ol li {
+	#content article  ol li {
 		list-style-type: decimal;
 	}
-	article  ol ol li {
+	#content article  ol ol li {
 		list-style-type: lower-alpha;
 	}
+
+	#content article p a {
+		padding: 0;
+	}
+
+
 
 /* ----- Content ---- TABLE FORMATING ---- */
 
@@ -253,6 +272,8 @@ body.blog >  article.post > footer {
 body.blog >  article.post > footer > span {
 	font-size: 0.8rem;
 }
+
+
 
 /* ----- Content ---- Search Results ---- */
 

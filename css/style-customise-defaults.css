@@ -179,9 +179,14 @@
 
 /* ----- EXPERIMENT ------- */
 #wrapper > #container > aside.secundus {
-	background-color: #ffffff;	
+	background-color: #333333;	
 }
 #wrapper > #container > aside.tertius {
 	background-color: #ffffff;	
 }
+
+body.blog .postSeparator {
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%), #77aadd;
+}
+
 

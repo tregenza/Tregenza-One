@@ -202,7 +202,7 @@ body {
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: stretch;
-		align-content: center;
+		align-content: flex-start;
 
 	}
 
@@ -213,38 +213,52 @@ body {
 		max-width: 100%;
 	}
 
+	/* Secundus	 */
+	#wrapper > #container > aside.secundus {
+		margin-top: 0;
+		margin-left: 0;
+		border-right: 2px solid #aaaaaa;
+		align-self: stretch;
+	}	
+
 
 /*** Sizing & Flex behavior for alternative page templates ***/
 
 		/*Splash Page */
-	.page-template-page-splash #hamburger {
+	.page-template-template-splash #hamburger {
 			display: block;  /* Splash page = no menu so need hamburger */
 		}
 
-	.page-template-page-splash #wrapper > #container {
+	.page-template-template-splash #wrapper > #container {
 		display: block;	
 	}
 
-	.page-template-page-splash #wrapper > #container > #content {
+	.page-template-template-splash #wrapper > #container > #content {
 			width: 100%;
 			max-width: 100%;
 			margin: 0 0;
 		}
-	.page-template-page-splash #wrapper > #container > #content > article {
+	.page-template-template-splash #wrapper > #container > #content > article {
 			margin: 0 auto;
+		}
+	.page-template-template-splash #wrapper > #container > #content > article > section {
+			padding: 0;
 		}
 
 		/* Half-Splash Page (No RH sidebar)*/
-	.page-template-page-half-splash #wrapper > #container {
+	.page-template-template-half-splash #wrapper > #container {
 			justify-content: flex-start;
 	}
 
-	.page-template-page-half-splash #wrapper > #container > #content {
+	.page-template-template-half-splash #wrapper > #container > #content {
 			width: 100%;
 			max-width: 100%;
 		}
-	.page-template-page-half-splash #wrapper > #container > #content > article {
+	.page-template-template-half-splash #wrapper > #container > #content > article {
 			margin: 0 auto;
+		}
+	.page-template-template-splash #wrapper > #container > #content > article > section{
+			padding: 0;
 		}
 
 
