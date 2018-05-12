@@ -22,111 +22,216 @@
 	}
 
 	body.blog .postSeparator {
-		height: .5rem;
+/*		height: .5rem; */
 		width: 100%;
 		margin-top: 1.5rem;
 		margin-bottom: 1.5rem;
 		border-radius: 0.25rem;
 	}
-/* ----- Article Heading ---- */
 
-	article > header  {
-		margin-top: 0rem;
-	}
-	article > header > *  {
-		padding: 0 0.5rem 0 0.5rem;
-	}
-	article > header > img:first-of-type {
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
-	article > header > h1:first-of-type, article > header > h2:first-of-type {
-		font-size: 2rem;
-		line-height: 110%;
-		margin-top: 0.25rem;
+/* ----  Content Blocks ---- */
+	/* Generic post/entry block flex & sizing */
+
+		.tregenza_one_block {
+			min-width: 10rem;
+			flex: 1 1 10rem;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-content: stretch;
+			align-items: stretch;
+
+			margin: 0rem auto 0rem auto;
+			padding: 0rem;
+			
+			box-sizing: border-box; 
+
+		}
+		.tregenza_one_block:empty {
+			display: none;
+		}
+
+		.tregenza_one_block > * {
+		}
+
+	/* Post blocks order & size */ 
+	.tregenza_one_block_thumbnail {
+		order: 1;
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 
-/* ----- Article Section ---- */ 
-	article > section {
+	.tregenza_one_block_title {
+		order: 2;
+		flex: 0 0 100%;
+	}
+
+	.tregenza_one_block_content {
+		order: 3;
+		flex: 0 0 100%;
+	}
+
+	.tregenza_one_block_entrylinks {
+		order: 4;
+	}
+
+	.tregenza_one_block_entrydate {
+		order: 0;
+		flex: 0 0 100%;
+	}
+
+	.tregenza_one_block_entryauthor {
+		order: 9; 
+		flex: 0 0 100%;
+	}
+
+	.tregenza_one_block_entrycategory {
+		order:6;
+	}
+
+	.tregenza_one_block_entrytags {
+		order: 7;
+	}
+
+	.tregenza_one_block_comments {
+		order: 19;
+	}
+	/*Combined Tags / category position / size so they look / behave the same */
+	.tregenza_one_block_entrycategory, 	.tregenza_one_block_entrytags {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+
+
+	/* Post blocks styling */ 
+	article.tregenza_one_block > .tregenza_one_block {
+		margin-bottom: 0.5rem;
+	}
+	.tregenza_one_block_title {			
+	}
+	.tregenza_one_block_title > * {	
+			width: 100%;
+	}		
+	.tregenza_one_block_thumbnail  {
+		align-self: center;
+	}
+	.tregenza_one_block_thumbnail img {
+			display: block;
+			margin: 0 auto;
+ }
+	.tregenza_one_block_thumbnail img.wideThumbnail {
+			max-height: 10rem;			/*Default for small screens. See @media */
+			height: auto;
+			width: auto;
+	}
+	.tregenza_one_block_thumbnail img.squareThumbnail {
+			max-width: 20rem;
+			max-height: 20rem;
+			height: auto;
+			width: auto;
+
+	}
+	.tregenza_one_block_thumbnail img.tallThumbnail {
+			max-height: 20rem;
+			height: 100%;
+			width: auto;	
+	}
+
+	.tregenza_one_block_entrydate {
+		font-style: italic;
+		font-size: 0.75rem;
+		color: #777777;
+		line-height: 1.25rem;		
+	}
+
+	.tregenza_one_block_entryauthor {
+		font-style: italic;
+		font-size: 0.75rem;
+		color: #777777;
+		line-height: 1.25rem;		
+
+		padding-top: 0.25rem;
 		margin-top: 1rem;
-		padding: 0 1rem 0 1rem;
+		border-top: 1px solid #aaaaaa;
+		line-height: 1rem;
+ }
+	.tregenza_one_block_entryauthor .authorPreface {
+		display: block;
+		margin: 0rem 0.25rem 0 auto;
+		line-height: 1rem;
+		padding-top: 0.25rem;
+	}
+	.tregenza_one_block_entryauthor a {
+		border: none;
+		text-decoration: none;
+	}
+
+	/*Combined Tags / category styling so they look / behave the same */
+ .tregenza_one_block_entrytags , .tregenza_one_block_entrycategory {
+		line-height: 1rem;
+	}
+
+	/* Category only styling */
+	.tregenza_one_block_entrycategory {
+	}
+	.tregenza_one_block_entrycategory  ul.post-categories  {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;		
+		line-height: 1rem;
+	}
+	.tregenza_one_block_entrycategory  ul.post-categories  li {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0.75rem;
+		display: inline-block;
+	}
+
+	/* Tag only styling */
+	.tregenza_one_block_entrytags {
 	}
 
 
-/* ----- Article Section TEXT FORMATING ---- */
-
-	#content article > section   {
-		margin-top: 0.5rem;
+	.tregenza_one_block_entrydate  {
+			padding-bottom: 0.25rem;
+			margin: 1rem 0 1rem 0;
+			border-bottom: 1px solid #3377aa;
+		}
+	.tregenza_one_block_content {
 	}
 
-	#content article p {
+/* ----- Post Content TEXT FORMATING ---- */
+
+	article 	.tregenza_one_block_content p {
 		font-size: 1rem;
 		line-height: 120%;
 		margin-top: 0.5rem;
 	}
-	#content article > section > p:first-of-type {
+	article 	.tregenza_one_block_content > p:first-of-type {
 		font-size: 1.2rem;
 		line-height: 120%;
 		letter-spacing: 0.1rem;
 		font-weight: 300;
 	}
 
-/*
-	article h1, article h2, article h3, article h4, article h5, article h6 {
-		margin-top: 0.5rem;
-	}
-	article h1, article h2, article h3 {
-		text-align: center;
-	}
-	article h1 {
-		font-size: 2rem;
-		line-height: 150%;
-	}
-	article h2 {
-		font-size: 1.6rem;
-		line-height: 120%
-	}
-	article h3 {
-		font-size: 1.4rem;
-		line-height: 120%
-	}
-	article h4 {
-		font-size: 1.2rem;
-		line-height: 150%
-	}
 	
-	article > section > h1:first-child, article > section > h2:first-child, article > section > h3:first-child {
-		margin-top: 1rem;
+		article 	.tregenza_one_block_content  ul, 	article 	.tregenza_one_block_content  ol {
 	}
-*/	
-	
-	body.blog article header .entry-title, body.single article header .entry-title {
-	
-	}
-	
-	
-	
-	
-	#content article p{
-		margin-top: 0.5em;
-	}
-	#content article ul, #content article ol {
-	}
-	#content article ul li {
+		article 	.tregenza_one_block_content  ul li {
 		list-style-type: circle;
 	}
-	#content article ul ul li {
+		article 	.tregenza_one_block_content  ul ul li {
 		list-style-type: disc;
 	}
-	#content article  ol li {
+		article 	.tregenza_one_block_content   ol li {
 		list-style-type: decimal;
 	}
-	#content article  ol ol li {
+		article 	.tregenza_one_block_content  ol ol li {
 		list-style-type: lower-alpha;
 	}
 
-	#content article p a {
+		article 	.tregenza_one_block_content  a {
 		padding: 0;
 	}
 
@@ -246,33 +351,11 @@
 
 /* ----- Content ---- BLOG ---- */
 
-
-body.blog >  article.post {
-	border-bottom: 1px solid #777777;
-	padding-bottom: 1rem;
-
-}
-body.blog >  article.post > header > section.entry-meta  {
-	padding: 0 1rem;
-	margin: 0;
-}
-body.blog >  article.post > header > section.entry-meta > span {
-	text-align: right;
-	display: inline-block;
-	width: 100%;
-	font-size: 0.8rem;
+body.blog  article.post {
 }
 
-body.blog >  article.post > footer {
-	padding: 0 1rem;
-	margin: 0;	
-	text-align: right;
-
+body.blog  article.post > * {
 }
-body.blog >  article.post > footer > span {
-	font-size: 0.8rem;
-}
-
 
 
 /* ----- Content ---- Search Results ---- */
@@ -390,16 +473,10 @@ body.search-results section#content hr:last-of-type {
 	
 	/* Allow one full width content block (640px plus an allowance for padding */
 		@media (min-width: 44rem) {
-/*			
-			article table {
-				display: flex;
-			 	flex-flow: row wrap; 	
-				justify-content: center;
-				align-items: stretch;
-				align-content: stretch;
+			.tregenza_one_block_thumbnail img.wideThumbnail {
+					max-height: 20rem;
 			}
-*/		
-		
+
 			article table tr {
 				display: flex;
 				flex-flow: row wrap;
@@ -415,7 +492,9 @@ body.search-results section#content hr:last-of-type {
 	
 	/* Allow one full width content block (640px plus an allowance for padding) plus two 10rem columns (plus some padding) */
 		@media (min-width: 64rem) {
-
+			.tregenza_one_block_thumbnail img.wideThumbnail {
+					max-height: 30rem;
+			}
 		}
 	
 		@media (min-width: 1200px) {

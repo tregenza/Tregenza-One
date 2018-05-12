@@ -307,6 +307,23 @@ nav {
 		margin-right: 1rem;
 	}
 
+/* ------ Tregenza One Minor Button */
+	article a.toMinorButton {
+		text-decoration: none;
+		border: none;
+		font-weight: 300;
+		font-size: 0.75rem;
+		line-height: 1rem;		
+		margin-top: 0.25rem;
+	}
+
+	article a.toMinorButton:not(:hover) {
+		/*  Avoid overwriting custom color for link hover */
+		background-color: #aaaaaa;
+		color: white;
+	}
+
+
 /* ------ Woocommerce ---- */
 
 nav.woocommerce-breadcrumb {

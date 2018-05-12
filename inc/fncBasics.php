@@ -118,10 +118,25 @@ return $count;
 
 	/* Add block classes to post */
 	function addBlockClassToPost( $classes ) {
-		$classes[] = 'blockVariable';
+		$classes[] = 'tregenza_one_block';
 		return $classes;
 	}
-//	add_filter( 'post_class', 'addBlockClassToPost' );
+	add_filter( 'post_class', 'addBlockClassToPost' );
+
+	/* add classes to thumbnail */
+	function addThumbnailClass( $html, $post_id, $post_thumbnail_id, $size, $attr) {
+		/* Wide, tall or square image */
+		$addClass = 'wideThumbnail';
+		$image_data = wp_get_attachment_image_src( $post_thumbnail_id, "full");
+		if ($image_data[2] > $image_data[1] ){
+			$addClass = 'tallThumbnail';
+		} else if ($image_data[2] == $image_data[1] ){
+			$addClass = 'squareThumbnail';
+		}
+		$html = str_replace('class="', 'class="'.$addClass.' ', $html);	
+		return $html;
+	}
+	add_filter('post_thumbnail_html', 'addThumbnailClass', 10, 5);
 
 
 /********* END - Wordpress Customisation *********/
@@ -131,7 +146,6 @@ return $count;
 
 
 /********* START - Wordpress MENUS, WIDGETS & SIDEBARS *********/
-
 	/* Register Menu Areas */
 	function menu_reg() {
 		register_nav_menus(
@@ -144,7 +158,7 @@ return $count;
 			)
 		);
 	}
-	add_action( 'after_setup_theme', 'menu_reg');
+	add_action( 'after_setup_theme', 'menu_reg',100); 
 	
 	/* Register Widget Areas */
 	function tools_widgets_init() {
@@ -207,69 +221,25 @@ return $count;
 
 		/*Add Class to post category links */
 		function add_class_to_category($thelist, $separatpor, $parents) {
-			$newClass = "postCatLink";
+			$newClass = "postCatLink toMinorButton";
 			return str_replace('<a href="', '<a class="'.$newClass.'" href="', $thelist);
 		}
 		add_filter('the_category', 'add_class_to_category', 10, 3);
 
 		/*Add Class to post tag links */
 		function add_class_to_tag($links) {
-			$newClass = "postTagLink";
+			$newClass = "postTagLink  toMinorButton";
 			return str_replace('<a href="', '<a class="'.$newClass.'" href="', $links);
 		}
 		add_filter('term_links-post_tag', 'add_class_to_tag', 10);
 
-
-	/* Collapisble Page Header */
-/*	function outputCollapsibleHeader() {
-		echo '<!--- Theme functions tregenzaOnePageHeader action --->';
-		echo '<div id="pageHeader" class="collapsibleWrapper">';
-		do_action('tregenzaOneCollapsibleHeaderContent');
-		echo '</div>';
-
-	}
-	add_action('tregenzaOnePageHeader', 'outputCollapsibleHeader', 10 );
-*/ 
-
-	/* Page level navigation block */
-/*	function pageLevelNav() {
-
-		echo '<!--- Theme functions tregenzaOnePageNav --->';
-		echo '<nav class="blockCollapse pageLevelNav ">';
-		echo '<p class="blockCollapseHeader">Navigation</p>';
-		echo '<div class="blockCollapseContent">';
-		wp_nav_menu( array( 'theme_location' => 'default_toolbar', 'container_id' => 'pageLevelNav') ); 
-		echo '</div>';
-		echo '</nav>';
-	}
-	add_action('tregenzaOneCollapsibleHeaderContent', 'pageLevelNav', 10 );
-*/
-	
-	/* Add Standard menu to page navigation block */
-/*	function toolbarAdditional() {
-
-		if (is_active_sidebar('toolbar-additional') ) {
-			echo '<div class="blockCollapse">';
-			echo '<p class="blockCollapseHeader">Additional</p>';
-			echo '<div class="blockCollapseContent">';
-			// Widget Area 
-			dynamic_sidebar('toolbar-additional');
-			echo '</div>';
-			echo '</div>';
+		/*Add Class to post author links */
+		function add_class_to_author($links) {
+			$newClass = "postAuthorLink toMinorButton";
+			return str_replace('<a href="', '<a class="'.$newClass.'" href="', $links);
 		}
-	}
-	add_action( 'tregenzaOneCollapsibleHeaderContent', 'toolbarAdditional', 50, 0 );
-*/
+		add_filter('the_author_posts_link', 'add_class_to_author', 10);
 
-
-/*
-function filtertest($items, $args) {
-	var_dump($items);
-	var_dump($args);
-die;
-}
-add_filter('wp_nav_menu_items', 'filtertest', 10, 2);
-*/
 
 /********* END - Wordpress MENUS, WIDGETS & SIDEBARS *********/
 
