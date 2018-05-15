@@ -240,6 +240,13 @@ return $count;
 		}
 		add_filter('the_author_posts_link', 'add_class_to_author', 10);
 
+		/*Add Class to comment reply links */
+		function add_class_to_reply($class) {
+			$newClass = "commentReplyLink button";
+			return str_replace('comment-reply-link', 'comment-replay-link '.$newClass.' ',$class);
+		}
+		add_filter('comment_reply_link', 'add_class_to_reply', 10);
+
 
 /********* END - Wordpress MENUS, WIDGETS & SIDEBARS *********/
 

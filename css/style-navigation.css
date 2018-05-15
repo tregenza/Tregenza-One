@@ -323,6 +323,13 @@ nav {
 		color: white;
 	}
 
+/*----- Tregenza One Button */
+	a.button {
+		display: block;
+		margin: 0.5rem auto;
+		box-shadow: none;
+	}
+
 
 /* ------ Woocommerce ---- */
 
