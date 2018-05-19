@@ -1,0 +1,74 @@
+/*  Tregenza-One - CSS for specific page templates (splash pages etc) */
+
+/*  ---- Splash Template ---- */
+/* 		
+			Use .splash_block inside post content to break-up full width background areas 
+
+			Use .read_block in posts to keep chunks of text to a reasonable width. 
+
+			Use .splash_micro_blocks in combination with a .tregenza_one_block to apply flex to sub-sections of the page */
+*/
+
+body.page-template-template-splash {
+}
+
+body.page-template-template-splash article {
+}
+
+
+body.page-template-template-splash article .splash_block {
+	width: 100%;
+	min-height: 5rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;	
+	padding: 0.5rem;
+
+}
+
+/*  Default background colours to break-up display */
+.tregenza_one_block_content > .splash_block:nth-of-type(even) {
+	background-color: #ffffff;
+}
+.tregenza_one_block_content > .splash_block:nth-of-type(odd) {
+	background-color: #dddddd;
+}
+
+body.page-template-template-splash article .splash_block > h1 {
+	font-size: 3rem;
+}
+body.page-template-template-splash article .splash_block > h2 {
+	font-size: 2.2rem;
+}
+body.page-template-template-splash article .splash_block > h3 {
+	font-size: 1.6rem;
+}
+
+
+body.page-template-template-splash article .read_block {
+		max-width: 40rem;
+		margin: 0 auto 0 auto;		
+}
+
+body.page-template-template-splash article .splash_micro_blocks {
+		width: 100%;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: space-around;
+		align-items: stretch;
+}
+body.page-template-template-splash article .splash_micro_blocks > * {
+		flex: 0 0 15rem;
+		padding: 0.25rem;
+		margin: 0.25rem;
+		background-color: rgba( 0, 0, 0, 0.1);
+		text-align: center;
+
+		/* 	Note: Any text directory inside a flex container is treated as a flex item (css spec - anonymous inline box).
+					This centers any text vertically */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+}

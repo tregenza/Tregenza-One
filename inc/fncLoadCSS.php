@@ -17,6 +17,7 @@
 	    wp_enqueue_style( 'tregenza-one-style-css-basic-elements',  get_template_directory_uri() .'/css/style-basic-elements.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-content-elements',  get_template_directory_uri() .'/css/style-content-elements.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-forms',  get_template_directory_uri() .'/css/style-form.css', array(), null, 'all' );
+	    wp_enqueue_style( 'tregenza-one-style-css-template-specific',  get_template_directory_uri() .'/css/style-template-specific.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-woocommmerce-elements',  get_template_directory_uri() .'/css//style-woocommerce.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-jquery',  get_template_directory_uri() .'/css/style-jqueryui.css', array(), null, 'all' );
 	

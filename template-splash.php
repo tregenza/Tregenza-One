@@ -1,59 +1,26 @@
 <?php  
-/* Template Name: Splash (No Sidebars) */
+/* Template Name: Splash (No Sidebars or Post Title) */
+
+$args = array(
+								'template_type' => 'splash'
+							);
+set_query_var( 'to_template', $args);
+
 ?>
-<!--- Splash Page Template --->
-<!--- Page - get_header --->
+<!--- Splash Full - get_header --->
+<?php 
+	get_template_part('/template-parts/header/header', $args['template_type']); 
+?>
+<!--- Splash Full - section --->
+<section id="content" role="main" class="tregenza-primus">
 	<?php 
-		get_header(); 
+		get_template_part( 'template-parts/loop/loop', $args['template_type'] ); 
 	?>
-<!--- Page - section --->
-	<section id="content" role="main" class="tregenza-primus page-splash">
-	<?php 
-		if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-	?>
-<!--- Page - article --->
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<!--- Page - article header --->
-<header class="header">
-<!--- Page - the_post_thumbnail --->
-<?php 
-	if ( has_post_thumbnail() ) { 
-		the_post_thumbnail(); 
-	} 
-?>
-<h1 class="entry-title">
-<!--- Page - the_title --->
-<?php 
-	the_title(); 
-?>
-</h1> 
-<!--- Page - article header END --->
-</header>
-<!--- Page - article section-entry-content --->
-<section class="entry-content">
-<!--- Page - the_content --->
-<?php 
-	the_content(); 
-?>
-<div class="entry-links">
-<!--- Page - wp_link_pages --->
-<?php 
-	wp_link_pages(); 
-?></div>
-<!--- Page - article section END --->
+<!---- Splash Full - Archive Navigation ---->
+	<?php get_template_part( '/template-parts/loop/nav', 'below' ); ?>
+<!--- Splash Full - section END --->
 </section>
-<!--- Page - article END--->
-</article>
-<!--- Page - comments_template --->
+<!--- Splash Full - get_footer --->
 <?php 
-	if ( ! post_password_required() ) comments_template( '', true ); 
-?>
-<?php 
-	endwhile; endif; 
-?>
-<!--- Page - section END --->
-</section>
-<!--- Page - get_footer --->
-<?php 
-	get_footer(); 
+		get_template_part('/template-parts/footer/footer'); 
 ?>
