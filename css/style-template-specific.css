@@ -52,7 +52,9 @@ body.page-template-template-splash article .read_block {
 }
 
 body.page-template-template-splash article .splash_micro_blocks {
+		margin: 1rem 0 0 0;
 		width: 100%;
+		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
 		align-content: space-around;
@@ -62,13 +64,18 @@ body.page-template-template-splash article .splash_micro_blocks > * {
 		flex: 0 0 15rem;
 		padding: 0.25rem;
 		margin: 0.25rem;
-		background-color: rgba( 0, 0, 0, 0.1);
 		text-align: center;
 
-		/* 	Note: Any text directory inside a flex container is treated as a flex item (css spec - anonymous inline box).
+		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
 					This centers any text vertically */
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		
+}
+body.page-template-template-splash article .splash_micro_blocks > *:not(a) {
+		background-color: rgba( 0, 0, 0, 0.1);
+}
+
+body.page-template-template-splash article .splash_micro_blocks > a.button {
 }
