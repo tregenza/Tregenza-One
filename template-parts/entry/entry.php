@@ -39,7 +39,11 @@
 <!--- Loop Default - comments_template --->
 		<?php 
 			/* note: unlike get_template_part, comments_template needs the precedding slash on the path. */
-			comments_template( '/template-parts/entry/comments.php', true ); 
+			if ( $args['template_type'] ) {
+				comments_template( '/template-parts/entry/comments'.'-'.$args['template_type'].'.php', true ); 
+			} else {
+				comments_template( '/template-parts/entry/comments.php', true ); 
+			}
 		?>
 <!--- Loop Default - article END--->
 </article>

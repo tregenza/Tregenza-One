@@ -182,7 +182,7 @@
 		
 		button, input[type="button"], input[type="submit"], input[type="radio"],  input[type="checkbox"], a.button {
 			width: auto;
-			min-width: 5rem;
+			min-width: 3rem;
 			max-width: 10rem;
 			margin-left: auto;
 			margin-right: auto;
@@ -194,7 +194,6 @@
 			margin: 0;
 			outline: 0;
 			padding: 0.25rem;
-			min-width: 3rem;
 			border: none;
 			line-height: 1.25rem !important;
 			font-family: inherit;
@@ -209,6 +208,15 @@
 			max-width: 3rem;
 			width: 2rem;
 		}
+		input[type="radio"] {
+			min-width: 1rem;
+			max-width: 3rem;
+			width: 2rem;
+
+			box-shadow: none;
+		}
+
+
 		textarea {
 
 		}

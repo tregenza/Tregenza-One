@@ -55,6 +55,15 @@ function format_comment($comment, $args, $depth) {
 
 }
 
+/*  define function for adding class to pagination links */
+function	addPageStyles($buffer) {
+					/* class with double quotes */
+					$newBuffer = str_replace('a class="', 'a class="toMinorButton ', $buffer);
+					/* class with single quotes */
+					$newBuffer = str_replace("a class='", "a class='toMinorButton ", $newBuffer);
+					return $newBuffer;
+			}
+
 
 if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		return; 
@@ -78,7 +87,17 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		 			if ( get_comment_pages_count() > 1 ) { 
 			?>
 						<nav id="comments-nav-above" class="comments-navigation" role="navigation">
-							<div class="paginated-comments-links"><?php paginate_comments_links(); ?></div>
+							<div class="paginated-comments-links"><?php 
+				
+									/*  Big Hack as there is no easy way to add classes to pagination links */
+									ob_start("addPageStyles");
+
+									paginate_comments_links(); 
+								
+									ob_end_flush();
+								
+
+							?></div>
 						</nav>
 			<?php 
 					} 
@@ -92,7 +111,17 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 				if ( get_comment_pages_count() > 1 ) { 
 			?>
 					<nav id="comments-nav-below" class="comments-navigation" role="navigation">
-						<div class="paginated-comments-links"><?php paginate_comments_links(); ?></div>
+						<div class="paginated-comments-links"><?php 
+				
+									/*  Big Hack as there is no easy way to add classes to pagination links */
+									ob_start("addPageStyles");
+
+									paginate_comments_links(); 
+								
+									ob_end_flush();
+								
+
+							?></div>
 					</nav>
 			<?php 
 				} 
