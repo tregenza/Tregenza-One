@@ -10,28 +10,28 @@ set_query_var( 'to_template', $args);
 
 ?>
 
-<!--- Page - get_header --->
+<!-- Page - get_header -->
 	<?php 
 	get_template_part('/template-parts/header/header', $args['template_type']); 
 	?>
-<!--- Page - get_sidebar --->
+<!-- Page - get_sidebar -->
 	<?php 
 	get_template_part('/template-parts/sidebar/secundus', $args['template_type']); 
 	?>
-<!--- Page - section --->
+<!-- Page - section -->
 <section id="content" role="main" class="tregenza-primus">
 	<?php 
 		get_template_part( 'template-parts/loop/loop', $args['template_type'] ); 
 	?>
-<!---- Page - Archive Navigation ---->
+<!-- Page - Archive Navigation -->
 	<?php get_template_part( '/template-parts/loop/nav', 'below', $args['template_type'] ); ?>
-<!--- Page - section END --->
+<!-- Page - section END -->
 </section>
-		<!--- Page - get_sidebar --->
+		<!-- Page - get_sidebar -->
 			<?php 
 		get_template_part('/template-parts/sidebar/tertius', $args['template_type']); 
 			?>
-<!--- Page - get_footer --->
+<!-- Page - get_footer -->
 <?php 
 		get_template_part('/template-parts/footer/footer'); 
 ?>

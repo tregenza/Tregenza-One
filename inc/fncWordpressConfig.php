@@ -6,7 +6,7 @@
 
 
 	/* ---------- Hide the wpadminbar ----------- */
-	add_filter('show_admin_bar', '__return_false');
+ 	add_filter('show_admin_bar', '__return_false'); 
 
 
 	/* ---------- Add Theme Support ----------- */

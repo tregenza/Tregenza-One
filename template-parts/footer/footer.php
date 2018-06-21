@@ -5,12 +5,14 @@
 *
 ***/
 ?>
-	<!--- Footer -->
-		<!--- Footer - End of #container --->
+	</div>  <!-- End of hfeed  -->
+
+	 <!-- Footer  -->
+		 <!-- Footer - End of #container  -->
 		</div> 
-		<!--- footer - dynamic_sidebar-footer-widgets -->
+		 <!-- footer - dynamic_sidebar-footer-widgets  -->
 		<aside id="footSidebar" class="blockVariable">
-				<!--- Footer Menu --->
+				 <!-- Footer Menu  -->
 			<?php
 					if (has_nav_menu('footerMenu')) {
 						echo '<nav class="footerMenuWrapper">';
@@ -18,20 +20,20 @@
 						echo '</nav>';
 					}	
 		?>
-				<!--- Footer Widget --->
+				 <!-- Footer Widget  -->
 		<?php
 				/* Widget Area */
 				dynamic_sidebar('footer-widget-bar');
 			?>
 		</aside>
 		<footer id="footer" role="contentinfo" class="clear blockVariable">
-		<!--- Footer - wp_footer -->
+		 <!-- Footer - wp_footer  -->
 		<?php 
 			wp_footer(); 
 		?>
-		<!--- Footer - wp_footer END -->
+		 <!-- Footer - wp_footer END  -->
 		</footer>
-	
+		
 	</body>
 
 </html>

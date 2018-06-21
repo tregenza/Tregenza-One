@@ -1,4 +1,92 @@
-/*  Tregenza-One - CSS for specific page templates (splash pages etc) */
+/*  Tregenza-One - CSS for specific layouts & page templates (splash pages etc) */
+
+/*** Generic content layout ***/
+
+.full_width {
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.micro_blocks {
+		margin: 1rem 0 0 0;
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: space-around;
+		align-items: stretch;
+}
+.micro_blocks > * {
+		flex: 0 0 15rem;
+		padding: 0.25rem;
+		margin: 0.25rem;
+		text-align: center;
+
+		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
+					This centers any text vertically */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+}
+
+.micro_blocks > *:not(a) {
+		background-color: rgba( 0, 0, 0, 0.1);
+}
+
+.micro_blocks > p:empty {
+	display: none;
+}
+
+.micro_blocks > a.button {
+	margin: 0.25rem;
+	padding: 0.25rem;
+}
+
+
+
+
+/*** Sizing & Flex behavior for alternative page templates ***/
+
+		/*Splash Page */
+	.page-template-template-splash #hamburger {
+			display: block;  /* Splash page = no menu so need hamburger */
+		}
+
+	.page-template-template-splash #wrapper > #container {
+		display: block;	
+	}
+
+	.page-template-template-splash #wrapper > #container > #content {
+			width: 100%;
+			max-width: 100%;
+			margin: 0 0;
+		}
+	.page-template-template-splash #wrapper > #container > #content > article {
+			margin: 0 auto;
+		}
+	.page-template-template-splash #wrapper > #container > #content > article > section {
+			padding: 0;
+		}
+
+		/* Half-Splash Page (No RH sidebar)*/
+	.page-template-template-half-splash #wrapper > #container {
+			justify-content: flex-start;
+	}
+
+	.page-template-template-half-splash #wrapper > #container > #content {
+			width: 100%;
+			max-width: 100%;
+		}
+	.page-template-template-half-splash #wrapper > #container > #content > article {
+			margin: 0 auto;
+		}
+	.page-template-template-splash #wrapper > #container > #content > article > section{
+			padding: 0;
+		}
+
+
+
 
 /*  ---- Splash Template ---- */
 /* 		
@@ -6,8 +94,11 @@
 
 			Use .read_block in posts to keep chunks of text to a reasonable width. 
 
-			Use .splash_micro_blocks in combination with a .tregenza_one_block to apply flex to sub-sections of the page */
+			Use .micro_blocks to small chunks of text / images / buttons */
+
 */
+
+
 
 body.page-template-template-splash {
 }
@@ -19,22 +110,39 @@ body.page-template-template-splash article {
 body.page-template-template-splash article .splash_block {
 	width: 100%;
 	min-height: 5rem;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;	
 	padding: 0.5rem;
 
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-content: stretch;
+			align-items: stretch;
+
+
+	
+}
+
+body.page-template-template-splash article .splash_block {
+
+	/* Placeholder image only - Not needed for production site */
+	background-size: 50px;
+	background-repeat: repeat;
+	background-attachment: scroll;
+	background-position: left top;	
+
+	background-image: url("../images/PlaceholderImage.png");
+/* END PLaceholder Image only */
 }
 
 /*  Default background colours to break-up display */
+/*
 .tregenza_one_block_content > .splash_block:nth-of-type(even) {
 	background-color: #ffffff;
 }
 .tregenza_one_block_content > .splash_block:nth-of-type(odd) {
 	background-color: #dddddd;
 }
-
+*/
 body.page-template-template-splash article .splash_block > h1 {
 	font-size: 3rem;
 }
@@ -51,7 +159,8 @@ body.page-template-template-splash article .read_block {
 		margin: 0 auto 0 auto;		
 }
 
-body.page-template-template-splash article .splash_micro_blocks {
+
+body.page-template-template-splash article ul.list_block {
 		margin: 1rem 0 0 0;
 		width: 100%;
 		display: flex;
@@ -60,10 +169,12 @@ body.page-template-template-splash article .splash_micro_blocks {
 		align-content: space-around;
 		align-items: stretch;
 }
-body.page-template-template-splash article .splash_micro_blocks > * {
-		flex: 0 0 15rem;
+body.page-template-template-splash article ul.list_block > li {
+		list-style-type: none;
+
+		flex: 1 1 8rem;
 		padding: 0.25rem;
-		margin: 0.25rem;
+		margin: 0.5rem;
 		text-align: center;
 
 		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
@@ -71,11 +182,13 @@ body.page-template-template-splash article .splash_micro_blocks > * {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		
-}
-body.page-template-template-splash article .splash_micro_blocks > *:not(a) {
-		background-color: rgba( 0, 0, 0, 0.1);
-}
 
-body.page-template-template-splash article .splash_micro_blocks > a.button {
+		border-radius: 0.25rem;
+
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,.25) ); 		
+
+}
+body.page-template-template-splash article ul.list_block > li:nth-of-type(even) {
+}
+body.page-template-template-splash article ul.list_block > li:nth-of-type(odd) {
 }

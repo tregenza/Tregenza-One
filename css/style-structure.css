@@ -199,8 +199,8 @@ body {
 
 	#wrapper > #container > aside {
 		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
+		flex-flow: column nowrap;
+		justify-content: stretch;
 		align-items: stretch;
 		align-content: flex-start;
 
@@ -210,7 +210,7 @@ body {
 		margin: 0 0 1rem 0;
 		padding: 0 0rem;
 		border-radius: 0.25rem;
-		max-width: 100%;
+		width: 100%;
 	}
 
 	/* Secundus	 */
@@ -222,44 +222,6 @@ body {
 	}	
 
 
-/*** Sizing & Flex behavior for alternative page templates ***/
-
-		/*Splash Page */
-	.page-template-template-splash #hamburger {
-			display: block;  /* Splash page = no menu so need hamburger */
-		}
-
-	.page-template-template-splash #wrapper > #container {
-		display: block;	
-	}
-
-	.page-template-template-splash #wrapper > #container > #content {
-			width: 100%;
-			max-width: 100%;
-			margin: 0 0;
-		}
-	.page-template-template-splash #wrapper > #container > #content > article {
-			margin: 0 auto;
-		}
-	.page-template-template-splash #wrapper > #container > #content > article > section {
-			padding: 0;
-		}
-
-		/* Half-Splash Page (No RH sidebar)*/
-	.page-template-template-half-splash #wrapper > #container {
-			justify-content: flex-start;
-	}
-
-	.page-template-template-half-splash #wrapper > #container > #content {
-			width: 100%;
-			max-width: 100%;
-		}
-	.page-template-template-half-splash #wrapper > #container > #content > article {
-			margin: 0 auto;
-		}
-	.page-template-template-splash #wrapper > #container > #content > article > section{
-			padding: 0;
-		}
 
 
 /* ---- >>>>>    Media Queries <<<<<     ----- */

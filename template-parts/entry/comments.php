@@ -1,4 +1,4 @@
-<!---- Template Parts / Entry / Comments - Default --->
+<!-- Template Parts / Entry / Comments - Default -->
 <?php 
 	/* Define Callback function for handling individual templates */
 function format_comment($comment, $args, $depth) {

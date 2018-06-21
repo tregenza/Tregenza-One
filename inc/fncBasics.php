@@ -7,7 +7,7 @@
 */
 
 /********* START - Original BlankSlate Functions *********/
-
+/*
 add_action( 'comment_form_before', 'blankslate_enqueue_comment_reply_script' );
 function blankslate_enqueue_comment_reply_script()
 {
@@ -39,7 +39,10 @@ function blankslate_comments_number( $count )
 {
 if ( !is_admin() ) {
 global $id;
+*/
 /* $comments_by_type = &separate_comments( get_comments( 'status=approve&post_id=' . $id ) ); */
+
+/*
 $comments_basic = get_comments( 'status=approve&post_id=' . $id ) ;
 $comments_by_type = separate_comments( $comments_basic );
 
@@ -48,7 +51,7 @@ return count( $comments_by_type['comment'] );
 return $count;
 }
 }
-
+*/
 /********* END - Original BlankSlate Functions *********/
 
 
