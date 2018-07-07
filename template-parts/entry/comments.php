@@ -13,7 +13,7 @@ function format_comment($comment, $args, $depth) {
 		$add_below = 'div-comment';
 		$commentClasses = "";
 	}
-	$commentClasses .= 'tregenza_one_block tregenza_one_block_comment ';
+	$commentClasses .= 'tregenza_one_block tregenza_one_column tregenza_one_block_comment ';
 	$wrapperClass = comment_class( $commentClasses, null, null, false);
 	echo '<'.$tag.' '.$wrapperClass.' id="comment-'.get_comment_ID().'" >';
 
@@ -70,7 +70,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 }
 
 ?>
-<section id="comments" class="tregenza_one_block tregenza_one_block_comments">
+<section id="comments" class="tregenza_one_block tregenza_one_column tregenza_one_block_comments">
 	<?php 
 		if ( have_comments() ) { 
 			global $comments_by_type;
@@ -90,11 +90,11 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 							<div class="paginated-comments-links"><?php 
 				
 									/*  Big Hack as there is no easy way to add classes to pagination links */
-									ob_start("addPageStyles");
+//									ob_start("addPageStyles");
 
 									paginate_comments_links(); 
 								
-									ob_end_flush();
+//									ob_end_flush();
 								
 
 							?></div>
@@ -102,7 +102,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 			<?php 
 					} 
 			?>
-			<ul>
+			<ul class="tregenza_one_block tregenza_one_column">
 				<?php 
 					wp_list_comments( 'type=comment&callback=format_comment&avatar_size=64' ); 
 				?>
@@ -114,7 +114,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 						<div class="paginated-comments-links"><?php 
 				
 									/*  Big Hack as there is no easy way to add classes to pagination links */
-									ob_start("addPageStyles");
+								ob_start("addPageStyles");
 
 									paginate_comments_links(); 
 								
@@ -137,7 +137,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<h3 class="comments-title"><?php echo '<span class="ping-count">' . $ping_count . '</span> ' . ( $ping_count > 1 ? __( 'Trackbacks', 'blankslate' ) : __( 'Trackback', 'blankslate' ) ); ?></h3>
 		<ul>
 			<?php 
-				wp_list_comments( 'type=pings&callback=blankslate_custom_pings' ); 
+				wp_list_comments( 'type=pings' ); 
 			?>
 		</ul>
 	</section>

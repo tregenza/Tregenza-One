@@ -8,7 +8,7 @@
 ***/
 
 
-/* ----- Basics  ---- */
+/* - Basics  - */
 
 		
 
@@ -26,21 +26,21 @@ nav {
 }
 
 
-/* ---- Jquery UI Override --- */
+/* - Jquery UI Override - */
 
 .ui-widget-content a {
 	color: inherit;
 	background-color: inherit;
 }
 
-/* --- Woocommerce Overide --- */
+/* - Woocommerce Overide - */
 .woocommerce-account .woocommerce-MyAccount-navigation {
 	float: none !important;
 	width: auto !important;
 }
 
 
-/* ------ NAV menus ---- */
+/* - NAV menus - */
 
 	nav {
 		width: 100%;
@@ -82,7 +82,7 @@ nav {
 	
 	}
 
-/*----- Icon Bar ----- */
+/*- Icon Bar - */
 	#iconBarWrapper {
 		overflow: hidden;
 
@@ -118,7 +118,7 @@ nav {
 	}
 
 
-/*----- Menu Bar ----- */
+/*- Menu Bar - */
 	nav.menuBarWrapper {
 	}
 	nav.menuBarWrapper ul.menu {
@@ -138,13 +138,17 @@ nav {
 	nav.menuBarWrapper ul.menu > li.menu-item a {
 		font-weight: 300;
 		border-radius: 2px;
+		display: flex;
+		align-content: stretch;
+		align-items: center;
+		justify-content: center;
 	}
 
 	nav.menuBarWrapper ul.menu > ul.sub-menu {
 		display: none;
 	}
 
-/* ---- Hamburger Wrapper - Hide / Show menu  ----- */
+/* - Hamburger Wrapper - Hide / Show menu  - */
 	/* See also code in TregenzaOne.js */
 
 	/* Hamburger Menu Icon Colours */
@@ -187,7 +191,7 @@ nav {
 		overflow: hidden;
 	}
 
-/* ---- Stylying Hamburger / Secundus sidebar Navigation menu  ----- */
+/* - Stylying Hamburger / Secundus sidebar Navigation menu  - */
 	nav .hamburgerMenucontainer  ul.menu { 
 		margin: 0;
 		padding: 0;
@@ -233,14 +237,14 @@ nav {
 	}
 
 
-/* ------ Footer Menu ------ */	
+/* - Footer Menu - */	
 
 	nav.footerMenuWrapper ul.menu  li a{
 		padding: 0.25rem;
 	}	
 
 
-/* ------ In Article Links ---- */
+/* - In Article Links - */
 
 
 	a {
@@ -250,7 +254,7 @@ nav {
 
 	}
 
-/* ------ Specific Link Types ---- */
+/* - Specific Link Types - */
 	a.postTitleLink {
 		border: none;
 		text-decoration: none;
@@ -266,7 +270,7 @@ nav {
 		margin-right: 1rem;
 	}
 
-/* ------ Tregenza One Minor Button */
+/* - Tregenza One Minor Button */
 	article a.toMinorButton {
 		text-decoration: none;
 		border: none;
@@ -282,7 +286,7 @@ nav {
 		color: white;
 	}
 
-/*----- Tregenza One Button */
+/*- Tregenza One Button */
 	a.button {
 		display: block;
 		margin: 0.5rem auto;
@@ -290,7 +294,7 @@ nav {
 	}
 
 
-/*----- Tregenza One Button + Imagebutton */
+/*- Tregenza One Button + Imagebutton */
 	a.button.imageButton {
 		overflow: hidden;
 
@@ -315,7 +319,7 @@ nav {
 			box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.40);			
 	}
 
-/* ------ Woocommerce ---- */
+/* - Woocommerce - */
 
 nav.woocommerce-breadcrumb {
 	display: block;

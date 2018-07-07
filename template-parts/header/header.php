@@ -25,4 +25,4 @@
 			
 			?>
 			<!-- header - div-container -->
-			<div id="container">
+			<div class="tregenza_one_block_max tregenza_one_row" id="container">

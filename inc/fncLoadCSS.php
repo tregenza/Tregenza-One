@@ -11,6 +11,7 @@
 	    wp_enqueue_style( 'tregenza-one-style-css',  get_template_directory_uri() .'/style.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-customise',  get_template_directory_uri() .'/css/style-customise-defaults.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-wordpress',  get_template_directory_uri() .'/css/style-wordpress-default.css', array(), null, 'all' );
+	    wp_enqueue_style( 'tregenza-one-style-css-tregenza_one',  get_template_directory_uri() .'/css/style-tregenza-one.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-structure',  get_template_directory_uri() .'/css/style-structure.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-page-header-footer',  get_template_directory_uri() .'/css/style-page-header-footer.css', array(), null, 'all' );
 	    wp_enqueue_style( 'tregenza-one-style-css-navigation',  get_template_directory_uri() .'/css/style-navigation.css', array(), null, 'all' );

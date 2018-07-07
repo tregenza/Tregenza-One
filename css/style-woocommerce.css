@@ -1,10 +1,9 @@
 /*  Tregenza-One formatting for Woocommerce elements */
-/*  Overrides / builds on the standard woocommerce style sheets */
+/*			Assumes woocommerce CSS has NOT been loaded (see inc/fncWoocommerce.php)
 
-/** Note:  .woocommerce class is used on body tags on wooocommerce archive pages as well as on div tags within other page types **/
 
 /* --- Override Basics ---- */
-
+/*
 	div.woocommerce table.shop_table  {
 		margin: 0.5rem 0 0 0;
 		padding: 0.5rem;
@@ -37,7 +36,7 @@
 	.woocommerce .product-category mark {
 		background-color: transparent;
 	}
-
+*/
 
 	/* Generic Woocommerce Container */
 	div.woocommerce {
@@ -711,39 +710,20 @@
 		line-height: 110%;
 		margin-top: 0.25rem;
 	}
+
+
 /* --- Products --- */
-
-
-	/* Generic product block flex & sizing */
-
-		.tregenza_one_wc_product_block {
-			min-width: 10rem;
-			flex: 1 1 10rem;
-			margin: 0rem auto 0rem auto;
-			padding: 0rem;
-
-			border-radius:  0.1rem;
-			
-			box-sizing: border-box; 
-
-		}
-		.tregenza_one_wc_product_block:empty {
-			display: none;
-		}
-
-		.tregenza_one_wc_product_block * {
-		}
 
 	/* Override tregenza-one table handling as Woocommerce uses tables for layout */
 
-		.tregenza_one_wc_product_block form table tr td:before {
+		.type-product .tregenza_one_block form table tr td:before {
 			display: none; 
 		}
 	
-		.tregenza_one_wc_product_block form table tr td {
+		.type-product .tregenza_one_block form table tr td {
 		}
 	
-		.tregenza_one_wc_product_block form table tr + tr {
+		.type-product .tregenza_one_block form table tr + tr {
 			border-top: none;
 		}
 
@@ -751,7 +731,7 @@
 
 	/* Flex wrapper set-up for displaying products details for different page types */
 		/* Single Product, product list */
-		article.type-product  div.summary, li.product >  a {
+		.type-product  div.summary, li.product >  a {
 			position: relative;
 			display: flex; 
 			flex-flow: row wrap; 
@@ -764,127 +744,66 @@
 		}
 
 		/* Treat tables as block, makes it easier to make variations & gravity forms more consistent in layout */
-		.tregenza_one_wc_product_block  table { 
+		.type-product .tregenza_one_block  table { 
 			padding: 0;
 			margin: 0;
 			display: block;		
 		}
 
-		.tregenza_one_wc_product_block  table tr {
+		.type-product .tregenza_one_block table tr {
 			display: block;
 			line-height: 1.5rem;
 
 		}
-		.tregenza_one_wc_product_block  table td {
+		.type-product .tregenza_one_block table td {
 			display: block;
 			line-height: 1.5rem;
 		}
-
-	/* Product block default order & Sizing overrides */
-		.tregenza_one_wc_product_block.tregenza_one_product_sales_flash { 
-			order: 0;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_title {
-			order: 1;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_images {
-			order: 2;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info {
-			order: 4;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {		/** Add to cart includes variations and gravity forms */
-			order: 5;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_description {
-			order: 6;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_additional {
-			order: 7;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_misc {
-			order: 7;
-		}
-	
-		/* Subblock */
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_sub block.tregenza_one_product_price {
-			order: 1;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_tags {
-			order: 2;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_excerpt {
-			order: 3;
-		}
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_sku {
-			order: 4;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_category_list {
-			order: 1;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_sharing {
-			order: 2;
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_misc .tregenza_one_wc_product_subblock.tregenza_one_product_meta {
-			order: 3;
-		}
-
-
-		/* Composite product */
-		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
-			order: 3;
-		}
-		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component {
-		
-		}
-
 
 
 	/* Product Block Sizing & formating */
 
+		.type-product .tregenza_one_column  {
+				padding: 0.5rem;
+		}
+
+		.type-product .tregenza_one_row , 		.type-product .tregenza_one_row_wrap {
+				padding: 0.5rem;
+		}
+
 		/* -----  Sales Flash ------- */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_sales_flash {
-			flex: 0 0 0rem;
-			position: absolute;
-			top: 0rem;
-			left: 0rem;
-			min-width: 0;
+		.type-product .tregenza_one_product_sales_flash {
+			justify-content: center;
+
 			border-radius: 100%;
 			margin: 0;
-			z-index: 9;
 		
+			background-color: red;
 		}
-			.tregenza_one_wc_product_block.tregenza_one_product_sales_flash:empty {
+		.type-product .tregenza_one_product_sales_flash:empty {
 				display: none;
 			}
 		
-			.tregenza_one_wc_product_block.tregenza_one_product_sales_flash .onsale {
-	
+		.type-product .tregenza_one_product_sales_flash .onsale {
+				font-size: 1.25rem;
+				font-weight: 300;	
+				line-height: 2rem;
+
+				color: white;
 			}
 
 		/* ------  Title ------ */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_title {
-			/* flex: 2 1 40rem; */			/* Ensure always at top - across full width */
-
+		.type-product .tregenza_one_product_title {
 		}
-			.tregenza_one_wc_product_block.tregenza_one_product_title h1 {
+		.type-product .tregenza_one_product_title h1 {
 				margin: 0;
 			}
 
 			/* Handle product pages slightly differently */
-			article.type-product .tregenza_one_wc_product_block.tregenza_one_product_title {
+			article.type-product .tregenza_one_product_title {
 
-				height: 5rem;
-				width: 5rem;
 				background-color: #bced09;
 				border-radius: 50%;
 	
@@ -893,7 +812,7 @@
 				justify-content: center
 	
 			}
-			article.type-product  .tregenza_one_wc_product_block.tregenza_one_product_title h1 {
+			article.type-product .tregenza_one_product_title h1 {
 				margin: 0;
 				padding: 2rem;
 				font-size: 1.5rem;
@@ -901,12 +820,11 @@
 
 		/* ------  Images ------ */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_images {
-			flex: 0 0 20rem;  /* 320px - fixed sizing */
-			max-width: 20rem;
+		.type-product .tregenza_one_product_images {
 		}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_images  a {
+
+		.type-product .tregenza_one_product_images  a {
 				padding: 0;
 				margin: 0;
 				border: 0;
@@ -921,18 +839,9 @@
 
 
 
-		/* ------ Short Info ------ */
+		/* ------ Price ------ */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info  {
-		}
-
-		.tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_wc_product_subblock.tregenza_one_product_price {
-		}
-
-			:not(logged-in) .tregenza_one_wc_product_subblock.tregenza_one_product_price {
-			}
-	
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price {
+			.type-product .tregenza_one_product_price  .price {
 				display: flex;
 				flex-flow: column nowrap;
 				justify-content: center;
@@ -947,91 +856,103 @@
 	
 			}
 		
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price ins {
+			.type-product .tregenza_one_product_price  .price ins {
 				text-decoration: none;
 			}
 		
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price del {
+			.type-product .tregenza_one_product_price  .price del {
 				text-decoration: line-through;														/***** XXXXX NEED A BETTER STROKETHOUGH XXXXXX ******/
 			}
 		
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price  .price del .amount {
+			.type-product .tregenza_one_product_price  .price del .amount {
+					font-size: 1rem;
 			}
 		
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price .price .from {
+			.type-product .tregenza_one_product_price .price .from {
 				font-size: 1rem;
 				line-height: 100%;
 				margin: none;
 				margin: 0;
 				padding: 0;
 			}
-			.tregenza_one_wc_product_subblock.tregenza_one_product_price .price .amount {
+			.type-product .tregenza_one_product_price .price .amount {
 				font-size: 1.5rem;
 				line-height: 100%;
 				margin: 0;
 				padding: 0;
 			}
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_excerpt {
-				padding: 1rem;
+		/* ------ Product Excerpt ------ */
+
+		.type-product .tregenza_one_product_excerpt p {
+	
+					width: 80%;
+					margin:  auto;
+
+					font-size: 1.25rem;
+					line-height: 1.5rem;
+					font-weight: 700;
+					text-align: center;
 			}
 
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_tags ul {
+		/* ------ Product Tags ------ */
+			.type-product .tregenza_one_product_tags ul {
 				text-align: center;
 				font-size: 1rem;
 				font-weight: 700;
 			}
 	
-			.tregenza_one_wc_product_subblock.tregenza_one_product_tags ul li {
+			.type-product .tregenza_one_product_tags ul li {
 				list-style: none outside;
 			}
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_sku {
+		/* ------ Product Sku ------ */
+			.type-product .tregenza_one_product_sku {
 				font-size: 0.8rem;
 				text-align: center;
 			}
 
 		/* ----- Add To Cart ------- */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {
+			.type-product .tregenza_one_product_add_to_cart {
 
 		}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form {  
+			.type-product .tregenza_one_product_add_to_cart > form {  
 				/* Add to cart form contains blocks for woocommerce variations  and gravity forms (if used) */
 /*				padding: 0 1rem 0 1rem; */
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form > table { 
+			.type-product .tregenza_one_product_add_to_cart > form > table { 
 				/* Table contains variations */ 
 				padding: 0.5rem;
 				margin: 0;
 				display: block;		/* Treat tables as block, makes it easier to make variations & gravity forms more consistent in layout */
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations tr {
+			.type-product .tregenza_one_product_add_to_cart form table.variations tr {
 				display: block;
 				line-height: 1.5rem;
 
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td {
+			.type-product .tregenza_one_product_add_to_cart form table.variations  td {
 				display: block;
 				line-height: 1.5rem;
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td.label {
+			.type-product .tregenza_one_product_add_to_cart form table.variations  td.label {
 
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations  td.value {
+			.type-product .tregenza_one_product_add_to_cart form table.variations  td.value {
 
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form table.variations a.reset_variations {
+			.type-product .tregenza_one_product_add_to_cart form table.variations a.reset_variations {
 				display: none;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form select,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form select.gfield_select {
+			.type-product .tregenza_one_product_add_to_cart > form select,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form select.gfield_select {
 				/* Copy of basic-elements styling to override and Woocommerce or Gravity Forms styling and ensure consistency */
 				box-sizing: border-box;
 				cursor: pointer;
@@ -1054,7 +975,7 @@
 				width: 90%;
 			}
 			/* Copy of basic-elements styling to override and Woocommerce or Gravity Forms styling and ensure consistency */
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form label,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form label.gfield_label {
+			.type-product .tregenza_one_product_add_to_cart > form label,   .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart > form label.gfield_label {
 				font-size: 1.1rem;
 				line-height: 1.25rem;
 				font-weight: 300;
@@ -1063,84 +984,84 @@
 				display: block;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper {
+			.type-product .tregenza_one_product_add_to_cart .gform_wrapper {
 				/* Generic wrapper used multiple times by gravity forms */
 				padding: 0.5rem;
 				margin: 0;		
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper .ginput_container {
+			.type-product .tregenza_one_product_add_to_cart .gform_wrapper .ginput_container {
 				/* Generic class used by gravity form fields */
 				margin: 0;
 				padding: 0;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart  .gform_variation_wrapper {
+			.type-product .tregenza_one_product_add_to_cart  .gform_variation_wrapper {
 				margin: 0;
 				padding: 0;
 			}
 
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .gform_wrapper .gfield {
+			.type-product .tregenza_one_product_add_to_cart .gform_wrapper .gfield {
 				/* Generic class used by gravity form fields */
 				margin: 0;
 				padding: 0;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields {
+			.type-product .tregenza_one_product_add_to_cart form ul.gform_fields {
 				display: block;
 				line-height: 1.5rem;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields li {
+			.type-product .tregenza_one_product_add_to_cart form ul.gform_fields li {
 				display: block;
 				line-height: 1.5rem;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form ul.gform_fields li.gfield_total > * {
+			.type-product .tregenza_one_product_add_to_cart form ul.gform_fields li.gfield_total > * {
 				display: inline-block;
 			}
 
 
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals {
+			.type-product .tregenza_one_product_add_to_cart form .product_totals {
 				margin: 0.5rem 0 0 0;
 				padding: 0.5rem;
 				font-size: 1rem;
 				line-height: normal;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li {
+			.type-product .tregenza_one_product_add_to_cart form .product_totals ul li {
 				display: block;
 				line-height: normal;
 				font-size: 1rem;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li label {
+			.type-product .tregenza_one_product_add_to_cart form .product_totals ul li label {
 				display: inline-block;
 				line-height: normal;
 				font-size: 1rem;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .product_totals ul li > *{
+			.type-product .tregenza_one_product_add_to_cart form .product_totals ul li > *{
 				display: inline-block;
 			}
 
 
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity {
+			.type-product .tregenza_one_product_add_to_cart form .quantity {
 				margin: 0.5rem auto 0 auto;
 				display: inline-block;
 				width: 45%;
 				text-align: center;
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity input.qty {
+			.type-product .tregenza_one_product_add_to_cart form .quantity input.qty {
 				width: 3rem;
 			}
 
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form .quantity + button {
+			.type-product .tregenza_one_product_add_to_cart form .quantity + button {
 				margin: 0.5rem auto 0 auto;
 				display: inline-block;
 				max-width: 45%;
@@ -1148,11 +1069,11 @@
 			}
 
 			/* Wishlists option on product page */
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form #wl-wrapper {
+			.type-product .tregenza_one_product_add_to_cart form #wl-wrapper {
 				display: block;
 				
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart form #wl-wrapper > a {
+			.type-product .tregenza_one_product_add_to_cart form #wl-wrapper > a {
 				margin: 0.5rem 0 0 70%;
 				display: block;
 				max-width: 20%;
@@ -1161,11 +1082,11 @@
 				
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce {
+			.type-product .tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce {
 				flex-flow: unset;
 				display: block;
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce > a.button {
+			.type-product .tregenza_one_product_add_to_cart .single_variation_wrap > .woocommerce > a.button {
 				display: block;
 				margin: 0.5rem auto;
 				box-shadow: none;
@@ -1173,69 +1094,67 @@
 
 
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .reset_variations {
+			.type-product .tregenza_one_product_add_to_cart .reset_variations {
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .single_variation_wrap {
-
-			}
-
-
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation {
+			.type-product .tregenza_one_product_add_to_cart .single_variation_wrap {
 
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description {
+
+
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation {
+
+			}
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description {
 				margin-top: 0.5rem;
 				min-height: 2rem;
 
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description p {
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-description p {
 				font-weight: 300;
 				font-size: 1rem;
 				
 
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-price {
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation .woocommerce-variation-price {
 			}
 
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart {
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart {
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart div.quantity {
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart div.quantity {
 			}
-			.tregenza_one_wc_product_block.tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart .single_add_to_cart_button {
+			.type-product .tregenza_one_product_add_to_cart .woocommerce-variation-add-to-cart .single_add_to_cart_button {
 			}
 
 
 		/* ------ Description ------ */
 
 
-		.tregenza_one_wc_product_block.tregenza_one_product_description {
-/*			flex: 2 1 40rem;*/		/* Allow to grow to full width to accomodate significant text  */
-			padding: 1rem;	
+	 .type-product .tregenza_one_product_description {
 		}
 
-		.tregenza_one_wc_product_block.tregenza_one_product_description > h2:first-of-type {
+		.type-product .tregenza_one_product_description > h2:first-of-type {
 			display: none;		/* Hide stupid Description header */
 		}
 
 		/* ------------ */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_additional {
+			.type-product .tregenza_one_product_additional {
 
 		}
 
 		/* ------ Misc ------ */
 
-		.tregenza_one_wc_product_block.tregenza_one_product_misc {
+			.type-product .tregenza_one_product_misc {
 
 		}
 
 
-		.tregenza_one_wc_product_subblock.tregenza_one_product_category_list {
+			.type-product .tregenza_one_product_category_list {
 			font-size: 0.8rem;
 		}
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list ul.products  {
+			.type-product .tregenza_one_product_category_list ul.products  {
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: center;
@@ -1244,11 +1163,7 @@
 	
 			}
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list::before {
-				content: "Discover more kitchen fitting products like this: ";
-			}
-
-			.tregenza_one_wc_product_subblock.tregenza_one_product_category_list ul.products li.product-category {
+			.type-product .tregenza_one_product_category_list ul.products li.product-category {
 				flex: 1 1 auto;
 				float: none;
 				width: auto;
@@ -1258,283 +1173,18 @@
 				min-width: 10rem; 
 			}
 
-			.tregenza_one_wc_product_subblock.tregenza_one_product_sharing {
+			.type-product .tregenza_one_product_sharing {
 				display: none;
 			}
-			.tregenza_one_wc_product_subblock.tregenza_one_product_meta {
+			.type-product .tregenza_one_product_meta {
 				display: none;
 			}
-			.tregenza_one_wc_product_subblock.tregenza_one_product_meta .product_meta > *{
+			.type-product .tregenza_one_product_meta .product_meta > *{
 				display: block;
 			}
 
 		/* ------------ */
 
-		/* ------ Bundle & Composite products ------ */
-
-		/* Note - Woocommerce CSS for bundled and composite products added ad-hoc in various functions so have to be overloaded as there is no easy way to remove them */
-		.product-type-bundle form  .bundled_product_summary, 	.product-type-composite form .bundled_product_summary {
-			padding: 0;
-			margin: 0;
-			float: none;
-		}
-
-		.product-type-bundle form .bundled_product_images , 	.product-type-composite form .bundled_product_images {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-bundle form .bundled_product_images figure, 	.product-type-composite form .bundled_product_images figure {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-bundle form .bundled_product_images a, 	.product-type-composite form .bundled_product_images a {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-bundle form .bundled_product_images a:link, .product-type-bundle form .bundled_product_images a:hover,	.product-type-composite form .bundled_product_images a:link, .product-type-composite form .bundled_product_images a:hover {
-			border: none;
-		}
-
-		.product-type-bundle form .bundled_product_images img, 	.product-type-composite form .bundled_product_images img {
-			margin: 0;
-			padding: 0;
-			float: none;
-			
-			height: auto;
-			width: auto;
-		}
-
-		.product-type-bundle form .details , 	.product-type-composite form .details {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-bundle form  .bundled_product_summary .bundled_item_wrap, .product-type-composite  form  .bundled_product_summary .bundled_item_wrap {
-			margin: 0;
-			padding: 0;
-			float: none;			
-		}
-
-		.product-type-composite  form.composite_form .step_title_wrapper {
-			margin: 0;
-			padding: 0;
-			float: none;				
-		}
-
-		.product-type-composite  form.composite_form .component .component_content, .product-type-composite  form.composite_form .component_summary .content {
-			margin: 0;
-			padding: 0;
-			float: none;				
-
-		}
-		.product-type-composite  form.composite_form .component .composited_product_details_wrapper {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-composite  form.composite_form .component .composited_product_images {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-composite  form.composite_form .component .composited_product_images figure {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-
-		.product-type-composite  form.composite_form .component .composited_product_images a {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-		.product-type-composite  form.composite_form .component .composited_product_images a:link, 	.product-type-composite  form.composite_form .component .composited_product_images a:hover {
-			border: none;
-			font-weight: normal;
-		}
-
-		.product-type-composite  form.composite_form .component .composited_product_images img {
-			margin: 0;
-			padding: 0;
-			float: none;
-			
-			height: auto;
-			width: auto;
-		}
-
-		.product-type-composite  form.composite_form:not(.paged) .component:not(.first) .component_title_wrapper, .product-type-composite  form.composite_form:not(.paged) .composite_wrap {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-composite .component a.component_option_radio_button_tap {
-			position: relative;
-			top: auto;
-			bottom: auto;
-			left: auto;
-			right: auto;
-			z-index: auto;
-		}
-		.product-type-composite .component a.component_option_radio_button_tap:link, .product-type-composite .component a.component_option_radio_button_tap:hover {
-			border: none;
-		}
-
-		.product-type-composite .component .component_option_radio_button_container .radio_button_input {
-			margin: 0;
-			padding: 0;
-			float: none;
-
-			display: inline-block;
-			
-		}
-  
-		.product-type-composite .component .component_option_radio_button_container .radio_button_description {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-		.product-type-composite .component .component_option_radio_button_container .radio_button_description .title {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-composite .component .gform_wrapper {
-			margin: 0;
-			padding: 0;
-			float: none;
-		}
-
-		.product-type-composite .gform_anchor {
-			display: none;
-		}
-
-		/** Bundle options nested under addtocart block **/
-		.product-type-bundle .tregenza_one_wc_product_block.tregenza_one_product_add_to_cart {
-			flex: 2 1 40rem;			/* full width */
-
-		}
-
-		/** Composite form is at the same level as product blocks */
-		.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
-			flex: 2 1 40rem;			/* full width */
-			
-			margin: 0;
-			padding: 0;
-			float: none;
-
-		}
-		
-		form.bundle_form, form.composite_form {
-
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: center;
-			align-items: stretch;
-			align-content: center;
-			width: 100%;
-			height: 100%;
-
-		}
-
-		form.bundle_form > *, form.composite_form > * {
-			flex: 0 0 20rem;
-			max-width: 20rem;
-			margin: 0rem auto 0rem auto;
-			padding: 0rem;
-
-			border-radius:  0.1rem;
-			
-			box-sizing: border-box; 
-		}
-
-
-		.bundled_product_title_link {
-			display: none;
-		}
-
-
-		form.composite_form .quantity {
-			margin: 0.5rem auto 0 auto;
-			display: inline-block;
-			width: 45%;
-			text-align: center;
-		}
-
-		form.composite_form .quantity input.qty {
-			width: 3rem;
-		}
-
-
-		form.composite_form .quantity + button {
-			margin: 0.5rem auto 0 auto;
-			display: inline-block;
-			max-width: 45%;
-			text-align: center;
-		}
-
-		form.composite_form #wl-wrapper {
-			display: block;
-			
-		}
-		form.composite_form #wl-wrapper > a {
-			margin: 0.5rem 0 0 70%;
-			display: block;
-			max-width: 20%;
-
-			font-size: 0.6rem;
-			
-		}
-		/* ------------ */
-
-
-		/* ------ Composite product ------ */
-/*		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form {
-
-		
-	
-		}
-		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component {
-		
-			flex: 1 1 auto;
-			width: auto;
-			margin: 0;
-			padding: 0;
-
-		}
-
-		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component > .component_inner {
-
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			align-items: stretch;
-			align-content: center;
-			width: 100%;
-			height: 100%;
-
-		}
-
-		article.product.type-product.product-type-composite form.tregenza_one_wc_product_block.tregenza_one_composite_form > .component > .component_inner > * {
-			flex: 1 1 auto;
-			width: auto;
-			margin: 0;
-			padding: 0;
-
-		}
-*/
-		/* ------------ */
 
 
 	/* Single Product Page */
@@ -1556,119 +1206,76 @@
 	
 		/* Flex layout */
 		.woocommerce ul.products {
-			width: auto;
-			float: none;
-			margin: 0;
-			padding: 0;
-	
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			align-items: stretch;
-			align-content: center;
 		}
 
-/*	
-		.woocommerce ul.products:before {
-			content: '';
-			display: none;
-		}
-*/	
 	
 		li.product {
-			margin: 0.5rem auto;
+			margin: 0;
 			padding: 0;
-	
-			flex: 0 0 18rem;
-			max-width: 18rem;
-			max-height: 18rem;	
 
 			list-style: none outside;
 		}
 	
+		li.product tregenza_one_product_wrapper {
+			padding: 0.25rem;
+		}
+
+
 		li.product   a { 
 			border: none;
 		}
+
+		li.product .tregenza_one_product_wrapper .tregenza_one_row,  li.product .tregenza_one_product_wrapper .tregenza_one_row_wrap,   li.product .tregenza_one_product_wrapper .tregenza_one_column { 
+			padding: 0;
+		}
 	
 		li.product >  a {
-			width: 18rem;				/* Fixed size to anable absolute positioning */
-			height: 18rem;
-			padding: 0;
-			margin: 0 auto;
-			position: relative;
-
-		}
-
-		li.product a > .tregenza_one_wc_product_block {
-			/* Rely on fixed positioning rather than flex */
-			position: absolute;
-			display: block;
-			min-width: 9rem;
-			max-width: 18rem;
-			max-height: 18rem;
-
 		}
 	
 
 
 	
 		/* Sizing & Positioning for product elements */
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_sales_flash {
+		li.product a > .tregenza_one_sales_flash {
 			position: relative; /* exact positioning handled by inner onsale span */
 		}
 
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_images {
-			top: 0;
-			left: 0;
-			width: 9rem;		
-			height: 9rem;
-			margin: 0;
-			padding: 0;
+		li.product a  .tregenza_one_product_images {
 		}
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_images .tregenza_one_product_thumbnail {
 
-		} 
-	
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info  {
-			top: 0;
-			left: 9rem;
-			width: 9rem;
-			height: 9rem;
+		li.product a  .tregenza_one_product_short_info  {
 
 		}	
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_price {
-			line-height: 6rem;
+		li.product a  .tregenza_one_product_short_info .tregenza_one_product_price {
 		}
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_price > span {
+		li.product a  .tregenza_one_product_short_info .tregenza_one_product_price > span {
 			display: inline-block;
-  			vertical-align: middle;	
-			line-height: 1rem;
+			margin: 0 auto;
 		}
 	
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_short_info .tregenza_one_product_sku {
+		li.product a .tregenza_one_product_sku {
 			font-size: 0.8rem;
-			color: #777777;
-		}
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_title {
-			left: 0;
-			top: 9rem;
-			height: 4rem;
-			width: 18rem;
+			line-height: 1rem;
 			text-align: center;
-			vertical-align: middle;
+			color: #777777;
+			height: 1rem;
+			overflow: hidden;
 		}
 
-		li.product a > .tregenza_one_wc_product_block.tregenza_one_product_title h2 {
+		li.product a .tregenza_one_product_title {
+			justify-content: center;
+			height: 3rem;
+			overflow: hidden;
+
+		}
+
+		li.product a .tregenza_one_product_title h2 {
 			font-size: 1rem;
+			margin-top: 0;
 		}
 	
-		li.product a > .tregenza_one_product_tags {
-			left: 0;
-			top: 13rem;
-			height: 3rem;
-			width: 100%;
-			text-align: center;
-			vertical-align: middle;
+		li.product a .tregenza_one_product_tags {
+			height: 2rem;
 			overflow: hidden;
 		}
 	
@@ -1678,19 +1285,24 @@
 			padding: 0;
 			margin: 0;
 		}
-	
-	
-		li.product a >  .tregenza_one_product_tags ul.tregenzaOneTagList {
+		
+		li.product a .tregenza_one_product_tags ul.tregenzaOneTagList {
 			padding: 0;
 			margin: 0;
 			font-size: 0.8rem;
+			line-height: 1rem;
 		}
-		li.product a >  .tregenza_one_product_tags ul.tregenzaOneTagList li {
-			padding: 0;
+
+		li.product a .tregenza_one_product_tags ul.tregenzaOneTagList li {
+			padding: 0 ;
 			margin: 0;
-			display: block;
+			display: inline-block;
 		}
-	
+
+		li.product a .tregenza_one_product_tags ul.tregenzaOneTagList li:not(:last-child):after {
+				content: ', ';
+				margin-right: 0.25rem;
+		}
 	
 	/* --- Product Categories --- */
 
@@ -1909,13 +1521,7 @@
 	/* Allow one full width content block (640px plus an allowance for padding */
 		@media (min-width: 44rem) {
 			/* Switch to wrapping rows */
-			.woocommerce ul.products {
-				flex-flow: row wrap;
-			}
 
-			.tregenza_one_wc_product_block {
-				flex: 0 0 20rem;
-			}
 
 			article.type-product .tregenza_one_wc_product_block.tregenza_one_product_title {
 

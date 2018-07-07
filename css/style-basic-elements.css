@@ -61,7 +61,7 @@
 		font-size: 1.6rem;
 		line-height: 120%;
 		text-align: center;
-		font-weight: 900;
+		font-weight: 700;
 	}
 	h3 {
 		font-size: 1.4rem;
@@ -101,10 +101,58 @@
 	
 	}
 
-
-
-	/* Other text formatting */
+	dl:after {content:"";display:table;clear:both;}
+	dd {
+	 padding: 0 0;
+	}
+	dl {
+		width:100%;
+	}
+	dt, dd {
+	 display:inline-block;
+	 width:25%;
+	}
+	dt {
+	 text-align:right;
+	 font-weight:bold;
+	 clear:left;
+	 float:left;
+	}
+	dd {
+	 width:65%;
+	 padding-left:1em;
+	 clear:right;
+	}
+	dd + dd {
+	 float:right;
+	 clear:both;
+	}
+	dt:first-child {
+	}
+	dd + dt {
+		clear:both;
+	 padding-top:0;
+	}
+	dt + dt {
+	 width: 100%;
+	 float: none;
+	 padding: 0 70% 0 0;
+	}
+	dt + dt + dd {
+	 margin-top: -2em;
+	}
+	dt + dt + dd + dt {
+	  margin-top: 2em;
+	}
 	
+
+	/* Text formatting */
+	p {
+		font-size: 1rem;
+		line-height: 120%;
+		margin-top: 0.5rem;
+	}
+
 	
 	strong {
 		font-weight: 700;
@@ -128,11 +176,13 @@
 			margin 0rem;
 		}
 		
-		/* Standard Wordpress size classes */
+		/* Standard Wordpress image size classes 
+		*			NOTE: Scaled for 320px screen. See media queries below.	
+		*/
 		
 		img.size-thumbnail {
-			width: 150px;
-			height: 150px;
+			width: 75px;
+			height: 75px;
 		}
 
 	/* ----- Basics ---- Inputs ---- */
@@ -242,3 +292,37 @@
 		color: #aaaaaa;
 		padding: 0 2rem 0 2rem;
 	}
+
+
+/* ---- >>>>>    Media Queries <<<<<     ----- */
+	/* Default CSS designed for smallest screen width - 320px - and media queries adapt to larger sizes */ 	
+
+	/* One column */
+		@media (min-width: 20rem) {
+		
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding */
+		@media (min-width: 44rem) {
+			
+			img.size-thumbnail {
+				width: 150px;
+				height: 150px;
+			}
+	
+		}
+	
+	/* Allow one full width content block (640px plus an allowance for padding) plus two 10rem columns (plus some padding) */
+		@media (min-width: 64rem) {
+			#wrapper > #container >   aside.secundus, #wrapper > #container >   aside.tertius {
+				display: flex;	 
+			}
+			#hamburger {
+				display: none;
+			}
+		}
+	
+		@media (min-width: 1200px) {
+		
+		}
+		

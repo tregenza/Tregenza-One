@@ -2,47 +2,6 @@
 
 /*** Generic content layout ***/
 
-.full_width {
-	width: 100%;
-	margin-top: 1rem;
-}
-
-.micro_blocks {
-		margin: 1rem 0 0 0;
-		width: 100%;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		align-content: space-around;
-		align-items: stretch;
-}
-.micro_blocks > * {
-		flex: 0 0 15rem;
-		padding: 0.25rem;
-		margin: 0.25rem;
-		text-align: center;
-
-		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
-					This centers any text vertically */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		
-}
-
-.micro_blocks > *:not(a) {
-		background-color: rgba( 0, 0, 0, 0.1);
-}
-
-.micro_blocks > p:empty {
-	display: none;
-}
-
-.micro_blocks > a.button {
-	margin: 0.25rem;
-	padding: 0.25rem;
-}
-
 
 
 
@@ -64,6 +23,7 @@
 		}
 	.page-template-template-splash #wrapper > #container > #content > article {
 			margin: 0 auto;
+			width: 100%;
 		}
 	.page-template-template-splash #wrapper > #container > #content > article > section {
 			padding: 0;
@@ -103,6 +63,10 @@
 body.page-template-template-splash {
 }
 
+body.page-template-template-splash #content {
+}
+
+
 body.page-template-template-splash article {
 }
 
@@ -134,61 +98,5 @@ body.page-template-template-splash article .splash_block {
 /* END PLaceholder Image only */
 }
 
-/*  Default background colours to break-up display */
-/*
-.tregenza_one_block_content > .splash_block:nth-of-type(even) {
-	background-color: #ffffff;
-}
-.tregenza_one_block_content > .splash_block:nth-of-type(odd) {
-	background-color: #dddddd;
-}
-*/
-body.page-template-template-splash article .splash_block > h1 {
-	font-size: 3rem;
-}
-body.page-template-template-splash article .splash_block > h2 {
-	font-size: 2.2rem;
-}
-body.page-template-template-splash article .splash_block > h3 {
-	font-size: 1.6rem;
-}
 
 
-body.page-template-template-splash article .read_block {
-		max-width: 40rem;
-		margin: 0 auto 0 auto;		
-}
-
-
-body.page-template-template-splash article ul.list_block {
-		margin: 1rem 0 0 0;
-		width: 100%;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		align-content: space-around;
-		align-items: stretch;
-}
-body.page-template-template-splash article ul.list_block > li {
-		list-style-type: none;
-
-		flex: 1 1 8rem;
-		padding: 0.25rem;
-		margin: 0.5rem;
-		text-align: center;
-
-		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
-					This centers any text vertically */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		border-radius: 0.25rem;
-
-		background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,.25) ); 		
-
-}
-body.page-template-template-splash article ul.list_block > li:nth-of-type(even) {
-}
-body.page-template-template-splash article ul.list_block > li:nth-of-type(odd) {
-}

@@ -36,7 +36,7 @@
 				if ( $wooAccount ) {
 					$user = get_permalink( $wooAccount );	
 				}
-				$wooURL = $woocommerce->cart->get_cart_url();
+				$wooURL = wc_get_cart_url();
 			} else {
 				if ( is_user_logged_in() ) {
 					/* Wordpress default user page */

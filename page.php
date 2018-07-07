@@ -19,7 +19,7 @@ set_query_var( 'to_template', $args);
 	get_template_part('/template-parts/sidebar/secundus', $args['template_type']); 
 	?>
 <!-- Page - section -->
-<section id="content" role="main" class="tregenza-primus">
+<section id="content" role="main" class="tregenza_one_block tregenza_one_column">
 	<?php 
 		get_template_part( 'template-parts/loop/loop', $args['template_type'] ); 
 	?>

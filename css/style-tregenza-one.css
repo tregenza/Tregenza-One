@@ -1,0 +1,195 @@
+/***   
+*
+*				CSS for Tregenza_one flex layout blocks, columns and rows patterns 
+*
+*
+*
+*
+****/
+
+/* 
+*			Blocks - Control the sizing, margins and padding 
+*
+*/
+
+
+
+		/* Standard block - 
+					Never smaller than a 320px phone, never wider than a comfortable reading 
+					width of 640px. */
+		.tregenza_one_block {
+			min-width: 20rem;
+			max-width: 40rem;
+		}
+
+		.tregenza_one_block_half {
+			min-width: 10rem;
+			max-width: 20rem;
+		}
+
+		.tregenza_one_block_quart {
+			min-width: 5rem;
+			max-width: 10rem;
+		}
+
+		.tregenza_one_block:empty {
+			display: none;
+		}
+		.tregenza_one_block_max {
+			min-width: 20rem;
+			max-width: 100%;
+		}
+	
+		/* Consistent behaviour for all blocks */
+		.tregenza_one_block, .tregenza_one_block_half, .tregenza_one_block_quart, .tregenza_one_block_max {
+			flex: 1 1 auto;
+			margin: 0rem auto 0rem auto;
+			padding: 0rem;
+			
+			box-sizing: border-box; 
+
+			overflow: hidden;
+		}
+		.tregenza_one_block:empty, .tregenza_one_block_half:empty, .tregenza_one_block_quart:empty, .tregenza_one_block_max:empty {
+				display: none;
+		}
+
+
+/* 
+*
+*			Row / Columns - Control the flex layout of their content
+*			Row's occupy 100% of available space across the page
+*/
+
+	.tregenza_one_row, .tregenza_one_row_wrap {
+			flex: 0 0 100%;
+
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-start;
+			align-content: space-evenly;
+			align-items: stretch;
+
+	}
+
+	.tregenza_one_row_wrap {
+			flex-flow: row wrap;	
+	}
+	
+	.tregenza_one_column {
+			flex: 1 1 auto;
+
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			align-content: space-evenly;
+			align-items: stretch;
+
+/* border: 1px solid green; */
+
+	}
+
+
+/*	 ---		SPECIAL blocks and behaviours --- */
+
+/*
+* Bullet-blocks
+* Designed for small, bullet point types of information. 
+* The bullet block wrapper imposes flex haviour and sizing on its children.
+* The size of the wrapper is controlled by it's wrapper 
+*/
+
+.tregenza_one_bullet_blocks {
+		margin: 1rem 0 0 0;
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: space-around;
+		align-items: stretch;
+}
+.tregenza_one_bullet_blocks > * {
+		flex: 0 0 15rem;
+		padding: 0.25rem;
+		margin: 0.25rem;
+		text-align: center;
+
+		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
+					This centers any text vertically */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+}
+
+.tregenza_one_bullet_blocks > *:not(a) {
+		background-color: rgba( 0, 0, 0, 0.1);
+}
+
+.tregenza_one_bullet_blocks > p:empty {
+	display: none;
+}
+
+.tregenza_one_bullet_blocks > a.button {
+	margin: 0.25rem;
+	padding: 0.25rem;
+	display: flex;
+}
+
+/*
+* List-blocks
+* Similar to bullet blocks but designed for lists with larger number of entries
+* and more variety in their length 
+*/
+
+
+ul.tregenza_one_list_blocks {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: space-around;
+		align-items: stretch;
+
+		margin: 1rem 0 0 0;
+		padding: 0.5rem;
+}
+ul.tregenza_one_list_blocks > li {
+		list-style-type: none;
+
+		flex: 1 1 8rem;
+		padding: 0.25rem;
+		margin: 0.5rem;
+		text-align: center;
+
+		/* 	Note: Any text directly inside a flex container is treated as a flex item (css spec - anonymous inline box).
+					This centers any text vertically */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		border-radius: 0.25rem;
+
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,.25) ); 		
+
+}
+ul.list_block > li:nth-of-type(even) {
+}
+ul.list_block > li:nth-of-type(odd) {
+}
+
+
+/* Generic utility classes */
+
+.to_centre {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+}
+.to_narrow {
+		width: 80%;
+}
+.to_bigger {
+		font-size: bigger;
+}
+
+

@@ -11,7 +11,7 @@
 		get_sidebar("secundus"); 
 	?>
 <!--- Page - section --->
-	<section id="content" role="main" class="tregenza-primus">
+	<section id="content" role="main" class="tregenza_one_block_max tregenza_one_column">
 	<?php 
 		if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 	?>

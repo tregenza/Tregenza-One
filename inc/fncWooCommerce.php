@@ -3,6 +3,11 @@
 
 /********* START - Woocommerce Config *********/
 
+global $woocommerce;
+if ( $woocommerce ) {
+	add_theme_support('woocommerce');
+}		
+
 
 	/** Remove Woocommerce breadcrumbs   */
 	function tregenza_one_move_wc_breadcrumbs() {
@@ -71,6 +76,57 @@
 /********* END - Woocommerce Config *********/
 
 
+/********* START - Woocommerce Accounts / Account Pages *********/
+	/**
+  * Edit my account menu order
+		*
+		*			NOTE:  Not Active  - copy code to a a child theme an edit as necessary
+ */
+/*
+ function my_account_menu_order() {
+			// Default order (WC 3.4.3) - re-arrange as necessary //
+		 	$menuOrder = array(
+		 		'dashboard'          => __( 'Dashboard', 'woocommerce' ),
+		 		'orders'             => __( 'Orders', 'woocommerce' ),
+		 		'downloads'          => __( 'Download', 'woocommerce' ),
+		 		'edit-address'       => __( 'Addresses', 'woocommerce' ),
+		 		'edit-account'    	=> __( 'Account Details', 'woocommerce' ),
+		 		'customer-logout'    => __( 'Logout', 'woocommerce' ),
+		 	);
+		 	return $menuOrder;
+	 }
+ add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
+*/
+
+	/**
+  * Register new endpoints to use inside My Account page.
+		*
+		*		 NOTE: Not Active - copy code to child theme as necessary 
+  */
+/*
+ function my_account_new_endpoints() {
+	 	add_rewrite_endpoint( 'awards', EP_ROOT | EP_PAGES );
+ }
+ add_action( 'init', 'my_account_new_endpoints' );
+*/
+
+	/**
+  * Get new endpoint content
+		*
+		*  NOTE: Not Active - copy code to child theme as necessary
+  */
+/*
+ function awards_endpoint_content() {
+     get_template_part('my-account-awards');
+ }
+ add_action( 'woocommerce_account_awards_endpoint', 'awards_endpoint_content' );
+*/
+
+/********* END - Woocommerce Accounts / Account Pages *********/
+
+
+
+
 /********* START - Woocommerce Product Pages *********/
 
 	/* Remove Tabs  */
@@ -90,92 +146,198 @@
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 
 
 		/* Add hooks */
-		/* Summary - Everything in here so we can handle flex layout in a single div wrapper */
+		/* Summary - Everything in one wrapper  */
 		add_action( 'woocommerce_before_single_product', 'tregenza_one_single_product_article_wrapper', 10 );
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_sales_flash'); }, 12 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_sale_flash', 14 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 16 );
-
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_title'); }, 18 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 20 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 22 );
-
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_images'); }, 24 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 26 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 28 );
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_product_sales_flash'); }, 100 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_sale_flash', 110 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 120 );
+		/* Row - END */
 
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_short_info'); }, 30 );
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap'); }, 200 );
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_price', 1); }, 40 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 42 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 44 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block_half tregenza_one_product_title'); }, 210 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 220 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 230 );
+		/* Column - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_tags',1); }, 46 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_tags', 48 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 50 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block_half tregenza_one_product_images'); }, 240 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 250 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 260 );
+		/* Column - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_excerpt', 1); }, 52 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 54 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 56 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 270 );
+		/* Row - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_sku', 1); }, 58 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_sku', 60 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 62 );
 
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 64 );
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap tregenza_one_block'); }, 300 );
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_description'); }, 70 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_description', 72 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 74 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block tregenza_one_product_excerpt'); }, 310 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 320 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 330 );
+		/* Column - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_additional'); }, 76 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_additional', 78, 1 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 80 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 340 );
+		/* Row - END */
+
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap tregenza_one_block tregenza_one_product_action'); }, 400 );
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_price'); }, 410 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 420 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 430 );
+		/* Column - END */
+
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_add_to_cart'); }, 440 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 450 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 460 );
+		/* Column - END */
+
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 470 );
+		/* Row - END */
+
+
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap'); }, 500 );
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_tags'); }, 510 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_tags', 520 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 530 );
+		/* Column - END */
+
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_sku'); }, 540 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_sku', 550 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 560 );
+		/* Column - END */
+
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 570 );
+		/* Row - END */
+
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap'); }, 600 );
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block tregenza_one_product_description'); }, 610 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_description', 620 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 630 );
+		/* Column - END */
+
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 640 );
+		/* Row - END */
+
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap'); }, 700 );
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block tregenza_one_product_additional'); }, 710 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_additional', 720 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 730 );
+		/* Column - END */
 	
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_misc'); }, 90 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 740 );
+		/* Row - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_sharing' ,1); }, 92 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 94 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 96 );
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap tregenza_one_product_misc'); }, 800 );
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_category_list', 1); }, 98 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_category_list', 100 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 102 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_sharing' ,1); }, 810 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 820 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 830 );
+		/* Column - END */
 
-		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_product_block_start('tregenza_one_product_meta', 1); }, 104 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 106 );
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 108 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_category_list', 1); }, 840 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_category_list', 850 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 860 );
+		/* Column - END */
 
-		add_action( 'woocommerce_single_product_summary', 'tregenza_one_product_block_end', 110 );
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_meta', 1); }, 870 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 880 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 890 );
+		/* Column - END */
 
-		add_action( 'woocommerce_before_add_to_cart_form', 'tregenza_one_add_to_cart_wrapper_start', 5);
+		/* Add To Cart Repeat */
+
+		/* Row - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_row_wrap tregenza_one_block tregenza_one_product_action_repeat'); }, 900 );
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_price'); }, 910 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 920 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 930 );
+		/* Column - END */
+
+
+		/* Column - START */
+		add_action( 'woocommerce_single_product_summary', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_add_to_cart'); }, 940 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 950 );
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 960 );
+		/* Column - END */
+
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 970 );
+		/* Row - END */
+
+
+
+
+		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 1000 );
+		/* Row - END */
+
+/*		add_action( 'woocommerce_before_add_to_cart_form', 'tregenza_one_add_to_cart_wrapper_start', 5);
 		add_action( 'woocommerce_after_add_to_cart_form', 'tregenza_one_add_to_cart_wrapper_end', 54 );
 
 		add_action( 'woocommerce_after_single_product', 'tregenza_one_single_product_article_wrapper_end', 20 );
+*/
+
+//		add_action( 'woocommerce_single_product_summary', 'tregenza_one_wrapper_end', 99 );
+		/* Row - END */
 
 	}
 	add_action( 'init', 'tregenza_one_mod_single_product', 10 );
 
 	function tregenza_one_product_block_start($class = '', $subBlock = null ) {
 		if ( isset($subBlock) && $subBlock ) {
-			echo '<div class="tregenza_one_wc_product_subblock '.$class.'">';
+			echo '<div class="tregenza_one_block_half '.$class.'">';
 		} else {
-			echo '<div class="tregenza_one_wc_product_block '.$class.'">';
+			echo '<div class="tregenza_one_block '.$class.'">';
 		}
 	}
 	function tregenza_one_product_block_end() {
 		echo '</div>';
 	}
 
+	function tregenza_one_wrapper_start($class = '') {
+			echo '<div class="'.$class.'">';
+	}
+	function tregenza_one_wrapper_end() {
+		echo '</div>';
+	}
+
+
+
 	function tregenza_one_product_description() {
-		woocommerce_get_template( 'single-product/tabs/description.php' );
+		wc_get_template( 'single-product/tabs/description.php' );
 	}
 
 	/** Additional Information / Product Attributes - Only if there are some **/
@@ -222,14 +384,14 @@
 
 	function tregenza_one_add_to_cart_wrapper_start() {
 		// Wrapper only on non-composite products due to composite items not calling before_add_to_cart action
-		if ( !function_exists(is_composite_product) || ! is_composite_product() ) {
+		if ( !function_exists('is_composite_product') || ! is_composite_product() ) {
 			tregenza_one_product_block_start('tregenza_one_product_add_to_cart' );
 		}
 	}
 
 	function tregenza_one_add_to_cart_wrapper_end() {
 		// Wrapper only on non-composite products due to composite items not calling before_add_to_cart action
-		if ( !function_exists(is_composite_product) || ! is_composite_product() ) {
+		if ( !function_exists('is_composite_product') || ! is_composite_product() ) {
 			tregenza_one_product_block_end();
 		}
 	}
@@ -269,59 +431,103 @@
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 
 		/* Add hooks */
+		/* Note - Five different hooks are called by woo_commerce in this order:
+											woocommerce_before_shop_loop_item	
+											woocommerce_before_shop_loop_item_title	
+											woocommerce_shop_loop_item	
+											woocommerce_after_shop_loop_item_title	
+											woocommerce_after_shop_loop_item
+			*/	
+
+
+		/*   woocommerce_before_shop_loop_item	   */
+
+		/* Wrapper - START */
+		add_action( 'woocommerce_before_shop_loop_item', function() { tregenza_one_wrapper_start('tregenza_one_product_wrapper tregenza_one_column tregenza_one_block_half'); }, 10 );
+
+
+		/* Lists need to be split into different hooks thanks to the way the woocommerce template is structured  */
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 20 );
+
+		/*   woocommerce_before_shop_loop_item_title	   */
+
+		/* Column - START */
+		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_block_half tregenza_one_shop_loop_before'); }, 100 );
+
+		/* Row - START */
+		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_product_sales_flash'); }, 110 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_sale_flash', 120 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_wrapper_end', 130 );
+		/* Row - END */
+
+		/* Row - START */
+		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_images'); }, 200 );
+		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_product_thumbnail', 1); }, 210 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 220 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_wrapper_end', 230 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_wrapper_end', 240 );
+		/* Row - END */
+
+		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_wrapper_end(); }, 250 );
+		/* Column - END */
+
+		/*   woocommerce_shop_loop_item_title	   */
+
+		/* Column - START */
+		add_action( 'woocommerce_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_product_title_wrapper'); }, 100 );
+
+		/* Row - START */
+		add_action( 'woocommerce_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_title'); }, 110 );
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 120 );
+		add_action( 'woocommerce_shop_loop_item_title', 'tregenza_one_wrapper_end', 130 );
+		/* Row - END */
+
+		add_action( 'woocommerce_shop_loop_item_title', 'tregenza_one_wrapper_end', 140 );
+		/* Column - END */
+
+
+		/*   woocommerce_after_shop_loop_item_title	   */
+
+		/* Column - START */
+		add_action( 'woocommerce_after_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_column tregenza_one_shop_loop_after tregenza_one_product_short_info'); }, 10 );
 	
-		/* Summary - Everything in here so we can handle flex layout in a single div wrapper */
-		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 1 );
+		/* Row - START */
+		add_action( 'woocommerce_after_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_price'); }, 100 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 110 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_wrapper_end', 120 );
+		/* Row - END */
 
+		/* Row - START */
+		add_action( 'woocommerce_after_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_sku'); }, 200 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_product_sku', 210 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_wrapper_end', 220 );
+		/* Row - END */
 
-		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_product_block_start('tregenza_one_product_sales_flash'); }, 10 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_sale_flash', 12 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_product_block_end', 14 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_wrapper_end', 230 );
+		/* Column - END */
 
-		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_product_block_start('tregenza_one_product_images'); }, 20 );
+		/* Row - START */
+		add_action( 'woocommerce_after_shop_loop_item_title', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_tags'); }, 300 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_product_tags', 310 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_wrapper_end', 320 );
+		/* Row - END */
 
-		add_action( 'woocommerce_before_shop_loop_item_title', function() { tregenza_one_product_block_start('tregenza_one_product_thumbnail', 1); }, 22 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 24 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_product_block_end', 26 );
+		add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
 
-		add_action( 'woocommerce_before_shop_loop_item_title', 'tregenza_one_product_block_end', 28 );
+		/*   woocommerce_after_shop_loop_item	   */
 
-		add_action( 'woocommerce_shop_loop_item_title', function() { tregenza_one_product_block_start('tregenza_one_product_title'); }, 10 );
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 12 );
-		add_action( 'woocommerce_shop_loop_item_title', 'tregenza_one_product_block_end', 14 );
+		add_action( 'woocommerce_after_shop_loop_item', function() { tregenza_one_wrapper_start('tregenza_one_row tregenza_one_block_quart tregenza_one_product_add_to_cart'); }, 100 );
+		add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 110 );
+		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_block_end', 120 );
 
-		add_action( 'woocommerce_after_shop_loop_item', function() { tregenza_one_product_block_start('tregenza_one_product_short_info'); }, 10 );
-	
-		add_action( 'woocommerce_after_shop_loop_item', function() { tregenza_one_product_block_start('tregenza_one_product_price',1); }, 12 );
-		add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 14 );
-		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_block_end', 16 );
-
-
-		add_action( 'woocommerce_after_shop_loop_item', function() { tregenza_one_product_block_start('tregenza_one_product_sku', 1); }, 20 );
-		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_sku', 22 );
-		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_block_end', 24 );
-
-		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_block_end', 30 );
-
-		add_action( 'woocommerce_after_shop_loop_item_title', function() { tregenza_one_product_block_start('tregenza_one_product_tags'); }, 10 );
-		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_product_tags', 12 );
-		add_action( 'woocommerce_after_shop_loop_item_title', 'tregenza_one_product_block_end', 14 );
-
-
-
-/*		add_action( 'woocommerce_after_shop_loop_item', function() { tregenza_one_product_block_start('tregenza_one_product_add_to_cart'); }, 40 );
-		add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 50 );
-		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_product_block_end', 60 );
-*/
-
-
-
-		add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 99 );
-
+		add_action( 'woocommerce_after_shop_loop_item', 'tregenza_one_wrapper_end', 999 );
+		/* Wrapper - END */
 
 
 	}
 	add_action( 'init', 'tregenza_one_mod_product_list', 10 );
+
+
 
 
 /********* END - Woocommerce Product Lists *********/
@@ -393,4 +599,3 @@
 		return '<a href="$shop_page_url"></a>';
 	}
 	add_shortcode('wcurl_shop', 'wcURL_shop' );
-

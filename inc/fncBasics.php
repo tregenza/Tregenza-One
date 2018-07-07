@@ -61,9 +61,6 @@ return $count;
 	Tregenza-One 
 
 */ 
-
-
-
 	/* User Logged In Shortcode for optional content */	
 	function loggedInOnly ($params, $content = null){
 		//check tha the user is logged in
@@ -121,7 +118,7 @@ return $count;
 
 	/* Add block classes to post */
 	function addBlockClassToPost( $classes ) {
-		$classes[] = 'tregenza_one_block';
+		$classes[] = 'tregenza_one_column';
 		return $classes;
 	}
 	add_filter( 'post_class', 'addBlockClassToPost' );

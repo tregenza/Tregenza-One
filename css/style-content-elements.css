@@ -23,7 +23,6 @@
 
 	body.blog .postSeparator {
 /*		height: .5rem; */
-		width: 100%;
 		margin-top: 1.5rem;
 		margin-bottom: 1.5rem;
 		border-radius: 0.25rem;
@@ -32,44 +31,21 @@
 /* ----  Content Blocks ---- */
 	/* Generic post/entry block flex & sizing */
 
-		.tregenza_one_block {
-			min-width: 10rem;
-			flex: 1 1 10rem;
-
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: flex-start;
-			align-content: stretch;
-			align-items: stretch;
-
-			margin: 0rem auto 0rem auto;
-			padding: 0rem;
-			
-			box-sizing: border-box; 
-
-		}
-		.tregenza_one_block:empty {
-			display: none;
-		}
-
-		.tregenza_one_block > * {
-		}
 
 	/* Post blocks order & size */ 
 	.tregenza_one_block_thumbnail {
 		order: 1;
-		flex: 0 0 100%;
-		max-width: 100%;
+		flex: 0 0 auto;
 	}
 
 	.tregenza_one_block_title {
 		order: 2;
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}
 
 	.tregenza_one_block_content {
 		order: 3;
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}
 
 	.tregenza_one_block_entrylinks {
@@ -78,12 +54,12 @@
 
 	.tregenza_one_block_entrydate {
 		order: 0;
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}
 
 	.tregenza_one_block_entryauthor {
 		order: 9; 
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}
 
 	.tregenza_one_block_entrycategory {
@@ -99,7 +75,7 @@
 	}
 	/*Combined Tags / category position / size so they look / behave the same */
 	.tregenza_one_block_entrycategory, 	.tregenza_one_block_entrytags {
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 		min-width: 0;
 	}
 
@@ -199,13 +175,16 @@
 			margin: 1rem 0 1rem 0;
 			border-bottom: 1px solid #3377aa;
 		}
+
 	.tregenza_one_block_content {
 	}
 
+	.tregenza_one_block.tregenza_one_block_content {
+	}
+
+
 	/* ---- Post Comment Blocks ---- */
 	.tregenza_one_block_comments {
-			justify-content: space-between;
-			flex-flow: column nowrap;
 	}
 	.tregenza_one_block_comments > section > * {
 		padding-bottom: 0.25rem;
@@ -245,17 +224,17 @@
 	/* Comments sub blocks size & position */
 	.tregenza_one_block_comment_avatar {
 		order: 0; 
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}	
 
 	.tregenza_one_block_comment_datetime {
 		order: 2; 
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}	
 
 	.tregenza_one_block_comment_author {
 		order: 1; 
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}	
 
 	.tregenza_one_block_comment_moderation {
@@ -264,18 +243,20 @@
 
 	.tregenza_one_block_comment_text {
 		order: 5; 
-		flex: 1 2 100%;
+		flex: 1 2 auto;
+
 	}	
 
 	.tregenza_one_block_comment_reply {
 		order: 6; 
-		flex: 0 0 100%;
+		flex: 0 0 auto;
 	}	
 
 	.tregenza_one_block_comments li.tregenza_one_block_comment > ul.children {
 			/* sub comment */
 			order: 99;
-			flex: 0 0 100%;
+			flex: 0 0 auto;
+
 	}
 
 	/* Comments sub blocks styling */
@@ -336,6 +317,19 @@
 	/* Comments respond form */
 	.tregenza_one_block_comments .comment-respond {
 			/*  See Style-Form.css */
+	}
+
+	.tregenza_one_block_comments .comment-respond > form.comment-form > script {
+			/****
+			*								HACK!!!!
+			*								Weird problmen where for superadmin user, the nonce script output by
+			*								comment-template/wp_comment_form_unfiltered_html_nonce() would display.
+			*							 The script tags being ignore and the javascript being handled as text.
+			*								Cannot find why this is happening. Script only applies to superadmin so
+			*								not important. Solution is to treat the tag as text and don't display it.
+			*								Yes, it's a shit solution but I've already wasted hours on this.
+			****/
+			display: none;
 	}
 	
 

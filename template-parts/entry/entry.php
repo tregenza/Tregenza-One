@@ -40,6 +40,7 @@
 		<?php 
 			/* note: unlike get_template_part, comments_template needs the precedding slash on the path. */
 			/* Also. Need to check file exists as comments_template fails if the exact file isn't founf and throws an error */
+
 			$path = get_template_directory();
 			$filename = '/template-parts/entry/comments'.'-'.$args['template_type'].'.php';
 			if ( ! file_exists( $path.$filename ) ) {

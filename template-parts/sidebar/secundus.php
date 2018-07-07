@@ -1,5 +1,5 @@
 <!--- Sidebar Secundus-->
-	<aside class="secundus">
+	<aside class="tregenza_one_block tregenza_one_column secundus">
 	<?php
 
 

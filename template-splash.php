@@ -12,7 +12,7 @@ set_query_var( 'to_template', $args);
 	get_template_part('/template-parts/header/header', $args['template_type']); 
 ?>
 <!--- Splash Full - section --->
-<section id="content" role="main" class="tregenza-primus">
+<section id="content" role="main" class="tregenza_one_block_max tregenza_one_column">
 	<?php 
 		get_template_part( 'template-parts/loop/loop', $args['template_type'] ); 
 	?>
