@@ -3,40 +3,6 @@
 
 
 /* --- Override Basics ---- */
-/*
-	div.woocommerce table.shop_table  {
-		margin: 0.5rem 0 0 0;
-		padding: 0.5rem;
-
-		border: none;
-	}
-
-	div.woocommerce table.shop_table td {
-		border: none;
-		padding: 0rem 0.25rem 0rem 0.25rem;
-	}
-	div.woocommerce table.shop_attributes:empty {
-		display: none;
-	}
-
-	.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
-		float: none;
-		width: auto;
-		margin: 0;
-		padding: 0;
-	}
-	.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
-		float: none;
-		width: auto;
-		margin: 0;
-		padding: 0;
-
-	}
-
-	.woocommerce .product-category mark {
-		background-color: transparent;
-	}
-*/
 
 	/* Generic Woocommerce Container */
 	div.woocommerce {
@@ -81,15 +47,8 @@
 		/** See Customisation */
 	}
 
-	.woocommerce .products ul::after, .woocommerce .products ul::before, .woocommerce ul.products::after, .woocommerce ul.products::before {
-/*		content: '';
-		display: inline;
-*/	}
 
 	.tregenza_one_wc_product_block span.onsale {
-		/* Override woocommerce */
-		position: relative;
-		margin: 0 !important;
 		display: block;
 		z-index: auto;
 		width: 3rem;
@@ -164,8 +123,8 @@
 			background-color: #dddddd;
 			border-radius: 0.5rem;
 			padding: 0.5rem;
-			max-width: 90%;
-			margin: 0 auto;
+			max-width: 80%;
+			margin: 0.5rem auto;
 
 			text-align: center;
 		
@@ -176,52 +135,9 @@
 			margin: 0.25rem auto;
 		}
 
-/* --- Forms - Generic --- */
+/* --- Forms - Wordpress --- */
 
-		/* form basics */
-		div.woocommerce form {
-			flex: 1 1 auto;
-	
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			align-items: stretch;
-			align-content: center;	
-	
-			padding: 0;
-			margin: 0;
-		}
-		div.woocommerce form br {
-			display: none;		/* WORDPRESS sticks in needless br tags */
-		}
-	
-		div.woocommerce form .form-row {
-			border-radius: 0.1rem;
-			padding: 0.25rem;
-		}
-	
-		/* Override woocommerce */
-		.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
-		
-		    border: none;
-		    padding: 0.5rem 0 0.5rem 0;
-		    margin: 0;
-		    text-align: left;
-		    border-radius: 0px;
-		
-		}
-
-
-	/* 	woocommerce forms are erratic in their use of divs etc as child of forms. Set all direct child of forms to be flex */
-		div.woocommerce form > * {
-			flex: 1 1 auto;
-		}
-		div.woocommerce form > h1, div.woocommerce form > h2, div.woocommerce form > h3, div.woocommerce form > h4, div.woocommerce form > h5, div.woocommerce form > h6 {  
-				float: none !important;
-				margin: 0.5rem 0rem 0rem 0rem;
-		}	
-
-	/* Hide any crap floating around from WC  */
+		/* Hide any crap floating around from WC  */
 		.woocommerce form > *:empty {
 			display: none;
 		}
@@ -249,7 +165,7 @@
 
 
 	/* Woocommerce forms inconsistent about using fieldsets - make everything a flex container and flex item */
-		div.woocommerce form > fieldset, div.woocommerce form > fieldset > p, div.woocommerce form > p,  div.woocommerce form > p > *, div.woocommerce form p.form-row {
+		div.woocommerce form > fieldset, div.woocommerce form > fieldset > p, div.woocommerce form > p, div.woocommerce form p.form-row {
 			flex: 1 auto;
 			display: flex;
 			flex-flow: row wrap;
@@ -260,10 +176,6 @@
 		div.woocommerce form > fieldset > p, div.woocommerce form > p {
 		}
 		div.woocommerce form label {
-			flex: 1 auto;
-			width: auto ;  /** Override WC styling **/
-			min-width: 8rem;
-			max-width: 16rem;
 		}
 	
 		
@@ -280,10 +192,6 @@
 			max-width: 16rem;
 		}
 		
-		div.woocommerce form p.form-row, div.woocommerce form pdiv.woocommerce-form-row {
-			float: none;
-			width: auto;
-		}
 		
 		div.woocommerce form fieldset {
 			border-bottom: 1px solid #333333;	/*** XXXX COLOURS XXXX ***/
@@ -361,15 +269,6 @@
 			}
 
 		
-/*		
-			div.woocommerce form.checkout table tr.cart_item:not(.component_table_item) td.product-name,
-			div.woocommerce form.woocommerce-cart-form table tr.cart_item:not(.component_table_item) td.product-name {
-				font-weight: 700;
-			}
-			div.woocommerce form.checkout table tr.component_table_item, div.woocommerce form.woocommerce-cart-form table tr.component_table_item  {
-				margin-top: 0.25rem;
-			}
-*/	
 	
 			/*** Sub-totals & Shipping ***/
 
@@ -411,58 +310,6 @@
 				}
 			
 
-		/** Checkout Specific  **/
-			div.woocommerce #payment {
-				padding: 0.5rem;
-			}
-
-
-	
-		/* Payment Methods */
-			div.woocommerce form #payment  {
-			}
-			div.woocommerce form #payment ul.payment_methods {
-				margin: 0;
-				padding: 0;
-		
-			}
-			div.woocommerce form #payment ul.payment_methods  li {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				display: block;
-			}
-
-			div.woocommerce form #payment ul.payment_methods  li label {
-				font-size: 1.5rem;
-				line-height: 2rem;
-				font-weight: 700;
-				display: inline-block;
-				width: 45%;
-				
-			}
-			div.woocommerce form #payment ul.payment_methods  li label > img {
-				max-width: 95%;
-				display: block;
-			}
-			div.woocommerce form #payment ul.payment_methods  li label > a {
-				display: inline-block;
-				font-size: 0.8rem;
-				line-height: 100%;
-			}
-
-			div.woocommerce form #payment ul.payment_methods  li label + .payment_box {
-				font-size: 0.75rem;
-				padding: 0;
-				margin: 0;
-				display: inline-block;
-				width: 45%;
-			}
-		
-			div.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
-				display: none;
-			}
-
 
 		/* Terms & Conditions */
 		div.woocommerce form  .wc-terms-and-conditions {
@@ -482,8 +329,6 @@
 		}
 
 		/*** Basket (cart)  Specific ***/
-
-
 			div.woocommerce form table.cart  {
 			}
 
@@ -525,10 +370,6 @@
 
 			}
 			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dt{
-/*				display: inline-block;
-				width: 45%;
-				letter-spacing: 95%;
-*/
 				display: none;
 			}
 			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dd + dt {
@@ -536,9 +377,6 @@
 			}
 
 			div.woocommerce form table.cart tr.cart_item  td.product-name  dl dd {
-/*				display: inline-block;
-				width: 50%;
-*/
 				display: block;
 				width: 100%;
 			}
@@ -631,40 +469,175 @@
 			}
 
 	
-	/* Coupon Form */
+/***  - Checkout - ***/
+
+	/* Checkout Coupon Form */
+		div.woocommerce .woocommerce-form-coupon-toggle {
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 0.5rem;
+			padding: 1rem;
+			margin: 0.5rem auto;
+			max-width: 50%;
+		}
+		div.woocommerce .woocommerce-form-coupon-toggle > .woocommerce-info {
+			text-align: center;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			align-content: center;
+			align-items: center;
+		}
+
 		div.woocommerce form.checkout_coupon {
+			border: none;
+			background: none;
+
+			text-align: center;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			align-content: center;
+			align-items: center;
+		}
+
+	/* Checkout Login Form */
+		div.woocommerce .woocommerce-form-login-toggle {
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 0.5rem;
+			padding: 1rem;
+			margin: 0.5rem auto;
+			max-width: 50%;
+		}
+
+		div.woocommerce .woocommerce-form-login-toggle > .woocommerce-info {
+			text-align: center;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			align-content: center;
+			align-items: center;
 		}
 
 
+		.woocommerce-checkout form.woocommerce-form-login > .form-row:nth-of-type(4)  {
+				flex-direction: column;
+		}
+
+
+		/*** Checkout Order Review Cart ***/
+
+			h3#order_review_heading {
+				margin-top: 1rem;
+				display: block;
+			}
+
+			.woocommerce-checkout-review-order-table {
+				width: 100%;
+			}
+
+			.woocommerce-checkout-review-order-table tr.cart_item {
+					margin: 0.5rem 0 0 0;
+			}
+
+			.woocommerce-checkout-review-order-table tr.cart-subtotal {
+					margin: 0.5rem 0 0 0;
+			}
+
+
+		/* Checkout Payment Methods */
+
+		/** Checkout Specific  **/
+			div.woocommerce #payment {
+				padding: 0.5rem;
+				width: 100%;
+					display: flex;
+					flex-flow: column nowrap;
+					justify-content: flex-start;
+					align-content: center;
+					align-items: center;				
+			}
+
+			div.woocommerce form #payment ul.payment_methods {
+				margin: 0;
+				padding: 0;
+		
+					display: flex;
+					flex-flow: row wrap;
+					justify-content: flex-start;
+					align-content: center;
+					align-items: center;				
+			}
+			div.woocommerce form #payment ul.payment_methods  li {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+					display: flex;
+					flex-flow: column nowrap;
+					justify-content: flex-start;
+					align-content: center;
+					align-items: center;				
+					}
+
+			div.woocommerce form #payment ul.payment_methods  li label {
+				font-size: 1.5rem;
+				line-height: 2rem;
+				font-weight: 700;
+			}
+			div.woocommerce form #payment ul.payment_methods  li label > img {
+				display: block;
+			}
+			div.woocommerce form #payment ul.payment_methods  li label > a {
+				font-size: 0.8rem;
+				line-height: 100%;
+			}
+
+			div.woocommerce form #payment ul.payment_methods  li label + .payment_box p {
+				font-size: 0.75rem;
+			}
+		
+			div.woocommerce  #payment .payment_method_paypal .about_paypal {
+				display: none;
+			}
+
+			div.woocommerce  #payment .place-order  {
+				padding-top: 1rem;
+			}
 
 
 
 /* --- Login / Registration --- */
-		body:not(.logged-in) .hideLogin div.woocommerce .u-column1 {
-			display: none; 
+		
+
+
+		.woocommerce-form__label-for-checkbox {
+				padding: 0.5rem;
+				font-size: 0.75rem;
 		}
-		body:not(.logged-in) .hideLogin div.woocommerce .u-column2 {
-			float: none;
-			width: auto;
+		.woocommerce-form__label-for-checkbox > * {
+			display: inline-block;
 		}
-		body:not(.logged-in) .hideRegistration div.woocommerce .u-column2 {
-			display: none; 
+		.woocommerce-form__label-for-checkbox > span {		
 		}
-		body:not(.logged-in) .hideRegistration div.woocommerce .u-column1 {
-			float: none;
-			width: auto;
-		}
-	
-		#customer_login .woocommerce-LostPassword {
+
+		.woocommerce .woocommerce-LostPassword, 		.woocommerce .lost_password  {
 			display: block;
 			flex: unset;
 			text-align: right;
 		}
-		#customer_login .woocommerce-LostPassword a {
+		.woocommerce .woocommerce-LostPassword a, 		.woocommerce .lost_password a  {
 			display: inline;
 			flex: unset;
 		}
 
+		#customer_login form.woocommerce-form-login > .form-row:nth-of-type(3)  {
+				flex-direction: column;
+		}
+
+
+		#customer_login form.woocommerce-form-register > .form-row:nth-of-type(4)  {
+				flex-direction: column;
+		}
 
 
 
@@ -1510,6 +1483,35 @@
 	#wl-wrapper .wl-table tr.tbodyChild input.wl-but {
 		display: none;
 	}
+
+
+/* - Woocommerce ERRORS - */
+.woocommerce-error {
+		width: 60%;
+		margin: 0 auto;
+}
+.woocommerce-error li {
+		padding: 1rem;	
+
+		list-style: none !important; 
+		text-align: center;
+
+	 background-color: yellow;	
+		border-radius: 0.5rem;
+
+		font-weight: 700;
+}
+.woocommerce-error li strong {
+		display: block;
+  	text-align: center;
+		font-weight: 700;
+
+}
+
+
+
+
+
 /* ---- >>>>>    Media Queries <<<<<     ----- */
 	/* Default CSS designed for smallest screen width - 320px - and media queries adapt to larger sizes */ 	
 

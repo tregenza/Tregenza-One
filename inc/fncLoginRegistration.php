@@ -41,23 +41,20 @@
 					/* Woocommerce */
 					$output	=	wc_get_template_html('myaccount/form-login.php');
 			}
+
+			/* Tweak the form so if there is an error it reloads the page at the right place */ 
+			$lookfor = '<form method="post" class="woocommerce-form woocommerce-form-register register">';
+			$replace = '<form action="#customer_form_reload_target" method="post" class="woocommerce-form woocommerce-form-register register">';
+
+			$output = str_replace($lookfor, $replace, $output);
+
+			/*  NOTE : The #customer_form_target  anchor needs to be manually added to the page
+													if needed. Due to the themes fixed header, none of the hooks in WC or
+													existing ids work effective as they go to the right position but any
+													error messages are lost off the top of the screen.
+			*/
+
 			return $output;
 	}
 	add_shortcode( 'to_registration_form', 'tregenza_one_registration_form');
-
-
-	function tregenza_one_register_redirect() {
-			if (class_exists('WooCommerce') 
-							&& isset($_POST['register']) 
-							&& $_POST['register'] == "Register" 
-							&& isset($_POST['woocommerce-register-nonce']) /* just check its a woocommerce reg */
-			
-							) {
-								/* Woocommerce registration*/
-								$url =  wc_get_page_permalink( 'myaccount' );
-		
-							exit(wp_redirect($url));
-			}
-			
-	}
-//	add_action('init', 'tregenza_one_register_redirect');
+	

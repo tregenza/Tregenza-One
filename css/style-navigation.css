@@ -2,7 +2,7 @@
 *
 *		TregenzaOne - Menus, Links etc
 *
-*		Note: Colours set by customisation options vua style-customise-defaults.css & functions.php 
+*		Note: Colours set by customisation options via style-customise-defaults.css & functions.php 
 *
 *
 ***/
@@ -340,3 +340,4 @@ nav.woocommerce-breadcrumb a {
 nav.woocommerce-breadcrumb + article {
 	margin-top: 1rem;
 }
+

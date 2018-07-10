@@ -2,13 +2,16 @@
 
 	/* form basics */
 	form {	
-		padding: 0;
-		margin: 0;
+		margin: 0.25rem 0 0 0;
+		padding: 0.5rem;
+
+		border-radius: 0.25rem;
+		border: 1px solid #aaaaaa;
+
+		background-color: rgba(0, 0, 0, 0.05);
 	}
 
-	form br {
-		display: none;		/* WORDPRESS sticks in needless br tags */
-	}
+
 	
 	/* form flex */
 	form {	
@@ -18,8 +21,6 @@
 		align-items: stretch;
 		align-content: center;	
 
-		background: #ffffff;
-		padding: 1rem;
 	}
 	
 	/* Form Chunks - most forms are "chunked" with paragraph or divs. Add flex to each chunk */
@@ -117,115 +118,4 @@
 		font-size: 1rem;
 		margin-bottom: 0.5rem;		
 	}
-
-
-/*****REVISIT &INTEGRATE WOOCOMMERCE  *****/
-
-
-
-
-	/* 	woocommerce forms are erratic in their use of divs etc as child of forms. Set all direct child of forms to be flex */
-	form > * {
-			flex: 1 1 auto;
-		}
-		div.woocommerce form > h1, div.woocommerce form > h2, div.woocommerce form > h3, div.woocommerce form > h4, div.woocommerce form > h5, div.woocommerce form > h6 {  
-				float: none !important;
-				margin: 0.5rem 0rem 0rem 0rem;
-		}	
-
-	/* Hide any crap floating around from WC  */
-		.woocommerce form > *:empty {
-			display: none;
-		}
-
-	/* woocommerce Columns are containers for fields etc */	
-		div.woocommerce form > .col2-set {
-			flex: 1 1 auto;
-	
-			display: flex;
-			flex-flow: column wrap;
-			justify-content: center;
-			align-items: stretch;
-			align-content: stretch;	
-	
-			margin: 0;
-			padding: 0;
-		}
-		div.woocommerce form > .col2-set:before, div.woocommerce form > .col2-set:after {
-			display: none;
-		}
-		div.woocommerce form > .col-1, div.woocommerce form > .col-2,  {
-	
-			margin: 1rem 0rem 0rem 0rem;
-		}
-
-
-	/* Woocommerce forms inconsistent about using fieldsets - make everything a flex container and flex item */
-		div.woocommerce form > fieldset, div.woocommerce form > fieldset > p, div.woocommerce form > p,  div.woocommerce form > p > *, div.woocommerce form p.form-row {
-			flex: 1 auto;
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: flex-start;
-			align-items: center;
-			align-content: center;	
-		}
-		div.woocommerce form > fieldset > p, div.woocommerce form > p {
-		}
-		div.woocommerce form label {
-			flex: 1 auto;
-			width: auto ;  /** Override WC styling **/
-			min-width: 8rem;
-			max-width: 16rem;
-		}
-	
-		
-		div.woocommerce form input.input-text, div.woocommerce form input[type="text"],  div.woocommerce form input[type="button"], div.woocommerce form input[type="submit"] {
-			flex: 2 auto;
-			width: auto ;
-			min-width: 8rem;
-			max-width: 16rem;
-		}
-		div.woocommerce form textarea {
-			flex: 2 auto;
-			width: auto ;
-			min-width: 16rem;
-			max-width: 16rem;
-		}
-		
-		div.woocommerce form p.form-row, div.woocommerce form pdiv.woocommerce-form-row {
-			float: none;
-			width: auto;
-		}
-		
-		div.woocommerce form fieldset {
-			border-bottom: 1px solid #333333;	/*** XXXX COLOURS XXXX ***/
-			padding: 0.25rem 0 0.25rem 0;
-			margin: 0.5rem auto 0.5rem auto;
-		}
-		div.woocommerce form fieldset legend {
-			font-weight: 700;
-			font-size: 1.2rem;
-			padding: 0.2rem;
-		}
-
-		div.woocommerce form input.button {
-			margin: 0 auto;
-		}
-
-		div.woocommerce form table tr  td:before {
-			float: none !important;
-		}
-
-	/** Login / Registration **/
-		div.woocommerce form label[for="password_1"], div.woocommerce form label[for="password_2"], div.woocommerce form label[for="password_current"] {
-			width: auto !important;
-		}
-		
-		div.woocommerce #customer_login form input#rememberme {
-			flex: 0 0 1rem;
-			min-width: 1rem;
-			max-width: 1rem;
-		}
-
-
 

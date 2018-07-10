@@ -377,9 +377,10 @@
 
 	/** Flex settings only - styling handled later **/
 
+/* Treat tables as flex boxes */
 	article table {
 		display: flex;
-	 	flex-flow: column nowrap; 	/* Treat tables as flex boxes */
+	 	flex-flow: column nowrap; 	
 		justify-content: center;
 		align-items: stretch;
 		align-content: stretch;
@@ -397,6 +398,9 @@
 	article table tr.theadChild {
 		display: none;
 	}
+
+	/* Table styling */
+
 	article table tr + tr {
 		margin-top: 0.25rem;
 		border-top: 1px solid #777777;

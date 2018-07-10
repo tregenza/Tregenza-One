@@ -180,6 +180,25 @@ ul.list_block > li:nth-of-type(odd) {
 
 /* Generic utility classes */
 
+.to_highlight_box {	
+	/* Standard Box */
+	min-width: 16rem;
+	margin-top: 1rem; 
+	padding: 0.25rem;
+
+	min-height: 5rem;
+
+	padding: 0.25rem;
+	background-color: #dddddd;
+	border-radius: 0.25rem;
+
+}
+
+.to_highlight_box:empty {	
+	display: none;
+}
+
+
 .to_centre {
 		text-align: center;
 		margin-left: auto;
