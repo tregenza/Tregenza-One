@@ -41,17 +41,69 @@
 			/* note: unlike get_template_part, comments_template needs the precedding slash on the path. */
 			/* Also. Need to check file exists as comments_template fails if the exact file isn't founf and throws an error */
 
-			$path = get_template_directory();
-			$filename = '/template-parts/entry/comments'.'-'.$args['template_type'].'.php';
-			if ( ! file_exists( $path.$filename ) ) {
-				/* Template specific path doesn't exist, try a default Tregenza-One template part*/
-				$filename = '/template-parts/entry/comments.php';
-				if ( ! file_exists( $path.$filename ) ) {
-					/* Can't find anything, fall back to Wordpress default */
-					$filename = "";
-				} 
+
+			/* Child themes and template types make things complicated. */
+			/* Priority Logic: 
+							Child and template type;
+						 Child no template type; 
+							Parent with template type; 
+							Parent no template type; 
+							Wordpress default 
+			*/
+
+		$found = false;
+		$filename = "";
+		$path = "";
+
+		if ( !$found && is_child_theme() ) {
+			$path = get_stylesheet_directory();
+
+			/* Try child theme with template type */
+			if ( isset($args['template_type']) ) {
+					$filename = '/template-parts/entry/comments'.'-'.$args['template_type'].'.php';
+					$test = $path . $filename;
+					if ( file_exists( $path.$filename ) ) {
+							$found = 1;
+					}	
 			}
+			
+			/* Try child theme without template type */
+			if ( !$found ) {
+					$filename = '/template-parts/entry/comments'.'.php';
+					$test = $path . $filename;
+					if ( file_exists( $path.$filename ) ) {
+							$found = 1;
+					}	
+			}		
+		}
+
+		if ( !$found ) {
+				/* Try parent theme */
+				$path = get_template_directory();
+	
+				/* Try parent with template type */
+				if ( isset($args['template_type']) ) {
+						$filename = '/template-parts/entry/comments'.'-'.$args['template_type'].'.php';
+				}
+				if (  file_exists( $path.$filename ) ) {
+					$found = 1;
+				}
+	
+				/* Try parent without template type */
+				if ( !$found ) {
+					$filename = '/template-parts/entry/comments.php';
+					if ( file_exists( $path.$filename ) ) {
+						$found = 1 ;
+					} 
+				}
+		}
+	
+		if ( !$found ) {
+			$filename = "";	
+		}
+		
 			comments_template( $filename, true ); 
+
 		?>
 
  <!-- Loop Default - article END -->
